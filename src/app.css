@@ -5,20 +5,33 @@ html {
 	font-family: 'Geist', sans-serif;
 }
 
+@layer base {
+	html,
+	body {
+		@apply bg-white text-black;
+	}
+
+	@media (prefers-color-scheme: dark) {
+		html,
+		body {
+			@apply bg-black text-white;
+		}
+	}
+}
+
 @layer components {
 	.accent-link {
 		@apply font-medium text-[#f22b00] hover:text-[#ff6747];
 	}
 
 	.section-box {
-		@apply rounded-lg border bg-white p-4 shadow dark:bg-zinc-900;
+		@apply rounded-lg border bg-white p-4 shadow;
 	}
-}
 
-@layer base {
-	html,
-	body {
-		@apply bg-black text-white;
+	@media (prefers-color-scheme: dark) {
+		.section-box {
+			@apply bg-zinc-900;
+		}
 	}
 }
 

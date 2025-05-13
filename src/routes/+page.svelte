@@ -1,6 +1,15 @@
 <script>
 	import Header from '$lib/components/Header.svelte';
 	import Footer from '$lib/components/Footer.svelte';
+	import { onMount } from 'svelte';
+
+	onMount(() => {
+		const dark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+		const themeMeta = document.querySelector('meta[name="theme-color"]');
+		if (themeMeta) {
+			themeMeta.setAttribute('content', dark ? '#0c0a09' : '#ffffff');
+		}
+	});
 </script>
 
 <svelte:head>
@@ -17,13 +26,14 @@
 		content="Built for TouhouAI — welcome to our beautifully weird little corner of the web."
 	/>
 	<meta property="og:image" content="/fartcore_datacenter.jpg" />
-	<meta name="theme-color" content="#0c0a09" />
+	<meta name="theme-color" content="#ffffff" />
 </svelte:head>
 
 <Header />
 
 <main
-	class="prose prose-lg dark:prose-invert mx-auto max-w-3xl rounded-xl border border-zinc-800 bg-zinc-950 px-8 py-10 leading-relaxed text-white"
+	class="prose prose-lg dark:prose-invert mx-auto max-w-3xl rounded-xl border bg-white px-8 py-10 leading-relaxed
+	       text-black dark:border-zinc-800 dark:bg-zinc-950 dark:text-white"
 >
 	<h1>Welcome</h1>
 
@@ -78,7 +88,10 @@
 
 	<h2 class="mt-3 mb-0">Rules</h2>
 
-	<details class="mt-1 rounded border border-zinc-700 bg-zinc-900 p-5 text-sm">
+	<details
+		class="mt-1 rounded border bg-zinc-100 p-5 text-sm text-black
+	       dark:border-zinc-700 dark:bg-zinc-900 dark:text-white"
+	>
 		<summary class="cursor-pointer font-bold">Click to reveal</summary>
 		<ol class="list-decimal space-y-2 pl-5">
 			<li>No porn-specific models or illegal content (we follow U.S. law)</li>
