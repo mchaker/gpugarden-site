@@ -1,6 +1,10 @@
 @import 'tailwindcss';
 @plugin '@tailwindcss/typography';
 
+html {
+	font-family: 'Geist', sans-serif;
+}
+
 @layer components {
 	.accent-link {
 		@apply font-medium text-[#f22b00] hover:text-[#ff6747];
