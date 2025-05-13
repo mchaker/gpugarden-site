@@ -1,0 +1,34 @@
+@import 'tailwindcss';
+@plugin '@tailwindcss/typography';
+
+html {
+	font-family: 'Geist', sans-serif;
+}
+
+@layer components {
+	.accent-link {
+		@apply font-medium text-[#f22b00] hover:text-[#ff6747];
+	}
+
+	.section-box {
+		@apply rounded-lg border bg-white p-4 shadow dark:bg-zinc-900;
+	}
+}
+
+@layer base {
+	html,
+	body {
+		@apply bg-black text-white;
+	}
+}
+
+a {
+	color: #ff6747;
+}
+a:hover {
+	text-decoration: underline;
+}
+
+.prose code {
+	@apply rounded bg-zinc-900 px-2 py-1 font-mono text-sm text-zinc-100;
+}
