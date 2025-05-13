@@ -80,7 +80,7 @@
 				href="https://oui.gpu.garden/"
 				target="_blank"
 				class="font-medium text-[#f22b00] hover:text-[#ff6747]">oui.gpu.garden</a
-			> – chat AI
+			> – text/chat AI, like chatg🅱️t
 		</li>
 		<li>
 			🧐 <a
