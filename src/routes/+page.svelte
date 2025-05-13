@@ -41,7 +41,7 @@
 		Welcome to <strong>gpu.garden</strong> — a beautiful little corner of the web, lovingly hosted
 		in the
 		<a
-			href="/fartcore_datacenter.jpg"
+			href="/images/fartcore_datacenter.jpg"
 			target="_blank"
 			rel="noopener noreferrer"
 			class="font-medium text-[#f22b00] hover:text-[#ff6747]">fartcore datacenter</a
