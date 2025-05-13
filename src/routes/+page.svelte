@@ -23,11 +23,11 @@
 <Header />
 
 <main
-	class="prose prose-lg dark:prose-invert mx-auto my-16 max-w-3xl rounded-xl border border-zinc-800 bg-zinc-950 px-8 py-10 leading-relaxed text-white"
+	class="prose prose-lg dark:prose-invert mx-auto max-w-3xl rounded-xl border border-zinc-800 bg-zinc-950 px-8 py-10 leading-relaxed text-white"
 >
-	<h1 class="mb-4">Welcome</h1>
+	<h1>Welcome</h1>
 
-	<p class="mb-6">
+	<p>
 		Welcome to <strong>gpu.garden</strong> — a beautiful little corner of the web, lovingly hosted
 		in the
 		<a
@@ -38,7 +38,7 @@
 		>, built for members of <strong>TouhouAI</strong>.
 	</p>
 
-	<ul class="mb-10 space-y-6">
+	<ul class="mt-2">
 		<li>
 			<b>Want to use Open WebUI?</b>
 			<em>
@@ -76,21 +76,21 @@
 		</li>
 	</ul>
 
-	<h2 class="mb-3">Rules</h2>
+	<h2 class="mt-3 mb-0">Rules</h2>
 
-	<details class="mb-10 rounded border border-zinc-700 bg-zinc-900 p-5 text-sm">
-		<summary class="mb-2 cursor-pointer font-bold">Click to reveal</summary>
-		<ol class="mt-3 list-decimal space-y-2 pl-5">
+	<details class="mt-1 rounded border border-zinc-700 bg-zinc-900 p-5 text-sm">
+		<summary class="cursor-pointer font-bold">Click to reveal</summary>
+		<ol class="list-decimal space-y-2 pl-5">
 			<li>No porn-specific models or illegal content (we follow U.S. law)</li>
 			<li>No saving that content on the server</li>
 			<li>No bypassing filters or restrictions</li>
 		</ol>
-		<p class="mt-4 italic">Yes yes this is literally 1984</p>
+		<p class="italic">Yes yes this is literally 1984</p>
 	</details>
 
-	<h2 class="mb-4">Links</h2>
+	<h2 class="mt-3 mb-0">Links</h2>
 
-	<ul class="space-y-3 text-sm">
+	<ul class="mt-1 space-y-3 text-sm">
 		<li>
 			🪴 <a href="/" class="font-medium text-[#f22b00] hover:text-[#ff6747]">gpu.garden</a> – homepage
 		</li>
