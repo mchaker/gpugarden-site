@@ -28,3 +28,7 @@ a {
 a:hover {
 	text-decoration: underline;
 }
+
+.prose code {
+	@apply rounded bg-zinc-900 px-2 py-1 font-mono text-sm text-zinc-100;
+}

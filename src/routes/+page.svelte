@@ -6,7 +6,7 @@
 <Header />
 
 <main
-	class="prose dark:prose-invert mx-auto my-8 max-w-3xl rounded-xl border border-zinc-800 bg-zinc-950 p-6 text-white"
+	class="prose prose-lg dark:prose-invert mx-auto my-8 max-w-3xl rounded-xl border border-zinc-800 bg-zinc-950 p-6 text-white"
 >
 	<h1>Welcome</h1>
 	<p>
@@ -35,7 +35,7 @@
 					target="_blank"
 					class="font-medium text-[#f22b00] hover:text-[#ff6747]">Discord</a
 				>
-				(<code>astromahdi</code>).
+				<code>astromahdi</code>.
 			</em>
 		</li>
 		<li>

@@ -2,7 +2,7 @@
 	<div class="overflow-hidden">
 		<div class="flex justify-center">
 			<div class="animate-wiggle flex items-center gap-2 text-2xl font-bold">
-				<img src="/favicon.png" alt="gpu.garden logo" class="h-7 w-7" />
+				<img src="/favicon.png" alt="gpu.garden logo" class="h-11 w-11" />
 				<span>gpu.garden</span>
 			</div>
 		</div>
