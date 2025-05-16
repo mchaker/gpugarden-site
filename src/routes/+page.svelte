@@ -116,6 +116,14 @@
 			> – image generation AI
 		</li>
 		<li>
+			🤖 <a
+				href="https://swarmui.gpu.garden/ComfyBackendDirect"
+				target="_blank"
+				rel="noopener noreferrer"
+				class="font-medium text-[#f22b00] hover:text-[#ff6747]">ComfyBackendDirect</a
+			> – barebones ComfyUI (no SwarmUI)
+		</li>		
+		<li>
 			📝 <a
 				href="https://oui.gpu.garden/"
 				target="_blank"
