@@ -121,7 +121,7 @@
 				target="_blank"
 				rel="noopener noreferrer"
 				class="font-medium text-[#f22b00] hover:text-[#ff6747]">ComfyBackendDirect</a
-			> – barebones ComfyUI (no SwarmUI)
+			> – barebones ComfyUI (no SwarmUI) (⚠️ requires login on swarmui.gpu.garden first)
 		</li>		
 		<li>
 			📝 <a
