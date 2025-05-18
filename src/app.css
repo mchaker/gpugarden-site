@@ -1,16 +1,28 @@
+/* This imports the Tailwind CSS framework */
 @import 'tailwindcss';
+
+/* This activates the Typography plugin for Tailwind CSS
+   It provides nice typographic defaults for content-heavy pages */
 @plugin '@tailwindcss/typography';
 
+/* Sets the default font family for the entire site to Geist
+   This is a modern, clean font from Vercel */
 html {
 	font-family: 'Geist', sans-serif;
 }
 
+/* @layer base - These styles form the foundation of the site's appearance
+   They apply to the most basic HTML elements */
 @layer base {
+	/* Default light mode styles for html and body elements
+	   @apply is a Tailwind directive that lets you use utility classes in CSS */
 	html,
 	body {
 		@apply bg-white text-black;
 	}
 
+	/* Media query that detects if the user's system prefers dark mode
+	   This provides automatic dark mode support without JavaScript */
 	@media (prefers-color-scheme: dark) {
 		html,
 		body {
@@ -19,15 +31,29 @@ html {
 	}
 }
 
+/* @layer components - These styles define reusable UI components
+   This helps maintain consistency across the site */
 @layer components {
+	/* Custom styling for accent links
+	   - font-medium makes the text slightly bolder
+	   - The hex colors create a distinct red/orange brand color
+	   - hover state changes the color when users mouse over links */
 	.accent-link {
 		@apply font-medium text-[#f22b00] hover:text-[#ff6747];
 	}
 
+	/* Custom styling for content containers/boxes
+	   - rounded-lg gives rounded corners
+	   - border adds an outline
+	   - p-4 adds padding inside the box
+	   - shadow adds a subtle drop shadow */
 	.section-box {
 		@apply rounded-lg border bg-white p-4 shadow;
 	}
 
+	/* Dark mode version of the section box 
+	   - Only activates when system is in dark mode
+	   - Changes the background to dark gray */
 	@media (prefers-color-scheme: dark) {
 		.section-box {
 			@apply bg-zinc-900;
@@ -35,13 +61,19 @@ html {
 	}
 }
 
+/* Standard link styling outside of the Tailwind layers
+   This affects all <a> elements that don't have special classes */
 a {
-	color: #ff6747;
+	color: #ff6747; /* Coral/orange brand color */
 }
 a:hover {
-	text-decoration: underline;
+	text-decoration: underline; /* Adds underline on hover */
 }
 
+/* Styling for code blocks within prose (article) content
+   - Adds a dark background with rounded corners
+   - Uses monospace font with smaller text size
+   - Light colored text for contrast against dark background */
 .prose code {
 	@apply rounded bg-zinc-900 px-2 py-1 font-mono text-sm text-zinc-100;
 }
