@@ -14,11 +14,11 @@
 	// Define a TypeScript type for navigation links
 	// This creates a strict structure that all navigation links must follow
 	type NavigationLink = {
-		emoji: string;       // The emoji icon shown before the link
-		href: string;        // The URL the link points to
-		label: string;       // The visible text of the link
+		emoji: string; // The emoji icon shown before the link
+		href: string; // The URL the link points to
+		label: string; // The visible text of the link
 		description: string; // A short description of what the link leads to
-		external?: boolean;  // Optional: marks if the link opens an external site (the ? means optional)
+		external?: boolean; // Optional: marks if the link opens an external site (the ? means optional)
 	};
 
 	// Create an array of navigation links using the type defined above
@@ -32,7 +32,7 @@
 			href: 'https://swarmui.gpu.garden/',
 			label: 'swarmui.gpu.garden',
 			description: 'image generation AI',
-			external: true  // This will open in a new tab
+			external: true // This will open in a new tab
 		},
 		{
 			emoji: '📝',
@@ -117,10 +117,11 @@
   - text-white: Makes the text white
 -->
 <main
-	class="prose prose-lg dark:prose-invert mx-auto max-w-3xl rounded-xl border border-zinc-800 bg-zinc-950 px-8 py-10 leading-relaxed text-white">
+	class="prose prose-lg dark:prose-invert mx-auto max-w-3xl rounded-xl border border-zinc-800 bg-zinc-950 px-8 py-10 leading-relaxed text-white"
+>
 	<!-- Main heading -->
 	<h1>Welcome</h1>
-	
+
 	<!-- 
 	  Introductory paragraph with styled elements:
 	  - <strong> makes text bold
@@ -133,11 +134,8 @@
 	<p>
 		Welcome to <strong>gpu.garden</strong> — a beautiful little corner of the web, lovingly hosted
 		in the
-		<a
-			href="/fartcore_datacenter.jpg"
-			target="_blank"
-			rel="noopener noreferrer"
-			class="accent-link">fartcore datacenter</a
+		<a href="/fartcore_datacenter.jpg" target="_blank" rel="noopener noreferrer" class="accent-link"
+			>fartcore datacenter</a
 		>, built for members of <strong>TouhouAI</strong>.
 	</p>
 
@@ -219,24 +217,22 @@
 		    - Begins a loop through navigationLinks
 		    - Destructures each object to access its properties directly
 		-->
-		{#each navigationLinks as { emoji, href, label, description, external }}
+		{#each navigationLinks as { emoji, href, label, description, external } (href)}
 			<li>
-				{emoji} <!-- Display the emoji -->
+				{emoji}
+				<!-- Display the emoji -->
 				<!-- 
 				  Conditional rendering with if/else block
 				  If the link is external, add target and rel attributes for security
 				  If not external, render a regular link
 				-->
 				{#if external}
-					<a
-						href={href}
-						target="_blank"
-						rel="noopener noreferrer"
-						class="accent-link">{label}</a>
+					<a {href} target="_blank" rel="noopener noreferrer" class="accent-link">{label}</a>
 				{:else}
-					<a href={href} class="accent-link">{label}</a>
+					<a {href} class="accent-link">{label}</a>
 				{/if}
-				– {description} <!-- Display the description -->
+				– {description}
+				<!-- Display the description -->
 			</li>
 		{/each}
 		<!-- End of the each block -->
