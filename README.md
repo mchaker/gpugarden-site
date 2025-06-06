@@ -1,38 +1,39 @@
-# sv
+# gpu.garden-site
 
-Everything you need to build a Svelte project, powered by [`sv`](https://github.com/sveltejs/cli).
+A tiny landing page for [gpu.garden](https://gpu.garden). It links to SwarmUI, Open WebUI and other services running in the "fartcore" datacenter for members of the TouhouAI community. The site is built with **SvelteKit**, styled with **Tailwind CSS**, and prepared for deployment on **Cloudflare** using `@sveltejs/adapter-cloudflare`.
 
-## Creating a project
+## Getting started
 
-If you're seeing this, you've probably already done this step. Congrats!
-
-```bash
-# create a new project in the current directory
-npx sv create
-
-# create a new project in my-app
-npx sv create my-app
-```
-
-## Developing
-
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
+Install dependencies with `pnpm` and launch the dev server:
 
 ```bash
-npm run dev
-
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
+pnpm install
+pnpm run dev
 ```
+
+Use `pnpm run dev -- --open` to automatically open the browser.
 
 ## Building
 
-To create a production version of your app:
+Create an optimized production build:
 
 ```bash
-npm run build
+pnpm run build
 ```
 
-You can preview the production build with `npm run preview`.
+Preview the build locally with:
 
-> To deploy your app, you may need to install an [adapter](https://svelte.dev/docs/kit/adapters) for your target environment.
+```bash
+pnpm run preview
+```
+
+## Deployment
+
+After building, deploy the output directory generated for Cloudflare. A typical workflow with [wrangler](https://developers.cloudflare.com/workers/wrangler/) is:
+
+```bash
+pnpm run build
+npx wrangler pages deploy .svelte-kit/cloudflare
+```
+
+Adjust the deployment command to suit your Cloudflare setup. Refer to the SvelteKit documentation for other hosting options.
