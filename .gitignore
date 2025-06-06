@@ -29,3 +29,4 @@ vite.config.ts.timestamp-*
 /.idea/.gitignore
 /.idea/gpugarden-site.iml
 /.idea/codeStyles/codeStyleConfig.xml
+*:Zone.Identifier
