@@ -242,6 +242,20 @@
 			– text/chat AI
 		</li>
 
+		<!-- Fartgram -->
+		<li>
+			🖼️
+			<a
+				href="https://fartgram.gpu.garden/"
+				target="_blank"
+				rel="noopener noreferrer"
+				class="font-medium text-[#f22b00] hover:text-[#ff6747]"
+			>
+				fartgram.gpu.garden
+			</a>
+			– A place to fart images onto the internet
+		</li>
+
 		<!-- 🧐 PROMPT HISTORY -->
 		<li>
 			🧐
