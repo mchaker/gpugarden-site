@@ -108,6 +108,16 @@
 	<h1>Welcome</h1>
 
 	<p>
+		<img
+			src="/images/gpu-gardener.webp"
+			alt="The GPU gardener tending to the GPUs in the garden"
+			height="100"
+			width="auto"
+			class="gpu-gardener"
+		/>
+	</p>
+
+	<p>
 		Welcome to <strong>gpu.garden</strong> — a beautiful little corner of the web, lovingly hosted
 		in the
 		<a

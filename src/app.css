@@ -77,3 +77,9 @@ a:hover {
 .prose code {
 	@apply rounded bg-zinc-900 px-2 py-1 font-mono text-sm text-zinc-100;
 }
+
+/* Styling for the GPU gardener image */
+img .gpu-gardener {
+	max-width: 100%; /* Ensures image doesn't overflow its container */
+	height: auto; /* Maintains aspect ratio */
+}
