@@ -107,11 +107,17 @@
 	<h1>Welcome</h1>
 
 	<p>
+		<a
+			href="/images/gpu-gardener.webp"
+			target="_blank"
+			rel="noopener noreferrer"
+		>
 		<img
 			src="/images/gpu-gardener.webp"
 			alt="The GPU gardener tending to the GPUs in the garden"
 			class="mx-auto block h-auto w-[max(60vw,120px)] max-w-full sm:w-[max(15vw,120px)]"
 		/>
+		</a>
 	</p>
 
 	<p>
