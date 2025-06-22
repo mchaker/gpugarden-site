@@ -101,7 +101,6 @@
      rounded-xl border
      bg-white px-4 py-6 leading-relaxed text-black
      sm:px-8 sm:py-10
-
      dark:border-zinc-800 dark:bg-zinc-950 dark:text-white"
 >
 	<!-- =============  HERO / INTRO  ============= -->
@@ -172,7 +171,7 @@
 				<code class="rounded bg-zinc-900 px-2 py-1 font-mono text-sm text-zinc-100">
 					fartcore
 				</code>
-				role can grant you access. We’re pretty chill.
+				role can grant you access. We're pretty chill.
 			</em>
 		</li>
 	</ul>
