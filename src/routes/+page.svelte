@@ -111,9 +111,7 @@
 		<img
 			src="/images/gpu-gardener.webp"
 			alt="The GPU gardener tending to the GPUs in the garden"
-			height="100"
-			width="auto"
-			class="gpu-gardener"
+			class="mx-auto block h-auto w-[max(60vw,120px)] max-w-full sm:w-[max(15vw,120px)]"
 		/>
 	</p>
 
