@@ -107,16 +107,12 @@
 	<h1>Welcome</h1>
 
 	<p>
-		<a
-			href="/images/gpu-gardener.webp"
-			target="_blank"
-			rel="noopener noreferrer"
-		>
-		<img
-			src="/images/gpu-gardener.webp"
-			alt="The GPU gardener tending to the GPUs in the garden"
-			class="mx-auto block h-auto w-[max(60vw,120px)] max-w-full sm:w-[max(15vw,120px)]"
-		/>
+		<a href="/images/gpu-gardener.webp" target="_blank" rel="noopener noreferrer">
+			<img
+				src="/images/gpu-gardener.webp"
+				alt="The GPU gardener tending to the GPUs in the garden"
+				class="mx-auto block h-auto w-[max(60vw,120px)] max-w-full sm:w-[max(15vw,120px)]"
+			/>
 		</a>
 	</p>
 
@@ -318,10 +314,19 @@
 	</p>
 
 	<div class="mt-4 flex justify-center">
-		<script type="text/javascript" src="https://storage.ko-fi.com/cdn/widget/Widget_2.js"></script>
-		<script type="text/javascript">
-			kofiwidget2.init('Donate for more GPUs', '#72a4f2', 'I2I21FSIGW');
-			kofiwidget2.draw();
+		<script
+			type="text/javascript"
+			src="https://cdnjs.buymeacoffee.com/1.0.0/button.prod.min.js"
+			data-name="bmc-button"
+			data-slug="astromahdi"
+			data-color="#5F7FFF"
+			data-emoji="🖥️"
+			data-font="Comic"
+			data-text="help buy share server parts"
+			data-outline-color="#000000"
+			data-font-color="#ffffff"
+			data-coffee-color="#FFDD00"
+		>
 		</script>
 	</div>
 </main>
