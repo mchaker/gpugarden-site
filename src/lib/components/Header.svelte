@@ -23,13 +23,15 @@
 			</div>
 			<h1 class="title-font gradient-text text-2xl font-bold">gpu.garden</h1>
 		</div>
-		<nav class="hidden space-x-6 md:flex">
-			<a href="#welcome" class="text-zinc-300 transition hover:text-white">Welcome</a>
-			<a href="#services" class="text-zinc-300 transition hover:text-white">Services</a>
-			<a href="#rules" class="text-zinc-300 transition hover:text-white">Rules</a>
-			<a href="#support" class="text-zinc-300 transition hover:text-white">Support</a>
-		</nav>
-		<div class="flex items-center gap-2">
+
+		<!-- Group navigation and mobile menu button to right-align them -->
+		<div class="flex items-center gap-4">
+			<nav class="hidden space-x-6 md:flex">
+				<a href="#welcome" class="text-zinc-300 transition hover:text-white">Welcome</a>
+				<a href="#services" class="text-zinc-300 transition hover:text-white">Services</a>
+				<a href="#rules" class="text-zinc-300 transition hover:text-white">Rules</a>
+				<a href="#support" class="text-zinc-300 transition hover:text-white">Support</a>
+			</nav>
 			<button on:click={toggleLocalMenu} class="text-zinc-300 hover:text-white md:hidden">
 				<i class="fas fa-bars text-2xl"></i>
 			</button>
@@ -37,26 +39,27 @@
 	</div>
 
 	{#if mobileMenuOpen}
+		<!-- Right-align the mobile menu links -->
 		<div class="mt-4 md:hidden">
 			<a
 				href="#welcome"
 				on:click={() => (mobileMenuOpen = false)}
-				class="block py-2 text-zinc-300 transition hover:text-white">Welcome</a
+				class="block py-2 text-right text-zinc-300 transition hover:text-white">Welcome</a
 			>
 			<a
 				href="#services"
 				on:click={() => (mobileMenuOpen = false)}
-				class="block py-2 text-zinc-300 transition hover:text-white">Services</a
+				class="block py-2 text-right text-zinc-300 transition hover:text-white">Services</a
 			>
 			<a
 				href="#rules"
 				on:click={() => (mobileMenuOpen = false)}
-				class="block py-2 text-zinc-300 transition hover:text-white">Rules</a
+				class="block py-2 text-right text-zinc-300 transition hover:text-white">Rules</a
 			>
 			<a
 				href="#support"
 				on:click={() => (mobileMenuOpen = false)}
-				class="block py-2 text-zinc-300 transition hover:text-white">Support</a
+				class="block py-2 text-right text-zinc-300 transition hover:text-white">Support</a
 			>
 		</div>
 	{/if}

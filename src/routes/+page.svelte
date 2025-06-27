@@ -398,15 +398,6 @@
 	</button>
 </div>
 
-<div class="flex items-center space-x-2">
-	<div
-		class="flex h-10 w-10 items-center justify-center rounded-full bg-gradient-to-br from-red-600 to-yellow-500"
-	>
-		<i class="fas fa-leaf text-white"></i>
-	</div>
-	<h1 class="title-font gradient-text text-2xl font-bold">gpu.garden</h1>
-</div>
-
 <style>
 	.fade-in {
 		animation: fadeIn 1s ease-in-out;
@@ -418,12 +409,6 @@
 		to {
 			opacity: 1;
 		}
-	}
-	.gradient-text {
-		background: linear-gradient(45deg, #4ade80, #3b82f6, #a855f7);
-		-webkit-background-clip: text;
-		background-clip: text;
-		color: transparent;
 	}
 	.card-hover:hover {
 		transform: translateY(-5px);
