@@ -28,11 +28,39 @@
 		/>
 		<meta name="twitter:image" content="https://gpu.garden/favicon-small.png?v=2" />
 
+		<!-- Add this CSS for dark mode fallback -->
+		<style>
+			/* Ensure dark mode works */
+			@media (prefers-color-scheme: dark) {
+				html:not(.light) {
+					color-scheme: dark;
+				}
+			}
+		</style>
+
 		<!-- SvelteKit placeholder - explained below -->
 		%sveltekit.head%
 	</head>
 	<body data-sveltekit-preload-data="hover">
 		<!-- SvelteKit placeholder - explained below -->
 		<div style="display: contents">%sveltekit.body%</div>
+
+		<!-- Initialize theme immediately to prevent flash -->
+		<script>
+			// Prevent flash of wrong theme
+			(function () {
+				const savedTheme = localStorage.getItem("theme");
+				const systemPrefersDark = window.matchMedia(
+					"(prefers-color-scheme: dark)"
+				).matches;
+				const isDark = savedTheme ? savedTheme === "dark" : systemPrefersDark;
+
+				if (isDark) {
+					document.documentElement.classList.add("dark");
+				} else {
+					document.documentElement.classList.remove("dark");
+				}
+			})();
+		</script>
 	</body>
 </html>

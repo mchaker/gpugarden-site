@@ -22,27 +22,18 @@
 	 */
 	import { onMount } from 'svelte';
 
-	/*****************************************************************
-	 *  Lifecycle: update the <meta name="theme-color"> tag           *
-	 *****************************************************************/
+	// State for interactive elements
+	let rulesOpen = false;
+
+	// Remove the theme detection from here since it's now handled by the store
 	onMount(() => {
-		/**
-		 * Ask the browser if the user’s operating-system / browser
-		 * prefers a dark colour scheme (`true` = dark mode enabled).
-		 */
-		const dark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-
-		/** Grab the existing <meta name="theme-color"> element. */
-		const themeMeta = document.querySelector('meta[name="theme-color"]');
-
-		/** If the tag is present, update it based on the colour scheme. */
-		if (themeMeta) {
-			// `setAttribute` overwrites the current content value
-			// so the browser chrome (address bar on mobile, etc.)
-			// adopts the correct colour without a refresh.
-			themeMeta.setAttribute('content', dark ? '#0c0a09' : '#ffffff');
-		}
+		// Any other initialization code can go here
 	});
+
+	// Function to open image in new tab
+	function openImage(src: string) {
+		window.open(src, '_blank');
+	}
 </script>
 
 <!--
@@ -79,257 +70,324 @@
 
 	<!-- Default theme colour (overwritten by onMount if needed) -->
 	<meta name="theme-color" content="#ffffff" />
+
+	<!-- Add Font Awesome for icons -->
+	<link
+		rel="stylesheet"
+		href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+	/>
 </svelte:head>
 
-<!--
-  We now start rendering visible HTML (and child components).
-  Components are used exactly like custom HTML tags.
--->
+<!-- Keep existing Header component -->
 <Header />
 
-<!--
-  MAIN CONTENT
-  ✧───────────────────────────────────────────────────────────────✧
-  Tailwind CSS utility classes are applied directly in class=""
-  attributes.  Dark-mode-specific utilities are prefixed with
-  `dark:` – they activate only when the `dark` class is present on
-  <html> (handled automatically by many frameworks / user plugins).
--->
-<main
-	class="prose dark:prose-invert sm:prose-lg
-     mx-auto max-w-3xl
-     rounded-xl border
-     bg-white px-4 py-6 leading-relaxed text-black
-     sm:px-8 sm:py-10
-     dark:border-zinc-800 dark:bg-zinc-950 dark:text-white"
+<!-- Hero Section -->
+<section
+	class="bg-gradient-to-br from-green-50 to-blue-50 py-12 dark:from-gray-800 dark:to-gray-700"
 >
-	<!-- =============  HERO / INTRO  ============= -->
-	<h1>Welcome</h1>
-
-	<p>
-		<a href="/images/gpu-gardener.webp" target="_blank" rel="noopener noreferrer">
+	<div class="fade-in container mx-auto px-4 text-center">
+		<h2 class="gradient-text mb-6 text-4xl font-bold md:text-5xl">
+			Who would've known AI image gen could be free ???
+		</h2>
+		<div class="mx-auto max-w-3xl">
 			<img
 				src="/images/gpu-gardener.webp"
 				alt="The GPU gardener tending to the GPUs in the garden"
-				class="mx-auto block h-auto w-[max(60vw,120px)] max-w-full sm:w-[max(15vw,120px)]"
+				class="mx-auto w-full max-w-md cursor-pointer rounded-lg shadow-xl transition-transform duration-300 hover:scale-105"
+				on:click={() => openImage('/images/gpu-gardener.webp')}
 			/>
-		</a>
-	</p>
+		</div>
+	</div>
+</section>
 
-	<p>
-		Welcome to <strong>gpu.garden</strong> — a beautiful little corner of the web, lovingly hosted
-		in the
-		<a
-			href="/images/fartcore_datacenter.jpg"
-			target="_blank"
-			rel="noopener noreferrer"
-			class="font-medium text-[#f22b00] hover:text-[#ff6747]"
-		>
-			fartcore datacenter
-		</a>, built for members of <strong>TouhouAI</strong>.
-	</p>
+<!-- Main Content -->
+<main class="container mx-auto space-y-12 px-4 py-12">
+	<!-- Welcome Section -->
+	<section class="fade-in rounded-xl bg-white p-6 shadow-md md:p-8 dark:bg-zinc-900">
+		<h2 class="mb-6 flex items-center text-2xl font-bold text-green-600 dark:text-green-400">
+			<span class="mr-2">🌱</span> Welcome
+		</h2>
+		<p class="mb-6 text-lg dark:text-zinc-200">
+			Welcome to <span class="font-bold text-green-600 dark:text-green-400">gpu.garden</span> — a
+			beautiful little corner of the web, lovingly hosted in the
+			<a
+				href="/images/fartcore_datacenter.jpg"
+				class="text-blue-500 hover:underline"
+				target="_blank"
+				rel="noopener noreferrer">fartcore datacenter</a
+			>, built for members of
+			<span class="font-bold text-purple-600 dark:text-purple-400">TouhouAI</span>.
+		</p>
 
-	<!-- =============  FEATURE LIST  ============= -->
-	<ul class="mt-2">
-		<!-- Each <li> is a feature / announcement. -->
-		<li>
-			<b>Want to use Open WebUI?</b>
-			<em>
-				Feel free to sign up! Once you do, reach out to astro to activate your account — contact
-				them via
-				<a
-					href="mailto:astromahdi@astromahdi.com"
-					class="font-medium text-[#f22b00] hover:text-[#ff6747]"
-				>
-					email
-				</a>
-				or
-				<a
-					href="https://discord.com/users/448287828821016587"
-					target="_blank"
-					rel="noopener noreferrer"
-					class="font-medium text-[#f22b00] hover:text-[#ff6747]"
-				>
-					Discord
-				</a>
-				<code class="rounded bg-zinc-900 px-2 py-1 font-mono text-sm text-zinc-100">
-					astromahdi
-				</code>.
-			</em>
-		</li>
+		<div class="mt-8 grid gap-6 md:grid-cols-2">
+			<div class="card-hover rounded-lg bg-green-50 p-6 dark:bg-gray-800">
+				<h3 class="mb-3 flex items-center text-lg font-bold dark:text-zinc-200">
+					<span class="mr-2">📝</span> Want to use Open WebUI?
+				</h3>
+				<p class="mb-4 dark:text-zinc-300">
+					Feel free to sign up! Once you do, reach out to astro to activate your account.
+				</p>
+				<div class="flex flex-wrap gap-3">
+					<a
+						href="mailto:astromahdi@astromahdi.com"
+						class="flex items-center rounded-md bg-green-500 px-4 py-2 text-white transition hover:bg-green-600"
+					>
+						<i class="fas fa-envelope mr-2"></i> Email
+					</a>
+					<a
+						href="https://discord.com/users/448287828821016587"
+						target="_blank"
+						rel="noopener noreferrer"
+						class="flex items-center rounded-md bg-indigo-500 px-4 py-2 text-white transition hover:bg-indigo-600"
+					>
+						<i class="fab fa-discord mr-2"></i> Discord
+					</a>
+				</div>
+			</div>
 
-		<li>
-			<b>Want access to SwarmUI?</b>
-			<em>
-				Just ask in the
+			<div class="card-hover rounded-lg bg-blue-50 p-6 dark:bg-gray-800">
+				<h3 class="mb-3 flex items-center text-lg font-bold dark:text-zinc-200">
+					<span class="mr-2">🖼️</span> Want access to SwarmUI?
+				</h3>
+				<p class="mb-4 dark:text-zinc-300">
+					Just ask in the TouhouAI Discord. Anyone with the <code
+						class="rounded bg-gray-200 px-2 py-1 dark:bg-zinc-700 dark:text-zinc-200">fartcore</code
+					> role can grant you access. We're pretty chill.
+				</p>
 				<a
 					href="https://discord.com/invite/touhouai"
 					target="_blank"
 					rel="noopener noreferrer"
-					class="font-medium text-[#f22b00] hover:text-[#ff6747]"
+					class="flex items-center rounded-md bg-blue-500 px-4 py-2 text-white transition hover:bg-blue-600"
 				>
-					TouhouAI Discord
-				</a>. Anyone with the
-				<code class="rounded bg-zinc-900 px-2 py-1 font-mono text-sm text-zinc-100">
-					fartcore
-				</code>
-				role can grant you access. We're pretty chill.
-			</em>
-		</li>
-	</ul>
+					<i class="fab fa-discord mr-2"></i> Join Discord
+				</a>
+			</div>
+		</div>
+	</section>
 
-	<!-- =============  RULES  ============= -->
-	<h2 class="mt-3 mb-0">Rules</h2>
+	<!-- Rules Section -->
+	<section class="fade-in rounded-xl bg-white p-6 shadow-md md:p-8 dark:bg-zinc-900">
+		<h2 class="mb-6 flex items-center text-2xl font-bold text-red-500 dark:text-red-400">
+			<span class="mr-2">📜</span> Rules
+		</h2>
 
-	<!--
-  <details> elements provide a native “accordion”.
-  <summary> is always visible; content is revealed on click.
-  -->
-	<details
-		class="mt-1 rounded border bg-zinc-100 p-5 text-sm text-black
-       dark:border-zinc-700 dark:bg-zinc-900 dark:text-white"
-	>
-		<summary class="cursor-pointer font-bold">Click to reveal</summary>
-		<ol class="list-decimal space-y-2 pl-5">
-			<li>No porn-specific models or illegal content (we follow U.S. law)</li>
-			<li>No saving that content on the server</li>
-			<li>No bypassing filters or restrictions</li>
-		</ol>
-		<p class="italic">Yes yes this is literally 1984</p>
-	</details>
+		<button
+			on:click={() => (rulesOpen = !rulesOpen)}
+			class="mb-4 inline-flex cursor-pointer items-center rounded-md bg-red-500 px-4 py-2 text-white transition hover:bg-red-600 dark:bg-red-600 dark:hover:bg-red-700"
+		>
+			<span class="mr-2">Click to reveal</span>
+			<i class="fas fa-chevron-down transition-transform duration-300" class:rotate-180={rulesOpen}
+			></i>
+		</button>
 
-	<!-- =============  LINKS  ============= -->
-	<h2 class="mt-3 mb-0">Links</h2>
+		<div
+			class="overflow-hidden rounded-md bg-red-50 transition-all duration-300 dark:bg-red-900/30"
+			style={`max-height: ${rulesOpen ? '500px' : '0'}; opacity: ${rulesOpen ? '1' : '0'}; padding: ${rulesOpen ? '1rem' : '0 1rem'}`}
+		>
+			<ol class="list-decimal space-y-3 pl-5 dark:text-zinc-200">
+				<li>No porn-specific models or illegal content (we follow U.S. law)</li>
+				<li>No saving that content on the server</li>
+				<li>No bypassing filters or restrictions</li>
+			</ol>
+			<p class="mt-4 text-gray-600 italic dark:text-gray-400">Yes yes this is literally 1984</p>
+		</div>
+	</section>
 
-	<ul class="mt-1 space-y-3 text-sm">
-		<!-- 🪴 HOME -->
-		<li>
-			🪴
-			<a href="/" class="font-medium text-[#f22b00] hover:text-[#ff6747]"> gpu.garden </a>
-			– homepage
-		</li>
+	<!-- Links Section -->
+	<section class="fade-in">
+		<h2 class="mb-6 flex items-center text-2xl font-bold text-purple-600 dark:text-purple-400">
+			<span class="mr-2">🔗</span> Links
+		</h2>
 
-		<!-- 🖼️ IMAGE GEN -->
-		<li>
-			🖼️
+		<div class="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+			<a
+				href="/"
+				class="card-hover flex items-center space-x-3 rounded-lg bg-white p-4 shadow transition hover:bg-gray-50 dark:bg-zinc-800 dark:hover:bg-zinc-700"
+			>
+				<span class="text-2xl">🪴</span>
+				<div>
+					<h3 class="font-bold dark:text-zinc-200">gpu.garden</h3>
+					<p class="text-sm text-gray-500 dark:text-gray-400">homepage</p>
+				</div>
+			</a>
+
 			<a
 				href="https://swarmui.gpu.garden/"
 				target="_blank"
 				rel="noopener noreferrer"
-				class="font-medium text-[#f22b00] hover:text-[#ff6747]"
+				class="card-hover flex items-center space-x-3 rounded-lg bg-white p-4 shadow transition hover:bg-gray-50 dark:bg-zinc-800 dark:hover:bg-zinc-700"
 			>
-				swarmui.gpu.garden
+				<span class="text-2xl">🖼️</span>
+				<div>
+					<h3 class="font-bold dark:text-zinc-200">swarmui.gpu.garden</h3>
+					<p class="text-sm text-gray-500 dark:text-gray-400">image generation AI</p>
+				</div>
 			</a>
-			– image generation AI
-		</li>
 
-		<!-- 🤖 COMFY BACKEND -->
-		<li>
-			🤖
 			<a
 				href="https://swarmui.gpu.garden/ComfyBackendDirect"
 				target="_blank"
 				rel="noopener noreferrer"
-				class="font-medium text-[#f22b00] hover:text-[#ff6747]"
+				class="card-hover flex items-center space-x-3 rounded-lg bg-white p-4 shadow transition hover:bg-gray-50 dark:bg-zinc-800 dark:hover:bg-zinc-700"
 			>
-				ComfyBackendDirect
+				<span class="text-2xl">🤖</span>
+				<div>
+					<h3 class="font-bold dark:text-zinc-200">ComfyBackendDirect</h3>
+					<p class="text-sm text-gray-500 dark:text-gray-400">
+						bare-bones ComfyUI (⚠️ requires login)
+					</p>
+				</div>
 			</a>
-			– bare-bones ComfyUI (no SwarmUI) (⚠️ requires login on swarmui.gpu.garden first)
-		</li>
 
-		<!-- 📝 TEXT / CHAT -->
-		<li>
-			📝
 			<a
 				href="https://oui.gpu.garden/"
 				target="_blank"
 				rel="noopener noreferrer"
-				class="font-medium text-[#f22b00] hover:text-[#ff6747]"
+				class="card-hover flex items-center space-x-3 rounded-lg bg-white p-4 shadow transition hover:bg-gray-50 dark:bg-zinc-800 dark:hover:bg-zinc-700"
 			>
-				oui.gpu.garden
+				<span class="text-2xl">📝</span>
+				<div>
+					<h3 class="font-bold dark:text-zinc-200">oui.gpu.garden</h3>
+					<p class="text-sm text-gray-500 dark:text-gray-400">text/chat AI</p>
+				</div>
 			</a>
-			– text/chat AI
-		</li>
 
-		<!-- Fartgram -->
-		<li>
-			🖼️
 			<a
 				href="https://fartgram.gpu.garden/"
 				target="_blank"
 				rel="noopener noreferrer"
-				class="font-medium text-[#f22b00] hover:text-[#ff6747]"
+				class="card-hover flex items-center space-x-3 rounded-lg bg-white p-4 shadow transition hover:bg-gray-50 dark:bg-zinc-800 dark:hover:bg-zinc-700"
 			>
-				fartgram.gpu.garden
+				<span class="text-2xl">🖼️</span>
+				<div>
+					<h3 class="font-bold dark:text-zinc-200">fartgram.gpu.garden</h3>
+					<p class="text-sm text-gray-500 dark:text-gray-400">
+						A place to fart images onto the internet
+					</p>
+				</div>
 			</a>
-			– A place to fart images onto the internet
-		</li>
 
-		<!-- 🧐 PROMPT HISTORY -->
-		<li>
-			🧐
 			<a
 				href="https://prompts.gpu.garden/"
 				target="_blank"
 				rel="noopener noreferrer"
-				class="font-medium text-[#f22b00] hover:text-[#ff6747]"
+				class="card-hover flex items-center space-x-3 rounded-lg bg-white p-4 shadow transition hover:bg-gray-50 dark:bg-zinc-800 dark:hover:bg-zinc-700"
 			>
-				prompts.gpu.garden
+				<span class="text-2xl">🧐</span>
+				<div>
+					<h3 class="font-bold dark:text-zinc-200">prompts.gpu.garden</h3>
+					<p class="text-sm text-gray-500 dark:text-gray-400">prompt history</p>
+				</div>
 			</a>
-			– prompt history
-		</li>
 
-		<!-- 📈 USAGE STATS -->
-		<li>
-			📈
 			<a
 				href="https://stats.gpu.garden/"
 				target="_blank"
 				rel="noopener noreferrer"
-				class="font-medium text-[#f22b00] hover:text-[#ff6747]"
+				class="card-hover flex items-center space-x-3 rounded-lg bg-white p-4 shadow transition hover:bg-gray-50 dark:bg-zinc-800 dark:hover:bg-zinc-700"
 			>
-				stats.gpu.garden
+				<span class="text-2xl">📈</span>
+				<div>
+					<h3 class="font-bold dark:text-zinc-200">stats.gpu.garden</h3>
+					<p class="text-sm text-gray-500 dark:text-gray-400">usage stats</p>
+				</div>
 			</a>
-			– usage stats
-		</li>
 
-		<!-- 🩺 SYSTEM HEALTH -->
-		<li>
-			🩺
 			<a
 				href="https://status.gpu.garden/"
 				target="_blank"
 				rel="noopener noreferrer"
-				class="font-medium text-[#f22b00] hover:text-[#ff6747]"
+				class="card-hover flex items-center space-x-3 rounded-lg bg-white p-4 shadow transition hover:bg-gray-50 dark:bg-zinc-800 dark:hover:bg-zinc-700"
 			>
-				status.gpu.garden
+				<span class="text-2xl">🩺</span>
+				<div>
+					<h3 class="font-bold dark:text-zinc-200">status.gpu.garden</h3>
+					<p class="text-sm text-gray-500 dark:text-gray-400">system health</p>
+				</div>
 			</a>
-			– system health
-		</li>
-	</ul>
-	<!-- =============  SUPPORT  ============= -->
-	<h2 class="mt-3 mb-0">Support</h2>
-	<p class="text-sm text-zinc-600 dark:text-zinc-400">
-		Help keep the GPUs running! Your support helps us maintain and expand our AI playground.
-	</p>
+		</div>
+	</section>
 
-	<div class="mt-4 flex justify-center">
-		<script
-			type="text/javascript"
-			src="https://cdnjs.buymeacoffee.com/1.0.0/button.prod.min.js"
-			data-name="bmc-button"
-			data-slug="astromahdi"
-			data-color="#5F7FFF"
-			data-emoji="🖥️"
-			data-font="Comic"
-			data-text="help buy share server parts"
-			data-outline-color="#000000"
-			data-font-color="#ffffff"
-			data-coffee-color="#FFDD00"
-		>
-		</script>
-	</div>
+	<!-- Support Section -->
+	<section class="fade-in rounded-xl bg-white p-6 shadow-md md:p-8 dark:bg-zinc-900">
+		<h2 class="mb-6 flex items-center text-2xl font-bold text-yellow-600 dark:text-yellow-400">
+			<span class="mr-2">💖</span> Support
+		</h2>
+
+		<p class="mb-6 dark:text-zinc-200">
+			Help keep the GPUs running! Your support helps us maintain and expand our AI playground.
+		</p>
+
+		<div class="mt-4 mb-6 flex justify-center">
+			<script
+				type="text/javascript"
+				src="https://cdnjs.buymeacoffee.com/1.0.0/button.prod.min.js"
+				data-name="bmc-button"
+				data-slug="astromahdi"
+				data-color="#5F7FFF"
+				data-emoji="🖥️"
+				data-font="Comic"
+				data-text="help buy share server parts"
+				data-outline-color="#000000"
+				data-font-color="#ffffff"
+				data-coffee-color="#FFDD00"
+			>
+			</script>
+		</div>
+	</section>
 </main>
 
-<!-- Footer rendered below the main content -->
+<!-- Keep existing Footer component -->
 <Footer />
+
+<style>
+    .fade-in {
+        animation: fadeIn 1s ease-in-out;
+    }
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+        }
+        to {
+            opacity: 1;
+        }
+    }
+    .gradient-text {
+        background: linear-gradient(45deg, #4ade80, #3b82f6, #a855f7);
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+    }
+    .card-hover:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+        transition: all 0.3s ease;
+    }
+    
+    /* Override the global link color for buttons with text stroke */
+    a.bg-green-500,
+    a.bg-indigo-500,
+    a.bg-blue-500 {
+        color: white !important;
+        text-decoration: none;
+        text-shadow: 
+            -1px -1px 0 #000,
+            1px -1px 0 #000,
+            -1px 1px 0 #000,
+            1px 1px 0 #000;
+        font-weight: 600; /* Make text slightly bolder for better visibility */
+    }
+    
+    a.bg-green-500:hover,
+    a.bg-indigo-500:hover,
+    a.bg-blue-500:hover {
+        color: white !important;
+        text-decoration: none;
+        text-shadow: 
+            -1px -1px 0 #000,
+            1px -1px 0 #000,
+            -1px 1px 0 #000,
+            1px 1px 0 #000;
+    }
+</style>

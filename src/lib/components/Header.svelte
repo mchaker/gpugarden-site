@@ -1,59 +1,126 @@
 <!--
-  A very small, self-contained header component.
-
-  It does not import anything; everything lives in this single file.
-  SvelteKit will treat the <script>, markup, and <style> sections
-  similarly to plain Svelte – there is no extra boilerplate.
+  A modernized header component that matches the card-based design.
+  Includes sticky positioning, better mobile responsiveness, and dark mode toggle.
 -->
 
-<header class="bg-white p-2 text-zinc-900 dark:bg-black dark:text-zinc-100">
-	<div class="overflow-hidden">
-		<div class="flex justify-center">
-			<div class="animate-wiggle flex items-center gap-2 text-2xl font-bold">
-				<img src="/favicon.png" alt="gpu.garden logo" class="h-11 w-11" />
-				<span>gpu.garden</span>
-			</div>
-		</div>
-	</div>
+<script lang="ts">
+    import { onMount } from 'svelte';
+    import { darkMode, initializeTheme, toggleTheme } from '$lib/stores/theme';
+    
+    let mobileMenuOpen = false;
 
-	<p class="mt-1 text-center text-sm text-zinc-500 dark:text-zinc-400">
-		Who would've known AI image gen could be free ???
-	</p>
+    onMount(() => {
+        console.log('Header mounted, initializing theme...'); // Debug log
+        return initializeTheme();
+    });
 
-	<nav class="mt-4 flex flex-wrap justify-center gap-4 text-sm">
-		<a href="/" class="hover:underline">🪴 Home</a>
-		<a
-			href="https://swarmui.gpu.garden/"
-			target="_blank"
-			rel="noopener noreferrer"
-			class="hover:underline">🖼️ SwarmUI</a
-		>
-		<a
-			href="https://oui.gpu.garden/"
-			target="_blank"
-			rel="noopener noreferrer"
-			class="hover:underline">📝 Open WebUI</a
-		>
-		<a
-			href="https://status.gpu.garden/"
-			target="_blank"
-			rel="noopener noreferrer"
-			class="hover:underline">🩺 Status</a
-		>
-	</nav>
+    // Add debug function
+    function handleToggle() {
+        console.log('Toggle button clicked, current darkMode:', $darkMode); // Debug log
+        toggleTheme();
+    }
+</script>
+
+<header class="bg-white dark:bg-zinc-900 shadow-sm sticky top-0 z-50 border-b border-zinc-200 dark:border-zinc-700">
+    <div class="container mx-auto px-4 py-3">
+        <!-- Main header content -->
+        <div class="flex justify-between items-center">
+            <!-- Logo section -->
+            <div class="flex items-center space-x-2">
+                <img src="/favicon.png" alt="gpu.garden logo" class="h-8 w-8" />
+                <h1 class="text-xl font-bold gradient-text">gpu.garden</h1>
+            </div>
+            
+            <!-- Desktop navigation and controls -->
+            <div class="hidden md:flex items-center space-x-6">
+                <nav class="flex space-x-6">
+                    <a href="/" class="hover:text-green-500 transition flex items-center space-x-1 text-sm">
+                        <span>🪴</span>
+                        <span>Home</span>
+                    </a>
+                    <a href="https://swarmui.gpu.garden/" target="_blank" rel="noopener noreferrer" class="hover:text-blue-500 transition flex items-center space-x-1 text-sm">
+                        <span>🖼️</span>
+                        <span>SwarmUI</span>
+                    </a>
+                    <a href="https://oui.gpu.garden/" target="_blank" rel="noopener noreferrer" class="hover:text-purple-500 transition flex items-center space-x-1 text-sm">
+                        <span>📝</span>
+                        <span>Open WebUI</span>
+                    </a>
+                    <a href="https://status.gpu.garden/" target="_blank" rel="noopener noreferrer" class="hover:text-red-500 transition flex items-center space-x-1 text-sm">
+                        <span>🩺</span>
+                        <span>Status</span>
+                    </a>
+                </nav>
+                
+                <!-- Dark mode toggle -->
+                <button 
+                    on:click={handleToggle}
+                    class="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-zinc-700 transition-colors"
+                    aria-label="Toggle dark mode"
+                >
+                    {#if $darkMode}
+                        <i class="fas fa-sun text-yellow-400"></i>
+                    {:else}
+                        <i class="fas fa-moon text-zinc-600"></i>
+                    {/if}
+                </button>
+            </div>
+            
+            <!-- Mobile controls -->
+            <div class="md:hidden flex items-center space-x-2">
+                <!-- Mobile dark mode toggle -->
+                <button 
+                    on:click={handleToggle}
+                    class="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-zinc-700 transition-colors"
+                    aria-label="Toggle dark mode"
+                >
+                    {#if $darkMode}
+                        <i class="fas fa-sun text-yellow-400"></i>
+                    {:else}
+                        <i class="fas fa-moon text-zinc-600"></i>
+                    {/if}
+                </button>
+                
+                <!-- Mobile menu button -->
+                <button 
+                    class="p-2 rounded-md hover:bg-gray-100 dark:hover:bg-zinc-800 transition" 
+                    on:click={() => mobileMenuOpen = !mobileMenuOpen}
+                    aria-label="Toggle mobile menu"
+                >
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Mobile menu -->
+    <div class={`md:hidden bg-white dark:bg-zinc-900 border-t border-zinc-200 dark:border-zinc-700 transition-all duration-300 ${mobileMenuOpen ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0 overflow-hidden'}`}>
+        <div class="container mx-auto px-4 py-2 flex flex-col space-y-3">
+            <a href="/" class="hover:text-green-500 transition flex items-center space-x-2 py-2 text-sm">
+                <span>🪴</span>
+                <span>Home</span>
+            </a>
+            <a href="https://swarmui.gpu.garden/" target="_blank" rel="noopener noreferrer" class="hover:text-blue-500 transition flex items-center space-x-2 py-2 text-sm">
+                <span>🖼️</span>
+                <span>SwarmUI</span>
+            </a>
+            <a href="https://oui.gpu.garden/" target="_blank" rel="noopener noreferrer" class="hover:text-purple-500 transition flex items-center space-x-2 py-2 text-sm">
+                <span>📝</span>
+                <span>Open WebUI</span>
+            </a>
+            <a href="https://status.gpu.garden/" target="_blank" rel="noopener noreferrer" class="hover:text-red-500 transition flex items-center space-x-2 py-2 text-sm">
+                <span>🩺</span>
+                <span>Status</span>
+            </a>
+        </div>
+    </div>
 </header>
 
 <style>
-	@keyframes wiggle {
-		from {
-			transform: translateX(-5vw);
-		}
-		to {
-			transform: translateX(5vw);
-		}
-	}
-
-	.animate-wiggle {
-		animation: wiggle 2s ease-in-out infinite alternate;
-	}
+    .gradient-text {
+        background: linear-gradient(45deg, #4ade80, #3b82f6, #a855f7);
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+    }
 </style>
