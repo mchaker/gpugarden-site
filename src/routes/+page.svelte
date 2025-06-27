@@ -263,13 +263,6 @@
 						</p>
 						<div class="flex flex-wrap justify-center gap-4">
 							<a
-								href="https://patreon.com/fartcore"
-								target="_blank"
-								class="btn-primary rounded-full px-6 py-3 font-medium"
-							>
-								Donate <i class="fas fa-hand-holding-usd ml-2"></i>
-							</a>
-							<a
 								href="https://buymeacoffee.com/astromahdi"
 								target="_blank"
 								class="hover:bg-opacity-10 rounded-full border border-yellow-400 px-6 py-3 font-medium text-yellow-400 transition hover:bg-yellow-400"
