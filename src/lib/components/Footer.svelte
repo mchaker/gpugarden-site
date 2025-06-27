@@ -12,7 +12,7 @@
 			</div>
 			<div class="mb-6 flex space-x-6 md:mb-0">
 				<a
-					href="https://github.com/touhou-ai/gpugarden-site"
+					href="https://github.com/mchaker/gpugarden-site"
 					target="_blank"
 					rel="noopener noreferrer"
 					class="text-red-600 transition hover:text-red-800 dark:text-gray-400 dark:hover:text-white"
@@ -21,7 +21,7 @@
 					<i class="fab fa-github text-xl"></i>
 				</a>
 				<a
-					href="https://discord.com/invite/touhouai"
+					href="https://discord.gg/yw4HGWC2wm"
 					target="_blank"
 					rel="noopener noreferrer"
 					class="text-red-600 transition hover:text-red-800 dark:text-gray-400 dark:hover:text-white"

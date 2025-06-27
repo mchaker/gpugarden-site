@@ -37,7 +37,7 @@
 				> role can grant you access. We're pretty chill.
 			</p>
 			<a
-				href="https://discord.com/invite/touhouai"
+				href="https://discord.gg/yw4HGWC2wm"
 				target="_blank"
 				class="hover:bg-opacity-10 inline-block rounded-full border border-purple-400 px-4 py-2 text-sm font-medium text-purple-400 transition hover:bg-purple-400 hover:text-black"
 			>
