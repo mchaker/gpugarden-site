@@ -69,6 +69,23 @@ a:hover {
 	text-decoration: underline;
 }
 
+/* Button hover states - remove underlines and fix text visibility */
+.hover\:bg-yellow-400:hover,
+.hover\:bg-yellow-500:hover,
+.hover\:bg-purple-400:hover {
+	text-decoration: none !important;
+	color: #000000 !important; /* Black text on light background */
+}
+
+.hover\:bg-opacity-10:hover {
+	text-decoration: none !important;
+}
+
+/* Service links should not have underlines */
+.service-link:hover {
+	text-decoration: none !important;
+}
+
 /* Code styling */
 .prose code {
 	@apply rounded bg-zinc-900 px-2 py-1 font-mono text-sm text-zinc-100;
@@ -85,7 +102,7 @@ a:hover {
 	background-clip: text;
 	color: transparent;
 	background-size: 300% 300%;
-	animation: gradient 8s ease infinite;
+	animation: gradient 4s ease-in-out infinite;
 }
 
 .card-glass {
@@ -133,7 +150,13 @@ a:hover {
 	0% {
 		background-position: 0% 50%;
 	}
+	25% {
+		background-position: 100% 50%;
+	}
 	50% {
+		background-position: 200% 50%;
+	}
+	75% {
 		background-position: 100% 50%;
 	}
 	100% {

@@ -1,18 +1,18 @@
 <script>
-	let showModal = false;
+	let showDatacenterModal = false;
 	let modalPosition = { x: 0, y: 0 };
 
-	function handleMouseEnter(event) {
-		showModal = true;
+	function handleDatacenterMouseEnter(event) {
+		showDatacenterModal = true;
 		updateModalPosition(event);
 	}
 
-	function handleMouseLeave() {
-		showModal = false;
+	function handleDatacenterMouseLeave() {
+		showDatacenterModal = false;
 	}
 
-	function handleMouseMove(event) {
-		if (showModal) {
+	function handleDatacenterMouseMove(event) {
+		if (showDatacenterModal) {
 			updateModalPosition(event);
 		}
 	}
@@ -36,12 +36,11 @@
 			<p class="mb-6 text-sm text-gray-300 sm:mb-8 sm:text-base">
 				A beautiful little corner of the web for AI enthusiasts, powered by the
 				<a
-					href="/images/fartcore_datacenter.jpg"
-					target="_blank"
+					href="/datacenter"
 					class="text-yellow-400 underline hover:text-yellow-300"
-					on:mouseenter={handleMouseEnter}
-					on:mouseleave={handleMouseLeave}
-					on:mousemove={handleMouseMove}>fartcore datacenter</a
+					on:mouseenter={handleDatacenterMouseEnter}
+					on:mouseleave={handleDatacenterMouseLeave}
+					on:mousemove={handleDatacenterMouseMove}>fartcore datacenter</a
 				>.
 			</p>
 			<div class="flex flex-col space-y-3 sm:flex-row sm:space-y-0 sm:space-x-4">
@@ -55,7 +54,7 @@
 				<a
 					href="https://discord.com/invite/touhouai"
 					target="_blank"
-					class="hover:bg-opacity-10 rounded-full border border-yellow-500 px-4 py-2 text-center text-sm font-medium text-yellow-500 transition hover:bg-yellow-500 sm:px-6 sm:py-3 sm:text-base"
+					class="hover:bg-opacity-10 rounded-full border border-yellow-500 px-4 py-2 text-center text-sm font-medium text-yellow-500 transition hover:bg-yellow-500 hover:text-black sm:px-6 sm:py-3 sm:text-base"
 				>
 					Join Discord <i class="fab fa-discord ml-2"></i>
 				</a>
@@ -69,18 +68,20 @@
 				<div
 					class="absolute -right-6 -bottom-6 h-20 w-20 rounded-full bg-yellow-500 opacity-20 blur-2xl sm:-right-8 sm:-bottom-8 sm:h-24 sm:w-24 md:-right-10 md:-bottom-10 md:h-32 md:w-32 md:blur-3xl"
 				></div>
-				<img
-					src="/images/gpu-gardener.webp"
-					alt="The GPU gardener tending to the GPUs in the garden"
-					class="floating relative z-10 h-auto w-full rounded-xl object-cover shadow-xl sm:rounded-2xl sm:shadow-2xl"
-				/>
+				<a href="/gpu-gardener">
+					<img
+						src="/images/gpu-gardener.webp"
+						alt="The GPU gardener tending to the GPUs in the garden"
+						class="floating relative z-10 h-auto w-full cursor-pointer rounded-xl object-cover shadow-xl transition-transform hover:scale-105 sm:rounded-2xl sm:shadow-2xl"
+					/>
+				</a>
 			</div>
 		</div>
 	</div>
 </section>
 
-<!-- Hover Modal -->
-{#if showModal}
+<!-- Datacenter Hover Modal -->
+{#if showDatacenterModal}
 	<div
 		class="pointer-events-none fixed z-[9999]"
 		style="left: {modalPosition.x}px; top: {modalPosition.y}px;"
