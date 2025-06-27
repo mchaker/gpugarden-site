@@ -10,7 +10,7 @@
 				<div
 					class="flex h-8 w-8 items-center justify-center rounded-full bg-gradient-to-br from-red-600 to-yellow-500"
 				>
-					<i class="fas fa-leaf text-white"></i>
+					<img src="/favicon.png" alt="gpu.garden logo" class="h-5 w-5" />
 				</div>
 				<span class="title-font gradient-text text-xl font-bold">gpu.garden</span>
 			</div>
