@@ -16,11 +16,7 @@
 >
 	<div class="container mx-auto flex items-center justify-between">
 		<div class="flex items-center space-x-2">
-			<div
-				class="flex h-10 w-10 items-center justify-center rounded-full bg-gradient-to-br from-red-600 to-yellow-500"
-			>
-				<img src="/favicon.png" alt="gpu.garden logo" class="h-6 w-6" />
-			</div>
+			<img src="/favicon.png" alt="gpu.garden logo" class="h12 w-12" />
 			<h1 class="title-font gradient-text text-2xl font-bold">gpu.garden</h1>
 		</div>
 
@@ -67,7 +63,7 @@
 
 <style>
 	.gradient-text {
-		background: linear-gradient(90deg, #ff5f1f, #ff1d58, #f9cb40, #000000);
+		background: linear-gradient(90deg, #ff5f1f, #ff1d58, #f9cb40);
 		-webkit-background-clip: text;
 		background-clip: text;
 		color: transparent;

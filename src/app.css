@@ -83,7 +83,7 @@ a:hover {
 }
 
 .gradient-text {
-	background: linear-gradient(90deg, #ff5f1f, #ff1d58, #f9cb40, #000000);
+	background: linear-gradient(90deg, #ff5f1f, #ff1d58, #f9cb40);
 	-webkit-background-clip: text;
 	background-clip: text;
 	color: transparent;
