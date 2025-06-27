@@ -1,3 +1,30 @@
+<script>
+	let showModal = false;
+	let modalPosition = { x: 0, y: 0 };
+
+	function handleMouseEnter(event) {
+		showModal = true;
+		updateModalPosition(event);
+	}
+
+	function handleMouseLeave() {
+		showModal = false;
+	}
+
+	function handleMouseMove(event) {
+		if (showModal) {
+			updateModalPosition(event);
+		}
+	}
+
+	function updateModalPosition(event) {
+		modalPosition = {
+			x: event.clientX + 10,
+			y: event.clientY - 20 // Changed from +10 to -20 to position above cursor
+		};
+	}
+</script>
+
 <section class="flex-grow px-4 py-8 sm:px-6 sm:py-12 md:py-16 lg:px-8">
 	<div class="container mx-auto flex flex-col items-center justify-between lg:flex-row">
 		<div class="mb-8 sm:mb-10 lg:mb-0 lg:w-1/2">
@@ -7,10 +34,14 @@
 				Who would've known <span class="gradient-text">AI image gen</span> could be free ???
 			</h2>
 			<p class="mb-6 text-sm text-gray-300 sm:mb-8 sm:text-base">
-				A beautiful little corner of the web for AI enthusiasts, powered by the <a
+				A beautiful little corner of the web for AI enthusiasts, powered by the
+				<a
 					href="/images/fartcore_datacenter.jpg"
 					target="_blank"
-					class="text-yellow-400 underline hover:text-yellow-300">fartcore datacenter</a
+					class="text-yellow-400 underline hover:text-yellow-300"
+					on:mouseenter={handleMouseEnter}
+					on:mouseleave={handleMouseLeave}
+					on:mousemove={handleMouseMove}>fartcore datacenter</a
 				>.
 			</p>
 			<div class="flex flex-col space-y-3 sm:flex-row sm:space-y-0 sm:space-x-4">
@@ -47,3 +78,37 @@
 		</div>
 	</div>
 </section>
+
+<!-- Hover Modal -->
+{#if showModal}
+	<div
+		class="pointer-events-none fixed z-[9999]"
+		style="left: {modalPosition.x}px; top: {modalPosition.y}px;"
+	>
+		<div class="modal-image-container">
+			<img
+				src="/images/fartcore_datacenter.jpg"
+				alt="The fartcore datacenter"
+				class="max-h-64 max-w-xs rounded-lg border-2 border-yellow-400/50 shadow-2xl"
+			/>
+		</div>
+	</div>
+{/if}
+
+<style>
+	.modal-image-container {
+		animation: modalFadeIn 0.2s ease-out;
+		transform: translate(-50%, -100%);
+	}
+
+	@keyframes modalFadeIn {
+		from {
+			opacity: 0;
+			transform: translate(-50%, -100%) scale(0.8);
+		}
+		to {
+			opacity: 1;
+			transform: translate(-50%, -100%) scale(1);
+		}
+	}
+</style>
