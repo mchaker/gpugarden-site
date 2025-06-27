@@ -28,9 +28,9 @@
 		<div class="flex items-center gap-4">
 			<nav class="hidden space-x-6 md:flex">
 				<a href="#welcome" class="text-zinc-300 transition hover:text-white">Welcome</a>
-				<a href="#services" class="text-zinc-300 transition hover:text-white">Services</a>
 				<a href="#rules" class="text-zinc-300 transition hover:text-white">Rules</a>
 				<a href="#support" class="text-zinc-300 transition hover:text-white">Support</a>
+				<a href="#services" class="text-zinc-300 transition hover:text-white">Services</a>
 			</nav>
 			<button on:click={toggleLocalMenu} class="text-zinc-300 hover:text-white md:hidden">
 				<i class="fas fa-bars text-2xl"></i>
@@ -47,11 +47,6 @@
 				class="block py-2 text-right text-zinc-300 transition hover:text-white">Welcome</a
 			>
 			<a
-				href="#services"
-				on:click={() => (mobileMenuOpen = false)}
-				class="block py-2 text-right text-zinc-300 transition hover:text-white">Services</a
-			>
-			<a
 				href="#rules"
 				on:click={() => (mobileMenuOpen = false)}
 				class="block py-2 text-right text-zinc-300 transition hover:text-white">Rules</a
@@ -60,6 +55,11 @@
 				href="#support"
 				on:click={() => (mobileMenuOpen = false)}
 				class="block py-2 text-right text-zinc-300 transition hover:text-white">Support</a
+			>
+			<a
+				href="#services"
+				on:click={() => (mobileMenuOpen = false)}
+				class="block py-2 text-right text-zinc-300 transition hover:text-white">Services</a
 			>
 		</div>
 	{/if}
