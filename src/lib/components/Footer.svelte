@@ -1,73 +1,104 @@
+<script lang="ts">
+	// darkMode store import removed
+</script>
+
 <!-- Footer with top margin to push it away from preceding content -->
-<footer class="bg-gray-800 dark:bg-zinc-950 text-white py-8 mt-12">
-    <div class="container mx-auto px-4">
-        <div class="flex flex-col md:flex-row justify-between items-center">
-            <!-- Logo and description -->
-            <div class="mb-4 md:mb-0 text-center md:text-left">
-                <div class="flex items-center justify-center md:justify-start space-x-2 mb-2">
-                    <span class="text-2xl">🪴</span>
-                    <h2 class="text-xl font-bold gradient-text-footer">gpu.garden</h2>
-                </div>
-                <p class="text-gray-400 text-sm">A beautiful little corner of the web for AI</p>
-            </div>
-            
-            <!-- Social links -->
-            <div class="flex space-x-4 mb-4 md:mb-0">
-                <a 
-                    href="mailto:astromahdi@astromahdi.com" 
-                    class="text-gray-400 hover:text-white transition-colors p-2 rounded-full hover:bg-gray-700"
-                    aria-label="Email"
-                >
-                    <i class="fas fa-envelope fa-lg"></i>
-                </a>
-                <a 
-                    href="https://discord.com/invite/touhouai" 
-                    target="_blank" 
-                    rel="noopener noreferrer"
-                    class="text-gray-400 hover:text-white transition-colors p-2 rounded-full hover:bg-gray-700"
-                    aria-label="Discord"
-                >
-                    <i class="fab fa-discord fa-lg"></i>
-                </a>
-                <a 
-                    href="https://github.com/" 
-                    target="_blank" 
-                    rel="noopener noreferrer"
-                    class="text-gray-400 hover:text-white transition-colors p-2 rounded-full hover:bg-gray-700"
-                    aria-label="GitHub"
-                >
-                    <i class="fab fa-github fa-lg"></i>
-                </a>
-            </div>
-        </div>
-        
-        <!-- Divider -->
-        <div class="border-t border-gray-700 mt-6 pt-6">
-            <!-- Attribution and links -->
-            <div class="text-center text-gray-400 text-sm space-y-2">
-                <p>
-                    This homepage is built with 
-                    <a href="https://kit.svelte.dev/" target="_blank" rel="noopener noreferrer" class="text-blue-400 hover:text-blue-300 hover:underline transition">SvelteKit</a> 
-                    and 
-                    <a href="https://tailwindcss.com/" target="_blank" rel="noopener noreferrer" class="text-blue-400 hover:text-blue-300 hover:underline transition">Tailwind CSS</a>.
-                </p>
-                <p>
-                    Designed and rebuilt by 
-                    <a href="https://mooshieblob.com/" target="_blank" rel="noopener noreferrer" class="font-semibold text-blue-400 hover:text-blue-300 hover:underline transition">blob</a>. 
-                    gpu.garden is owned and managed by 
-                    <a href="https://fartcore.ai/" target="_blank" rel="noopener noreferrer" class="font-semibold text-blue-400 hover:text-blue-300 hover:underline transition">fartcore</a>.
-                </p>
-                <p class="text-xs mt-4">© 2024-2025 gpu.garden | All rights reserved</p>
-            </div>
-        </div>
-    </div>
+<footer class="border-t border-yellow-500/30 bg-black/70 px-4 py-8 sm:px-6 lg:px-8">
+	<div class="container mx-auto">
+		<div class="flex flex-col items-center justify-between md:flex-row">
+			<div class="mb-6 flex items-center space-x-2 md:mb-0">
+				<div
+					class="flex h-8 w-8 items-center justify-center rounded-full bg-gradient-to-br from-red-600 to-yellow-500"
+				>
+					<i class="fas fa-leaf text-white"></i>
+				</div>
+				<span class="title-font gradient-text text-xl font-bold">gpu.garden</span>
+			</div>
+			<div class="mb-6 flex space-x-6 md:mb-0">
+				<a
+					href="https://github.com/touhou-ai/gpugarden-site"
+					target="_blank"
+					rel="noopener noreferrer"
+					class="text-red-600 transition hover:text-red-800 dark:text-gray-400 dark:hover:text-white"
+					aria-label="GitHub"
+				>
+					<i class="fab fa-github text-xl"></i>
+				</a>
+				<a
+					href="https://discord.com/invite/touhouai"
+					target="_blank"
+					rel="noopener noreferrer"
+					class="text-red-600 transition hover:text-red-800 dark:text-gray-400 dark:hover:text-white"
+					aria-label="Discord"
+				>
+					<i class="fab fa-discord text-xl"></i>
+				</a>
+				<a
+					href="https://buymeacoffee.com/astromahdi"
+					target="_blank"
+					rel="noopener noreferrer"
+					class="text-red-600 transition hover:text-red-800 dark:text-gray-400 dark:hover:text-white"
+					aria-label="Buy Me A Coffee"
+				>
+					<i class="fas fa-coffee text-xl"></i>
+				</a>
+			</div>
+			<div class="text-center text-red-700 md:text-right dark:text-gray-400">
+				<p class="text-sm">
+					This homepage is built with <a
+						href="https://kit.svelte.dev/"
+						target="_blank"
+						class="text-red-600 hover:underline dark:text-yellow-400">SvelteKit</a
+					>
+					and
+					<a
+						href="https://tailwindcss.com/"
+						target="_blank"
+						class="text-red-600 hover:underline dark:text-yellow-400">Tailwind CSS</a
+					>
+					.
+				</p>
+				<p class="mt-1 text-sm">
+					Designed and rebuilt by <a
+						href="https://mooshieblob.com/"
+						target="_blank"
+						class="text-red-600 hover:underline dark:text-yellow-400">blob</a
+					>
+					. gpu.garden is owned and managed by
+					<a
+						href="https://fartcore.ai/"
+						target="_blank"
+						class="text-red-600 hover:underline dark:text-yellow-400">fartcore</a
+					>
+					.
+				</p>
+				<p class="mt-2 text-xs text-red-600 dark:text-gray-500">
+					© 2024-2025 gpu.garden | All rights reserved
+				</p>
+			</div>
+		</div>
+	</div>
 </footer>
 
 <style>
-    .gradient-text-footer {
-        background: linear-gradient(45deg, #4ade80, #3b82f6, #a855f7);
-        -webkit-background-clip: text;
-        background-clip: text;
-        color: transparent;
-    }
+	.gradient-text {
+		background: linear-gradient(90deg, #ff5f1f, #ff1d58, #f9cb40, #000000);
+		-webkit-background-clip: text;
+		background-clip: text;
+		color: transparent;
+		background-size: 300% 300%;
+		animation: gradient 8s ease infinite;
+	}
+
+	@keyframes gradient {
+		0% {
+			background-position: 0% 50%;
+		}
+		50% {
+			background-position: 100% 50%;
+		}
+		100% {
+			background-position: 0% 50%;
+		}
+	}
 </style>

@@ -1,79 +1,189 @@
 /* This imports the Tailwind CSS framework */
 @import 'tailwindcss';
 
-/* This activates the Typography plugin for Tailwind CSS
-   It provides nice typographic defaults for content-heavy pages */
+/* This activates the Typography plugin for Tailwind CSS */
 @plugin '@tailwindcss/typography';
 
-/* Sets the default font family for the entire site to Geist
-   This is a modern, clean font from Vercel */
-html {
-	font-family: 'Geist', sans-serif;
+/* Google Fonts import - MOVED TO TOP */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+
+/* CSS Variables for theme colors */
+:root {
+	--primary: #ff5f1f;
+	--secondary: #ff1d58;
+	--accent: #f9cb40;
+	--dark: #000000;
+	--light: #ffffff;
+	--light-bg: #fef2f2; /* Light pastel red background */
 }
 
-/* @layer base - These styles form the foundation of the site's appearance
-   They apply to the most basic HTML elements */
+/* Base layer styles */
 @layer base {
-	/* Default light mode styles for html and body elements
-	   @apply is a Tailwind directive that lets you use utility classes in CSS */
-	html,
+	/* Set default font family */
+	html {
+		font-family: 'Inter', 'Geist', sans-serif;
+	}
+
+	/* Light mode styles */
 	body {
-		@apply bg-white text-black;
+		@apply font-sans text-red-900 transition-colors duration-300;
+		min-height: 100vh;
+		background-color: var(--light-bg);
+		background-image: linear-gradient(
+			135deg,
+			rgba(255, 182, 193, 0.3) 0%,
+			rgba(255, 160, 160, 0.3) 100%
+		);
+		background-attachment: fixed;
 	}
 
-	/* Media query that detects if the user's system prefers dark mode
-	   This provides automatic dark mode support without JavaScript */
-	@media (prefers-color-scheme: dark) {
-		html,
-		body {
-			@apply bg-black text-white;
-		}
+	/* Dark mode styles */
+	.dark body {
+		@apply bg-black font-sans text-white transition-colors duration-300;
+		min-height: 100vh;
+		background-image: linear-gradient(
+			135deg,
+			rgba(255, 95, 31, 0.15) 0%,
+			rgba(255, 29, 88, 0.15) 100%
+		);
+		background-attachment: fixed;
 	}
 }
 
-/* @layer components - These styles define reusable UI components
-   This helps maintain consistency across the site */
+/* Component layer styles */
 @layer components {
-	/* Custom styling for accent links
-	   - font-medium makes the text slightly bolder
-	   - The hex colors create a distinct red/orange brand color
-	   - hover state changes the color when users mouse over links */
+	/* Accent links */
 	.accent-link {
-		@apply font-medium text-[#f22b00] hover:text-[#ff6747];
+		@apply font-medium text-yellow-400 hover:text-yellow-300;
 	}
 
-	/* Custom styling for content containers/boxes
-	   - rounded-lg gives rounded corners
-	   - border adds an outline
-	   - p-4 adds padding inside the box
-	   - shadow adds a subtle drop shadow */
+	/* Section boxes */
 	.section-box {
-		@apply rounded-lg border bg-white p-4 shadow;
-	}
-
-	/* Dark mode version of the section box 
-	   - Only activates when system is in dark mode
-	   - Changes the background to dark gray */
-	@media (prefers-color-scheme: dark) {
-		.section-box {
-			@apply bg-zinc-900;
-		}
+		@apply rounded-lg border border-zinc-700 bg-zinc-900 p-4 shadow;
 	}
 }
 
-/* Standard link styling outside of the Tailwind layers
-   This affects all <a> elements that don't have special classes */
-a {
-	color: #ff6747; /* Coral/orange brand color */
+/* Global link styling */
+a:not(.btn-primary):not(.card-glass *):not([class*='text-']) {
+	@apply text-yellow-400 hover:text-yellow-300;
 }
+
 a:hover {
-	text-decoration: underline; /* Adds underline on hover */
+	text-decoration: underline;
 }
 
-/* Styling for code blocks within prose (article) content
-   - Adds a dark background with rounded corners
-   - Uses monospace font with smaller text size
-   - Light colored text for contrast against dark background */
+/* Code styling */
 .prose code {
 	@apply rounded bg-zinc-900 px-2 py-1 font-mono text-sm text-zinc-100;
+}
+
+/* Custom component styles */
+.title-font {
+	font-family: 'Space Grotesk', sans-serif;
+}
+
+.gradient-text {
+	background: linear-gradient(90deg, #ff5f1f, #ff1d58, #f9cb40, #000000);
+	-webkit-background-clip: text;
+	background-clip: text;
+	color: transparent;
+	background-size: 300% 300%;
+	animation: gradient 8s ease infinite;
+}
+
+.card-glass {
+	@apply rounded-2xl border backdrop-blur-lg transition-all duration-300;
+	background: rgba(0, 0, 0, 0.5);
+	border-color: rgba(255, 95, 31, 0.3);
+	box-shadow: 0 8px 32px 0 rgba(255, 29, 88, 0.2);
+}
+
+.card-glass:hover {
+	transform: translateY(-5px);
+	box-shadow: 0 12px 40px 0 rgba(255, 113, 206, 0.3);
+}
+
+.btn-primary {
+	background: linear-gradient(90deg, #ff5f1f, #ff1d58);
+	color: #ffffff;
+	font-weight: 600;
+	transition: all 0.3s ease;
+	text-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+	border: none;
+}
+
+.btn-primary:hover {
+	transform: translateY(-2px);
+	box-shadow: 0 10px 20px -5px rgba(255, 95, 31, 0.3);
+}
+
+.floating {
+	animation:
+		floating 6s ease-in-out infinite,
+		hue-rotate 10s linear infinite;
+}
+
+.pulse {
+	animation: pulse 2s infinite;
+}
+
+.fade-in {
+	animation: fadeIn 0.5s ease-in;
+}
+
+/* Keyframes */
+@keyframes gradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}
+
+@keyframes hue-rotate {
+	0% {
+		filter: hue-rotate(0deg);
+	}
+	100% {
+		filter: hue-rotate(360deg);
+	}
+}
+
+@keyframes floating {
+	0% {
+		transform: translateY(0px);
+	}
+	50% {
+		transform: translateY(-15px);
+	}
+	100% {
+		transform: translateY(0px);
+	}
+}
+
+@keyframes pulse {
+	0% {
+		opacity: 1;
+	}
+	50% {
+		opacity: 0.5;
+	}
+	100% {
+		opacity: 1;
+	}
+}
+
+@keyframes fadeIn {
+	from {
+		opacity: 0;
+		transform: translateY(10px);
+	}
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
 }
