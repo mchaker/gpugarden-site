@@ -104,31 +104,3 @@
 		<i class="fas fa-arrow-up text-sm md:text-base"></i>
 	</button>
 </div>
-
-<style>
-	/* Override the global link color for buttons with text stroke */
-	a.bg-green-500,
-	a.bg-indigo-500,
-	a.bg-blue-500 {
-		color: white !important;
-		text-decoration: none;
-		text-shadow:
-			-1px -1px 0 #000,
-			1px -1px 0 #000,
-			-1px 1px 0 #000,
-			1px 1px 0 #000;
-		font-weight: 600;
-	}
-
-	a.bg-green-500:hover,
-	a.bg-indigo-500:hover,
-	a.bg-blue-500:hover {
-		color: white !important;
-		text-decoration: none;
-		text-shadow:
-			-1px -1px 0 #000,
-			1px -1px 0 #000,
-			-1px 1px 0 #000,
-			1px 1px 0 #000;
-	}
-</style>

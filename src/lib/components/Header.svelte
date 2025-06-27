@@ -28,7 +28,11 @@
 				<a href="#support" class="text-zinc-300 transition hover:text-white">Support</a>
 				<a href="#services" class="text-zinc-300 transition hover:text-white">Services</a>
 			</nav>
-			<button on:click={toggleLocalMenu} class="text-zinc-300 hover:text-white md:hidden">
+			<button
+				on:click={toggleLocalMenu}
+				class="text-zinc-300 hover:text-white md:hidden"
+				aria-label="Toggle mobile menu"
+			>
 				<i class="fas fa-bars text-2xl"></i>
 			</button>
 		</div>

@@ -4,9 +4,6 @@
 /* This activates the Typography plugin for Tailwind CSS */
 @plugin '@tailwindcss/typography';
 
-/* Google Fonts import - MOVED TO TOP */
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap');
-
 /* CSS Variables for theme colors */
 :root {
 	--primary: #ff5f1f;
