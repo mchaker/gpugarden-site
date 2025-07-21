@@ -17,7 +17,7 @@
 				Feel free to sign up! Once you do, reach out to astro to activate your account.
 			</p>
 			<a
-				href="https://oui.gpu.garden/"
+				href="https://swarmui.gpu.garden/"
 				target="_blank"
 				class="btn-primary rounded-full px-4 py-2 text-sm font-medium"
 			>
