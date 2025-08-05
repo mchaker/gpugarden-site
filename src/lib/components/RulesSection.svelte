@@ -14,7 +14,7 @@
 					<i class="fas fa-ban text-xs text-white"></i>
 				</div>
 				<div>
-					<h3 class="mb-2 text-lg font-bold text-white">No NSFW Content</h3>
+					<h3 class="mb-2 text-lg font-bold text-white">No NSFW Models</h3>
 					<p class="text-gray-300">
 						No porn-specific models or illegal content (we follow U.S. law).
 					</p>
