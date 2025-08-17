@@ -37,17 +37,21 @@
 
 <section class="flex-grow px-4 py-8 sm:px-6 sm:py-12 md:py-16 lg:px-8">
 	<div class="container mx-auto flex flex-col items-center justify-between lg:flex-row">
-		<div class="mb-8 sm:mb-10 lg:mb-0 lg:w-1/2">
+		<div class="mb-8 text-black sm:mb-10 lg:mb-0 lg:w-1/2 dark:text-white">
 			<h2
-				class="title-font mb-4 text-2xl font-bold text-white sm:mb-6 sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl"
+				class="title-font text-outline mb-4 text-2xl font-bold text-black sm:mb-6 sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl dark:text-white"
 			>
-				Who would've known <span class="gradient-text">AI image gen</span> could be free ???
+				Who would've known
+				<span class="gradient-text drop-shadow sm:drop-shadow-md dark:drop-shadow-none"
+					>AI image gen</span
+				>
+				could be free ???
 			</h2>
-			<p class="mb-6 text-sm text-gray-300 sm:mb-8 sm:text-base">
+			<p class="text-outline mb-6 text-sm text-black sm:mb-8 sm:text-base dark:text-zinc-300">
 				A beautiful little corner of the web for AI enthusiasts, powered by the
 				<a
 					href="/datacenter"
-					class="text-yellow-400 underline hover:text-yellow-300"
+					class="text-black underline decoration-yellow-400 hover:text-black dark:text-yellow-400 dark:hover:text-yellow-300"
 					on:mouseenter={handleDatacenterMouseEnter}
 					on:mouseleave={handleDatacenterMouseLeave}
 					on:mousemove={handleDatacenterMouseMove}

@@ -28,3 +28,6 @@ jobs:
 
       - name: Verify
         run: pnpm ci:verify
+
+      - name: Build
+        run: pnpm build

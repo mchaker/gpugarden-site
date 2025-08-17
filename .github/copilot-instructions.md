@@ -9,7 +9,7 @@ This repo is a SvelteKit (Svelte 5) site styled with Tailwind CSS v4, deployed o
   - Root page at `src/routes/+page.svelte` composes UI from `$lib/components/*`.
   - Additional routes: `src/routes/datacenter/+page.svelte`, `src/routes/gpu-gardener/+page.svelte` (pattern to follow for new pages).
 - Shared components in `src/lib/components` (Header, Footer, sections). Import via `$lib` alias.
-- Global head and html shell are in `src/app.html` (fonts, meta). The home page adds Font Awesome in its own `<svelte:head>`.
+- Global head and html shell are in `src/app.html` (fonts, meta, manifest). Font Awesome is linked globally here for all routes.
 
 ### Styling conventions (Tailwind v4 + custom CSS)
 
@@ -50,7 +50,7 @@ This repo is a SvelteKit (Svelte 5) site styled with Tailwind CSS v4, deployed o
 
 ### Assets and references
 
-- Public assets live in `static/` (e.g., `static/images/*`, `static/favicon.png`). Reference with absolute paths (`/images/...`).
+- Public assets live in `static/` (e.g., `static/images/*`, `static/favicon.png`). Reference with absolute paths (`/images/...`). A basic `robots.txt` and `sitemap.xml` are present.
 - Fonts are loaded in `src/app.html`. Font Awesome is linked in the home page head; if you create additional pages relying on FA icons, add the same `<link>` or promote it to a shared location if needed.
 
 ### Gotchas and patterns to respect

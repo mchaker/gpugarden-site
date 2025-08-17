@@ -50,7 +50,8 @@ export function initializeTheme() {
 	// Only update store, don't re-apply theme if already applied
 	darkMode.set(isDark);
 
-	if (!hasExistingTheme && !isDark) {
+	// If no theme class exists yet, apply the resolved preference now
+	if (!hasExistingTheme) {
 		applyTheme(isDark);
 	}
 

@@ -144,6 +144,21 @@ a[role='button'] {
 	animation: gradient 4s ease-in-out infinite;
 }
 
+/* Improve gradient text legibility on light backgrounds */
+html:not(.dark) .gradient-text {
+	text-shadow: 0 1px 1px rgba(0, 0, 0, 0.35);
+}
+
+/* Thin black text outline for light mode */
+html:not(.dark) .text-outline {
+	-webkit-text-stroke: 0.5px rgba(0, 0, 0, 0.7);
+	text-shadow:
+		0 1px 0 rgba(0, 0, 0, 0.35),
+		0 -1px 0 rgba(0, 0, 0, 0.35),
+		1px 0 0 rgba(0, 0, 0, 0.35),
+		-1px 0 0 rgba(0, 0, 0, 0.35);
+}
+
 .card-glass {
 	@apply rounded-2xl border backdrop-blur-lg transition-all duration-300;
 	background: rgba(0, 0, 0, 0.5);

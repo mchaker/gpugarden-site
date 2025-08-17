@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en" class="dark">
+<html lang="en">
 	<head>
 		<!-- External stylesheets for fonts -->
 		<link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -17,6 +17,16 @@
 		<meta charset="utf-8" />
 		<link rel="icon" href="/favicon.png" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+		<!-- Web App Manifest -->
+		<link rel="manifest" href="/site.webmanifest" />
+
+		<!-- Font Awesome (global for all routes) -->
+		<link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin />
+		<link
+			rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+		/>
 
 		<!-- Open Graph metadata for social media sharing -->
 		<meta property="og:type" content="website" />
@@ -36,7 +46,8 @@
 		/>
 		<meta name="twitter:image" content="https://gpu.garden/favicon.png" />
 
-		<!-- Add this CSS for dark mode fallback -->
+		<!-- Theme color + dark mode fallback -->
+		<meta name="theme-color" content="#000000" />
 		<style>
 			/* Ensure dark mode works */
 			@media (prefers-color-scheme: dark) {

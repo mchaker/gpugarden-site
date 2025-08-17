@@ -2,11 +2,16 @@
 	// Import the global stylesheet so that its classes and base styles
 	// are available to every element rendered by this component.
 	import '../app.css';
+	import { onMount } from 'svelte';
+	import { initializeTheme } from '$lib/stores/theme';
 
 	// `$props()` is a Svelte 5 helper that gives you the props passed in
 	// from the parent component. Here we immediately destructure `children`,
 	// which is expected to be a function that returns markup (see below).
 	let { children } = $props();
+	onMount(() => {
+		initializeTheme();
+	});
 </script>
 
 <!--

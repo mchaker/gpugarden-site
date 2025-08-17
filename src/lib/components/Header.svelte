@@ -4,10 +4,29 @@
 -->
 
 <script lang="ts">
+	import { browser } from '$app/environment';
+	import { darkMode, toggleTheme } from '$lib/stores/theme';
+
 	let mobileMenuOpen = false;
+	let headerEl: HTMLElement;
+	let firstMobileLink: HTMLAnchorElement | null = null;
 
 	function toggleLocalMenu() {
 		mobileMenuOpen = !mobileMenuOpen;
+	}
+
+	// Close on outside click
+	const handleWindowClick = (e: MouseEvent) => {
+		if (!mobileMenuOpen) return;
+		const target = e.target as Node | null;
+		if (target && headerEl && !headerEl.contains(target)) {
+			mobileMenuOpen = false;
+		}
+	};
+
+	// Move focus into the menu when it opens
+	$: if (mobileMenuOpen && browser) {
+		queueMicrotask(() => firstMobileLink?.focus());
 	}
 </script>
 
@@ -15,6 +34,7 @@
 
 <header
 	class="sticky top-0 z-50 border-b border-zinc-800 bg-black/80 px-4 py-4 shadow-sm backdrop-blur-lg transition-colors duration-300 sm:px-6 lg:px-8"
+	bind:this={headerEl}
 >
 	<div class="container mx-auto flex items-center justify-between">
 		<div class="flex items-center space-x-2">
@@ -40,6 +60,21 @@
 			>
 				<i class="fas fa-bars text-2xl"></i>
 			</button>
+
+			<!-- Dark mode toggle -->
+			<button
+				class="ml-2 rounded p-2 text-zinc-300 hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-yellow-400"
+				aria-label="Toggle color theme"
+				aria-pressed={$darkMode}
+				on:click={toggleTheme}
+				title={$darkMode ? 'Switch to light mode' : 'Switch to dark mode'}
+			>
+				{#if $darkMode}
+					<i class="fas fa-moon" aria-hidden="true"></i>
+				{:else}
+					<i class="fas fa-sun" aria-hidden="true"></i>
+				{/if}
+			</button>
 		</div>
 	</div>
 
@@ -48,6 +83,7 @@
 		<div class="mt-4 md:hidden">
 			<a
 				href="#welcome"
+				bind:this={firstMobileLink}
 				on:click={() => (mobileMenuOpen = false)}
 				class="block py-2 text-right text-zinc-300 transition hover:text-white">Welcome</a
 			>
@@ -69,6 +105,13 @@
 		</div>
 	{/if}
 </header>
+
+<svelte:window
+	on:click={handleWindowClick}
+	on:keydown={(e) => {
+		if (e.key === 'Escape' && mobileMenuOpen) mobileMenuOpen = false;
+	}}
+/>
 
 <style>
 	.gradient-text {
