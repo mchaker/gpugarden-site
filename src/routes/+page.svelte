@@ -9,15 +9,24 @@
 	import ServicesSection from '$lib/components/ServicesSection.svelte';
 
 	onMount(() => {
-		const backToTopButton = document.getElementById('backToTop');
-		const footer = document.querySelector('footer');
+		const backToTopButton = document.getElementById('backToTop') as HTMLButtonElement | null;
+		const footer = document.querySelector('footer') as HTMLElement | null;
 
 		if (backToTopButton && footer) {
+			const setHidden = (hidden: boolean) => {
+				backToTopButton.setAttribute('aria-hidden', hidden ? 'true' : 'false');
+				backToTopButton.tabIndex = hidden ? -1 : 0;
+			};
+
+			// initialize as hidden
+			setHidden(true);
+
 			const updateButtonPosition = () => {
 				const footerRect = footer.getBoundingClientRect();
 				if (window.pageYOffset > 300) {
 					backToTopButton.classList.remove('opacity-0', 'invisible');
 					backToTopButton.classList.add('opacity-100', 'visible');
+					setHidden(false);
 
 					if (footerRect.top < window.innerHeight) {
 						const buttonBottom = window.innerHeight - footerRect.top + 20;
@@ -29,6 +38,7 @@
 					backToTopButton.classList.remove('opacity-100', 'visible');
 					backToTopButton.classList.add('opacity-0', 'invisible');
 					backToTopButton.style.bottom = '1.5rem';
+					setHidden(true);
 				}
 			};
 
@@ -40,20 +50,21 @@
 					top: 0,
 					behavior: 'smooth'
 				});
+				// prevent focus leaving the button in a weird state
+				backToTopButton.blur();
 			});
 		}
 
 		document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
-			anchor.addEventListener('click', function (e) {
-				const href = (this as HTMLAnchorElement).getAttribute('href');
+			anchor.addEventListener('click', (e) => {
+				const el = e.currentTarget as HTMLAnchorElement | null;
+				const href = el?.getAttribute('href');
 				if (!href || href === '#') return;
 
 				const targetElement = document.querySelector(href);
 				if (targetElement) {
 					e.preventDefault();
-					targetElement.scrollIntoView({
-						behavior: 'smooth'
-					});
+					targetElement.scrollIntoView({ behavior: 'smooth' });
 				}
 			});
 		});
@@ -84,7 +95,7 @@
 	<HeroSection />
 
 	<!-- Main Content -->
-	<main class="px-4 py-12 sm:px-6 lg:px-8">
+	<main id="main-content" class="px-4 py-12 sm:px-6 lg:px-8">
 		<div class="container mx-auto">
 			<WelcomeSection />
 			<RulesSection />
@@ -100,6 +111,8 @@
 		id="backToTop"
 		class="invisible fixed right-4 bottom-20 z-50 flex h-10 w-10 items-center justify-center rounded-full bg-gradient-to-br from-red-500 to-yellow-400 text-white opacity-0 shadow-lg transition hover:scale-110 hover:animate-pulse md:right-8 md:h-12 md:w-12"
 		aria-label="Back to top"
+		aria-hidden="true"
+		tabindex="-1"
 	>
 		<i class="fas fa-arrow-up text-sm md:text-base"></i>
 	</button>

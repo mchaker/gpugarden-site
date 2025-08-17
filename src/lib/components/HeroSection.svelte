@@ -1,8 +1,8 @@
-<script>
+<script lang="ts">
 	let showDatacenterModal = false;
-	let modalPosition = { x: 0, y: 0 };
+	let modalPosition: { x: number; y: number } = { x: 0, y: 0 };
 
-	function handleDatacenterMouseEnter(event) {
+	function handleDatacenterMouseEnter(event: MouseEvent) {
 		showDatacenterModal = true;
 		updateModalPosition(event);
 	}
@@ -11,16 +11,26 @@
 		showDatacenterModal = false;
 	}
 
-	function handleDatacenterMouseMove(event) {
+	function handleDatacenterMouseMove(event: MouseEvent) {
 		if (showDatacenterModal) {
 			updateModalPosition(event);
 		}
 	}
 
-	function updateModalPosition(event) {
+	function handleDatacenterFocus() {
+		showDatacenterModal = true;
+		// Place tooltip near the link when focused
+		modalPosition = { x: 20, y: 20 };
+	}
+
+	function handleDatacenterBlur() {
+		showDatacenterModal = false;
+	}
+
+	function updateModalPosition(event: MouseEvent) {
 		modalPosition = {
 			x: event.clientX + 10,
-			y: event.clientY - 20 // Changed from +10 to -20 to position above cursor
+			y: event.clientY - 20 // position above cursor
 		};
 	}
 </script>
@@ -40,23 +50,31 @@
 					class="text-yellow-400 underline hover:text-yellow-300"
 					on:mouseenter={handleDatacenterMouseEnter}
 					on:mouseleave={handleDatacenterMouseLeave}
-					on:mousemove={handleDatacenterMouseMove}>fartcore datacenter</a
+					on:mousemove={handleDatacenterMouseMove}
+					on:focus={handleDatacenterFocus}
+					on:blur={handleDatacenterBlur}
+					aria-describedby="datacenter-tooltip">fartcore datacenter</a
 				>.
+				<span class="sr-only" id="new-tab-note">(opens in a new tab)</span>
 			</p>
 			<div class="flex flex-col space-y-3 sm:flex-row sm:space-y-0 sm:space-x-4">
 				<a
 					href="https://swarmui.gpu.garden/"
 					target="_blank"
+					rel="noopener noreferrer"
+					aria-describedby="new-tab-note"
 					class="btn-primary rounded-full px-4 py-2 text-center text-sm font-medium sm:px-6 sm:py-3 sm:text-base"
 				>
-					Explore SwarmUI <i class="fas fa-arrow-right ml-2"></i>
+					Explore SwarmUI <i class="fas fa-arrow-right ml-2" aria-hidden="true"></i>
 				</a>
 				<a
 					href="https://discord.gg/yw4HGWC2wm"
 					target="_blank"
+					rel="noopener noreferrer"
+					aria-describedby="new-tab-note"
 					class="hover:bg-opacity-10 rounded-full border border-yellow-500 px-4 py-2 text-center text-sm font-medium text-yellow-500 transition hover:bg-yellow-500 hover:text-black sm:px-6 sm:py-3 sm:text-base"
 				>
-					Join Discord <i class="fab fa-discord ml-2"></i>
+					Join Discord <i class="fab fa-discord ml-2" aria-hidden="true"></i>
 				</a>
 			</div>
 		</div>
@@ -85,6 +103,9 @@
 	<div
 		class="pointer-events-none fixed z-[9999]"
 		style="left: {modalPosition.x}px; top: {modalPosition.y}px;"
+		role="tooltip"
+		id="datacenter-tooltip"
+		aria-hidden={showDatacenterModal ? 'false' : 'true'}
 	>
 		<div class="modal-image-container">
 			<img

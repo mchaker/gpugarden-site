@@ -47,7 +47,7 @@
 					</div>
 				</div>
 
-				<div class="mt-6 text-center">
+				<div class="prose prose-invert mt-6 max-w-none text-center">
 					<p class="text-sm text-gray-300 sm:text-base">
 						Behold, the legendary <span class="gradient-text font-semibold"
 							>fartcore datacenter</span
@@ -58,14 +58,15 @@
 							href="/"
 							class="hover:bg-opacity-10 rounded-full border border-yellow-500 px-4 py-2 text-center text-sm font-medium text-yellow-500 transition hover:bg-yellow-500 sm:px-6 sm:py-3 sm:text-base"
 						>
-							<i class="fas fa-arrow-left mr-2"></i>Back to Home
+							<i class="fas fa-arrow-left mr-2" aria-hidden="true"></i>Back to Home
 						</a>
 						<a
 							href="https://swarmui.gpu.garden/"
 							target="_blank"
+							rel="noopener noreferrer"
 							class="btn-primary rounded-full px-4 py-2 text-center text-sm font-medium sm:px-6 sm:py-3 sm:text-base"
 						>
-							Try SwarmUI <i class="fas fa-arrow-right ml-2"></i>
+							Try SwarmUI <i class="fas fa-arrow-right ml-2" aria-hidden="true"></i>
 						</a>
 					</div>
 				</div>

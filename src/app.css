@@ -54,9 +54,36 @@
 		@apply font-medium text-yellow-400 hover:text-yellow-300;
 	}
 
+	/* Skip link - visually hidden until focused */
+	.skip-link {
+		position: absolute;
+		top: -40px;
+		left: 0;
+		background: #000;
+		color: #fff;
+		padding: 8px 12px;
+		z-index: 10000;
+	}
+
+	.skip-link:focus {
+		top: 0;
+	}
+
 	/* Section boxes */
 	.section-box {
 		@apply rounded-lg border border-zinc-700 bg-zinc-900 p-4 shadow;
+	}
+
+	/* Visible focus indicator for keyboard users */
+	a:focus-visible,
+	button:focus-visible,
+	[role='button']:focus-visible,
+	input:focus-visible,
+	select:focus-visible,
+	textarea:focus-visible {
+		outline: 3px solid var(--accent);
+		outline-offset: 3px;
+		text-decoration: none !important;
 	}
 }
 
@@ -67,6 +94,18 @@ a:not(.btn-primary):not(.card-glass *):not([class*='text-']) {
 
 a:hover {
 	text-decoration: underline;
+}
+
+/* Inline links are underlined by default only within prose content */
+.prose a:not(.btn-primary):not(.service-link):not([role='button']):not(.no-underline) {
+	text-decoration: underline;
+}
+
+/* Button-like links should not be underlined */
+a.btn-primary,
+.service-link,
+a[role='button'] {
+	text-decoration: none;
 }
 
 /* Button hover states - remove underlines and fix text visibility */
@@ -129,6 +168,13 @@ a:hover {
 .btn-primary:hover {
 	transform: translateY(-2px);
 	box-shadow: 0 10px 20px -5px rgba(255, 95, 31, 0.3);
+}
+
+.btn-primary:focus-visible,
+.service-link:focus-visible,
+a[role='button']:focus-visible {
+	outline: 3px solid var(--accent);
+	outline-offset: 3px;
 }
 
 .floating {
@@ -205,5 +251,61 @@ a:hover {
 	to {
 		opacity: 1;
 		transform: translateY(0);
+	}
+}
+
+/* High-contrast user preference adjustments */
+@media (prefers-contrast: more) {
+	/* Improve text contrast in light and dark */
+	html:not(.dark) body {
+		color: #111111;
+	}
+	.dark body {
+		color: #ffffff;
+	}
+
+	/* Make gradient text a solid high-contrast color */
+	.gradient-text {
+		animation: none !important;
+		background: none !important;
+		-webkit-background-clip: initial !important;
+		background-clip: initial !important;
+		color: #ffffff !important;
+	}
+	html:not(.dark) .gradient-text {
+		color: #000000 !important;
+	}
+
+	/* Strengthen link affordance */
+	a:not(.btn-primary) {
+		text-decoration: underline;
+	}
+	html:not(.dark) a {
+		color: #0ea5e9 !important; /* sky-500 */
+	}
+	.dark a {
+		color: #ffffff !important;
+	}
+
+	/* Stronger focus outlines */
+	:is(a, button, [role='button'], input, select, textarea):focus-visible {
+		outline: 3px solid #000000 !important;
+		outline-offset: 3px;
+	}
+	.dark :is(a, button, [role='button'], input, select, textarea):focus-visible {
+		outline: 3px solid #ffffff !important;
+	}
+}
+
+/* Reduced motion preference: disable non-essential animations */
+@media (prefers-reduced-motion: reduce) {
+	.gradient-text,
+	.floating,
+	.pulse,
+	.fade-in {
+		animation: none !important;
+	}
+	* {
+		scroll-behavior: auto !important;
 	}
 }

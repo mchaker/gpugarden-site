@@ -5,7 +5,7 @@
 		</div>
 		<h2 class="title-font gradient-text text-3xl font-bold">Rules</h2>
 	</div>
-	<div class="card-glass p-8">
+	<div class="card-glass prose prose-invert max-w-none p-8">
 		<div class="grid gap-6 md:grid-cols-2">
 			<div class="flex items-start">
 				<div

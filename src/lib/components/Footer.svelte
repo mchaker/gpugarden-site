@@ -18,7 +18,7 @@
 					class="text-red-600 transition hover:text-red-800 dark:text-gray-400 dark:hover:text-white"
 					aria-label="GitHub"
 				>
-					<i class="fab fa-github text-xl"></i>
+					<i class="fab fa-github text-xl" aria-hidden="true"></i>
 				</a>
 				<a
 					href="https://discord.gg/yw4HGWC2wm"
@@ -27,7 +27,7 @@
 					class="text-red-600 transition hover:text-red-800 dark:text-gray-400 dark:hover:text-white"
 					aria-label="Discord"
 				>
-					<i class="fab fa-discord text-xl"></i>
+					<i class="fab fa-discord text-xl" aria-hidden="true"></i>
 				</a>
 				<a
 					href="https://buymeacoffee.com/astromahdi"
@@ -36,7 +36,7 @@
 					class="text-red-600 transition hover:text-red-800 dark:text-gray-400 dark:hover:text-white"
 					aria-label="Buy Me A Coffee"
 				>
-					<i class="fas fa-coffee text-xl"></i>
+					<i class="fas fa-coffee text-xl" aria-hidden="true"></i>
 				</a>
 			</div>
 			<div class="text-center text-red-700 md:text-right dark:text-gray-400">
@@ -44,12 +44,14 @@
 					This homepage is built with <a
 						href="https://kit.svelte.dev/"
 						target="_blank"
+						rel="noopener noreferrer"
 						class="text-red-600 hover:underline dark:text-yellow-400">SvelteKit</a
 					>
 					and
 					<a
 						href="https://tailwindcss.com/"
 						target="_blank"
+						rel="noopener noreferrer"
 						class="text-red-600 hover:underline dark:text-yellow-400">Tailwind CSS</a
 					>
 					.
@@ -58,12 +60,14 @@
 					Designed and rebuilt by <a
 						href="https://mooshieblob.com/"
 						target="_blank"
+						rel="noopener noreferrer"
 						class="text-red-600 hover:underline dark:text-yellow-400">blob</a
 					>
 					. gpu.garden is owned and managed by
 					<a
 						href="https://fartcore.ai/"
 						target="_blank"
+						rel="noopener noreferrer"
 						class="text-red-600 hover:underline dark:text-yellow-400">fartcore</a
 					>
 					.

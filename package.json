@@ -11,7 +11,9 @@
 		"check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
 		"check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
 		"format": "prettier --write .",
-		"lint": "prettier --check . && eslint ."
+		"lint": "prettier --check . && eslint .",
+		"a11y:blank-rel": "node ./scripts/check-rel-noopener.mjs",
+		"ci:verify": "pnpm format && pnpm lint && pnpm a11y:blank-rel && pnpm check"
 	},
 	"devDependencies": {
 		"@eslint/compat": "^1.2.5",

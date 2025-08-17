@@ -11,18 +11,20 @@
 	}
 </script>
 
+<a href="#main-content" class="skip-link">Skip to main content</a>
+
 <header
 	class="sticky top-0 z-50 border-b border-zinc-800 bg-black/80 px-4 py-4 shadow-sm backdrop-blur-lg transition-colors duration-300 sm:px-6 lg:px-8"
 >
 	<div class="container mx-auto flex items-center justify-between">
 		<div class="flex items-center space-x-2">
-			<img src="/favicon.png" alt="gpu.garden logo" class="h12 w-12" />
-			<h1 class="title-font gradient-text text-2xl font-bold">gpu.garden</h1>
+			<img src="/favicon.png" alt="gpu.garden logo" class="h-12 w-12" />
+			<div class="title-font gradient-text text-2xl font-bold">gpu.garden</div>
 		</div>
 
 		<!-- Group navigation and mobile menu button to right-align them -->
 		<div class="flex items-center gap-4">
-			<nav class="hidden space-x-6 md:flex">
+			<nav id="primary-nav" aria-label="Primary" class="hidden space-x-6 md:flex">
 				<a href="#welcome" class="text-zinc-300 transition hover:text-white">Welcome</a>
 				<a href="#rules" class="text-zinc-300 transition hover:text-white">Rules</a>
 				<a href="#support" class="text-zinc-300 transition hover:text-white">Support</a>
@@ -32,6 +34,9 @@
 				on:click={toggleLocalMenu}
 				class="text-zinc-300 hover:text-white md:hidden"
 				aria-label="Toggle mobile menu"
+				aria-haspopup="true"
+				aria-expanded={mobileMenuOpen}
+				aria-controls="primary-nav"
 			>
 				<i class="fas fa-bars text-2xl"></i>
 			</button>

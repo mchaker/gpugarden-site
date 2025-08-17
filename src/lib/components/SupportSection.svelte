@@ -5,7 +5,7 @@
 		</div>
 		<h2 class="title-font gradient-text text-3xl font-bold">Support</h2>
 	</div>
-	<div class="card-glass p-8">
+	<div class="card-glass prose prose-invert max-w-none p-8">
 		<div class="mx-auto max-w-3xl text-center">
 			<h3 class="title-font mb-4 text-2xl font-bold text-white">Help keep the GPUs running!</h3>
 			<p class="mb-6 text-gray-300">
@@ -16,9 +16,10 @@
 				<a
 					href="https://buymeacoffee.com/astromahdi"
 					target="_blank"
+					rel="noopener noreferrer"
 					class="hover:bg-opacity-10 rounded-full border border-yellow-400 px-6 py-3 font-medium text-yellow-400 transition hover:bg-yellow-400 hover:text-black"
 				>
-					Buy Me a Coffee <i class="fas fa-coffee ml-2"></i>
+					Buy Me a Coffee <i class="fas fa-coffee ml-2" aria-hidden="true"></i>
 				</a>
 			</div>
 		</div>

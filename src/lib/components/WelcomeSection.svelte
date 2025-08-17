@@ -19,9 +19,11 @@
 			<a
 				href="https://swarmui.gpu.garden/"
 				target="_blank"
+				rel="noopener noreferrer"
+				aria-label="Sign Up (opens in a new tab)"
 				class="btn-primary rounded-full px-4 py-2 text-sm font-medium"
 			>
-				Sign Up <i class="fas fa-user-plus ml-2"></i>
+				Sign Up <i class="fas fa-user-plus ml-2" aria-hidden="true"></i>
 			</a>
 		</div>
 		<div class="card-glass p-8">
@@ -39,9 +41,11 @@
 			<a
 				href="https://discord.gg/yw4HGWC2wm"
 				target="_blank"
+				rel="noopener noreferrer"
+				aria-label="Get Access on Discord (opens in a new tab)"
 				class="hover:bg-opacity-10 inline-block rounded-full border border-purple-400 px-4 py-2 text-sm font-medium text-purple-400 transition hover:bg-purple-400 hover:text-black"
 			>
-				Get Access <i class="fab fa-discord ml-2"></i>
+				Get Access <i class="fab fa-discord ml-2" aria-hidden="true"></i>
 			</a>
 		</div>
 	</div>
