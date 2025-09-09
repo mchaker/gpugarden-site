@@ -1,63 +1,55 @@
-## Copilot: Project instructions for gpugarden-site
 
-This repo is a SvelteKit (Svelte 5) site styled with Tailwind CSS v4, deployed on Cloudflare (adapter-cloudflare). Keep changes small, idiomatic to SvelteKit, and aligned with existing styles/components.
+# Copilot: AI Coding Agent Instructions for gpugarden-site
 
-### Architecture and routing
+This repo is a SvelteKit v5 site styled with Tailwind CSS v4, deployed on Cloudflare using `@sveltejs/adapter-cloudflare`. Follow these instructions for productive, idiomatic changes:
 
-- Svelte 5 is used (see `src/routes/+layout.svelte` using `$props()` and `{@render ...}`).
-- File-based routing lives in `src/routes`:
-  - Root page at `src/routes/+page.svelte` composes UI from `$lib/components/*`.
-  - Additional routes: `src/routes/datacenter/+page.svelte`, `src/routes/gpu-gardener/+page.svelte` (pattern to follow for new pages).
-- Shared components in `src/lib/components` (Header, Footer, sections). Import via `$lib` alias.
-- Global head and html shell are in `src/app.html` (fonts, meta, manifest). Font Awesome is linked globally here for all routes.
+## Architecture & Routing
+- **SvelteKit 5**: Uses `$props()` and `{@render ...}` in layouts (see `src/routes/+layout.svelte`).
+- **File-based routing**: Pages live in `src/routes/`. The root (`+page.svelte`) composes UI from `$lib/components/*`. Additional routes follow the pattern: `src/routes/<slug>/+page.svelte`.
+- **Components**: Shared UI in `src/lib/components/` (e.g., `Header.svelte`, `Footer.svelte`, section components). Import via `$lib` alias.
+- **Global HTML shell**: `src/app.html` sets up fonts, meta, manifest, and Font Awesome (for icons).
 
-### Styling conventions (Tailwind v4 + custom CSS)
+## Styling & Conventions
+- **Tailwind v4**: Activated via CSS only (`src/app.css`), not JS config. Use utility classes and project-level classes: `.card-glass`, `.btn-primary`, `.gradient-text`, `.title-font`, `.accent-link`.
+- **Brand colors**: CSS variables under `:root` (`--primary`, `--secondary`, `--accent`).
+- **Links**: Default to yellow accent; button links opt-out via `.btn-primary` or explicit classes.
+- **Typography**: Use `.prose` for rich content (via `@tailwindcss/typography`).
 
-- Tailwind v4 is activated via CSS, not a JS config: see `src/app.css` with `@import 'tailwindcss'` and `@plugin '@tailwindcss/typography'`.
-- Prefer utility classes. Project-level component classes defined in `src/app.css`:
-  - `.card-glass`, `.btn-primary`, `.gradient-text`, `.title-font`, `.accent-link`.
-  - Brand colors are CSS variables under `:root` (`--primary`, `--secondary`, `--accent`).
-- Links default to yellow accent via a global selector; keep button links opt-out (`btn-primary`, or explicit classes) to avoid underlines.
+## Theming & Client Behaviors
+- **Dark mode**: Toggles `class="dark"` on `<html>`, managed by `src/lib/stores/theme.ts` (`darkMode`, `toggleTheme`, `initializeTheme`). Use `browser` guard or `onMount` for DOM access.
+- **Client-only effects**: Smooth scrolling/back-to-top logic in `src/routes/+page.svelte` (inside `onMount`). Follow this pattern for new DOM effects.
 
-### Theming and client-only behaviors
+## Build, Dev, & Quality
+- **Package manager**: pnpm.
+- **Scripts** (see `package.json`):
+  - `pnpm dev` – local dev server
+  - `pnpm build` – production build
+  - `pnpm preview` – preview build output
+  - `pnpm check` – Svelte/TS diagnostics
+  - `pnpm lint` / `pnpm format` – ESLint 9 + Prettier (with Tailwind plugin)
 
-- Dark mode toggles `class="dark"` on `<html>` and is initialized via `src/lib/stores/theme.ts` (`darkMode`, `toggleTheme`, `initializeTheme`).
-  - Use `browser` guard or `onMount` for any DOM access.
-- Smooth scrolling and back-to-top button logic in `src/routes/+page.svelte` runs inside `onMount`. Follow this pattern for new DOM effects.
+## Cloudflare Deployment
+- **Adapter**: `@sveltejs/adapter-cloudflare` (see `svelte.config.js`). No `wrangler.toml`.
+- **Node version**: Pin to `20.18.1` (see `.node-version`). Set `NODE_VERSION=20.18.1` in Cloudflare Pages env vars if needed.
 
-### Build, dev, and quality checks
+## Adding/Modifying Pages & Components
+- **New page**: Create `src/routes/<slug>/+page.svelte`, compose from existing sections/components, or add to `src/lib/components/`.
+- **Section pattern**: Follow examples like `HeroSection.svelte`, `WelcomeSection.svelte`, `RulesSection.svelte`. Use `.card-glass` and `.btn-primary` for UI consistency.
 
-- Package manager: pnpm.
-- Scripts (see `package.json`):
-  - `pnpm dev` – local dev server.
-  - `pnpm build` – production build (adapter-cloudflare).
-  - `pnpm preview` – preview build output.
-  - `pnpm check` – runs `svelte-check` (TS + Svelte diagnostics).
-  - `pnpm lint` / `pnpm format` – ESLint 9 + Prettier (with Tailwind plugin) enforce style and class ordering.
+## Assets & References
+- **Static assets**: In `static/` (e.g., `static/images/*`, `static/favicon.png`). Reference with absolute paths (`/images/...`).
+- **Fonts & icons**: Fonts loaded in `src/app.html`. Font Awesome is globally linked; if needed on new pages, add `<link>` or promote to shared location.
+- **Project docs**: https://docs.gpu.garden/
 
-### Cloudflare deployment specifics
+## Project-Specific Patterns & Gotchas
+- **No direct DOM access** outside `onMount` or without `browser` checks.
+- **Tailwind class order**: Prettier + Tailwind plugin enforce sorting (`pnpm format`).
+- **Use `$lib` alias** for imports from `src/lib`.
+- **Prefer CSS variables/utility classes** before adding new colors.
 
-- Adapter: `@sveltejs/adapter-cloudflare` (see `svelte.config.js`). No `wrangler.toml` is present.
-- Node version matters for the toolchain (e.g., `wrangler` → `undici`): pin Node >= 20.18.1.
-  - `.node-version` at repo root should be `20.18.1`.
-  - Optionally set `NODE_VERSION=20.18.1` in Cloudflare Pages env vars.
+## Examples
+- To add a new section, create a Svelte component in `src/lib/components/` and import it in the relevant page under `src/routes/`.
+- For dark mode toggling, use the store in `src/lib/stores/theme.ts` and update `<html>` class.
 
-### Adding or modifying pages/components
-
-- New page: create `src/routes/<slug>/+page.svelte` and compose existing sections or add a new component under `src/lib/components`.
-- Follow existing section patterns (`HeroSection.svelte`, `WelcomeSection.svelte`, `RulesSection.svelte`, etc.). Reuse `.card-glass` and `.btn-primary` for consistent UI.
-- Global typography and prose styles come via `@tailwindcss/typography`; wrap rich content in a `.prose` container when appropriate.
-
-### Assets and references
-
-- Public assets live in `static/` (e.g., `static/images/*`, `static/favicon.png`). Reference with absolute paths (`/images/...`). A basic `robots.txt` and `sitemap.xml` are present.
-- Fonts are loaded in `src/app.html`. Font Awesome is linked in the home page head; if you create additional pages relying on FA icons, add the same `<link>` or promote it to a shared location if needed.
-
-### Gotchas and patterns to respect
-
-- Avoid accessing `window/document` outside `onMount` or without `browser` checks.
-- Keep Tailwind class order tidy (Prettier + Tailwind plugin handles sorting; run `pnpm format`).
-- Use the `$lib` alias for imports from `src/lib`.
-- Prefer CSS variables and existing utility classes before adding new colors.
-
-If any of the above seems off or you need more detail (tests, data loading, or deployment settings), ask to refine this doc and we’ll update it.
+---
+If any section is unclear or incomplete, request feedback to iterate and improve these instructions.

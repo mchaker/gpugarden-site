@@ -68,6 +68,14 @@
 						>
 							Try SwarmUI <i class="fas fa-arrow-right ml-2" aria-hidden="true"></i>
 						</a>
+						<a
+							href="https://docs.gpu.garden/"
+							target="_blank"
+							rel="noopener noreferrer"
+							class="hover:bg-opacity-10 rounded-full border border-yellow-500 px-4 py-2 text-center text-sm font-medium text-yellow-500 transition hover:bg-yellow-500 sm:px-6 sm:py-3 sm:text-base"
+						>
+							<i class="fas fa-book mr-2" aria-hidden="true"></i>Read Docs
+						</a>
 					</div>
 				</div>
 			</div>
