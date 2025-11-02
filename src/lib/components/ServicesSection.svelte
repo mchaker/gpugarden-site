@@ -14,6 +14,30 @@
 			</div>
 		</a>
 		<a
+			href="https://stream.gpu.garden/"
+			target="_blank"
+			rel="noopener noreferrer"
+			class="card-glass service-link flex items-center space-x-3 p-4"
+		>
+			<span class="text-2xl">🎥</span>
+			<div>
+				<h3 class="font-bold text-white">stream.gpu.garden</h3>
+				<p class="text-sm text-gray-400">livestream of the shareservers</p>
+			</div>
+		</a>
+		<a
+			href="https://novel.gpu.garden/"
+			target="_blank"
+			rel="noopener noreferrer"
+			class="card-glass service-link flex items-center space-x-3 p-4"
+		>
+			<span class="text-2xl">🪄</span>
+			<div>
+				<h3 class="font-bold text-white">novel.gpu.garden</h3>
+				<p class="text-sm text-gray-400">chat / roleplay / storytelling AI (SillyTavern-like)</p>
+			</div>
+		</a>
+		<a
 			href="https://docs.gpu.garden/"
 			target="_blank"
 			rel="noopener noreferrer"
