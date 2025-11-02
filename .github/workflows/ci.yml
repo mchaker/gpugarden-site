@@ -18,10 +18,16 @@ jobs:
         with:
           node-version: 20.18.1
 
-      - name: Setup pnpm
+      - name: Setup pnpm (pin exact)
         uses: pnpm/action-setup@v4
         with:
-          version: 9
+          # pin pnpm to the exact version required by the repo
+          version: 10.18.3
+
+      - name: Ensure Corepack / pnpm
+        run: |
+          corepack enable
+          corepack prepare pnpm@10.18.3 --activate
 
       - name: Install dependencies
         run: pnpm install --frozen-lockfile=false
