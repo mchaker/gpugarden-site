@@ -38,6 +38,18 @@
 			</div>
 		</a>
 		<a
+			href="https://tagger.gpu.garden/"
+			target="_blank"
+			rel="noopener noreferrer"
+			class="card-glass service-link flex items-center space-x-3 p-4"
+		>
+			<img src="https://tagger.gpu.garden/favicon.png" alt="tagger logo" class="h-8 w-8" />
+			<div>
+				<h3 class="font-bold text-white">tagger.gpu.garden</h3>
+				<p class="text-sm text-gray-400">Danbooru / Natural Language image interrogator</p>
+			</div>
+		</a>
+		<a
 			href="https://docs.gpu.garden/"
 			target="_blank"
 			rel="noopener noreferrer"
