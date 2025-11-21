@@ -11,9 +11,9 @@
 				<div class="mr-4 flex h-10 w-10 items-center justify-center rounded-full bg-red-600">
 					<i class="fas fa-laptop-code text-yellow-200"></i>
 				</div>
-				<h3 class="title-font text-xl font-bold text-zinc-100 dark:text-white">Open WebUI</h3>
+				<h3 class="title-font text-xl font-bold text-stone-900 dark:text-white">Open WebUI</h3>
 			</div>
-			<p class="mb-6 text-zinc-200 dark:text-gray-300">
+			<p class="mb-6 text-stone-700 dark:text-gray-300">
 				Feel free to sign up! Once you do, reach out to astro to activate your account.
 			</p>
 			<a
@@ -31,10 +31,10 @@
 				<div class="mr-4 flex h-10 w-10 items-center justify-center rounded-full bg-yellow-500">
 					<i class="fas fa-paint-brush text-white"></i>
 				</div>
-				<h3 class="title-font text-xl font-bold text-zinc-100 dark:text-white">SwarmUI</h3>
+				<h3 class="title-font text-xl font-bold text-stone-900 dark:text-white">SwarmUI</h3>
 			</div>
-			<p class="mb-6 text-zinc-200 dark:text-gray-300">
-				Just ask in the TouhouAI Discord. Anyone with the <span class="text-emerald-300"
+			<p class="mb-6 text-stone-700 dark:text-gray-300">
+				Just ask in the TouhouAI Discord. Anyone with the <span class="text-emerald-600 dark:text-emerald-300"
 					>fartcore</span
 				> role can grant you access. We're pretty chill.
 			</p>

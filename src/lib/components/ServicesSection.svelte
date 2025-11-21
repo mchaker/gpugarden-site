@@ -9,8 +9,8 @@
 		<a href="/" class="card-glass service-link flex items-center space-x-3 p-4">
 			<span class="text-2xl">🪴</span>
 			<div>
-				<h3 class="font-bold text-white">gpu.garden</h3>
-				<p class="text-sm text-gray-400">homepage</p>
+				<h3 class="font-bold text-stone-900 dark:text-white">gpu.garden</h3>
+				<p class="text-sm text-stone-600 dark:text-gray-400">homepage</p>
 			</div>
 		</a>
 		<a
@@ -21,8 +21,8 @@
 		>
 			<span class="text-2xl">🎥</span>
 			<div>
-				<h3 class="font-bold text-white">stream.gpu.garden</h3>
-				<p class="text-sm text-gray-400">livestream of the shareservers</p>
+				<h3 class="font-bold text-stone-900 dark:text-white">stream.gpu.garden</h3>
+				<p class="text-sm text-stone-600 dark:text-gray-400">livestream of the shareservers</p>
 			</div>
 		</a>
 		<a
@@ -33,8 +33,8 @@
 		>
 			<span class="text-2xl">🪄</span>
 			<div>
-				<h3 class="font-bold text-white">novel.gpu.garden</h3>
-				<p class="text-sm text-gray-400">chat / roleplay / storytelling AI (SillyTavern-like)</p>
+				<h3 class="font-bold text-stone-900 dark:text-white">novel.gpu.garden</h3>
+				<p class="text-sm text-stone-600 dark:text-gray-400">chat / roleplay / storytelling AI (SillyTavern-like)</p>
 			</div>
 		</a>
 		<a
@@ -45,8 +45,8 @@
 		>
 			<img src="https://tagger.gpu.garden/favicon.png" alt="tagger logo" class="h-8 w-8" />
 			<div>
-				<h3 class="font-bold text-white">tagger.gpu.garden</h3>
-				<p class="text-sm text-gray-400">Danbooru / Natural Language image interrogator</p>
+				<h3 class="font-bold text-stone-900 dark:text-white">tagger.gpu.garden</h3>
+				<p class="text-sm text-stone-600 dark:text-gray-400">Danbooru / Natural Language image interrogator</p>
 			</div>
 		</a>
 		<a
@@ -57,8 +57,8 @@
 		>
 			<span class="text-2xl">📚</span>
 			<div>
-				<h3 class="font-bold text-white">docs.gpu.garden</h3>
-				<p class="text-sm text-gray-400">project documentation</p>
+				<h3 class="font-bold text-stone-900 dark:text-white">docs.gpu.garden</h3>
+				<p class="text-sm text-stone-600 dark:text-gray-400">project documentation</p>
 			</div>
 		</a>
 		<a
@@ -69,8 +69,8 @@
 		>
 			<span class="text-2xl">🖼️</span>
 			<div>
-				<h3 class="font-bold text-white">swarmui.gpu.garden</h3>
-				<p class="text-sm text-gray-400">image generation AI</p>
+				<h3 class="font-bold text-stone-900 dark:text-white">swarmui.gpu.garden</h3>
+				<p class="text-sm text-stone-600 dark:text-gray-400">image generation AI</p>
 			</div>
 		</a>
 		<a
@@ -81,8 +81,8 @@
 		>
 			<span class="text-2xl">🤖</span>
 			<div>
-				<h3 class="font-bold text-white">ComfyBackendDirect</h3>
-				<p class="text-sm text-gray-400">bare-bones ComfyUI (⚠️ requires login)</p>
+				<h3 class="font-bold text-stone-900 dark:text-white">ComfyBackendDirect</h3>
+				<p class="text-sm text-stone-600 dark:text-gray-400">bare-bones ComfyUI (⚠️ requires login)</p>
 			</div>
 		</a>
 		<a
@@ -93,8 +93,8 @@
 		>
 			<span class="text-2xl">📝</span>
 			<div>
-				<h3 class="font-bold text-white">oui.gpu.garden</h3>
-				<p class="text-sm text-gray-400">text/chat AI</p>
+				<h3 class="font-bold text-stone-900 dark:text-white">oui.gpu.garden</h3>
+				<p class="text-sm text-stone-600 dark:text-gray-400">text/chat AI</p>
 			</div>
 		</a>
 		<a
@@ -105,8 +105,8 @@
 		>
 			<span class="text-2xl">🖼️</span>
 			<div>
-				<h3 class="font-bold text-white">fartgram.gpu.garden</h3>
-				<p class="text-sm text-gray-400">A place to fart images onto the internet</p>
+				<h3 class="font-bold text-stone-900 dark:text-white">fartgram.gpu.garden</h3>
+				<p class="text-sm text-stone-600 dark:text-gray-400">A place to fart images onto the internet</p>
 			</div>
 		</a>
 		<a
@@ -117,8 +117,8 @@
 		>
 			<span class="text-2xl">🧐</span>
 			<div>
-				<h3 class="font-bold text-white">prompts.gpu.garden</h3>
-				<p class="text-sm text-gray-400">prompt history</p>
+				<h3 class="font-bold text-stone-900 dark:text-white">prompts.gpu.garden</h3>
+				<p class="text-sm text-stone-600 dark:text-gray-400">prompt history</p>
 			</div>
 		</a>
 		<a
@@ -129,8 +129,8 @@
 		>
 			<span class="text-2xl">📈</span>
 			<div>
-				<h3 class="font-bold text-white">stats.gpu.garden</h3>
-				<p class="text-sm text-gray-400">usage stats</p>
+				<h3 class="font-bold text-stone-900 dark:text-white">stats.gpu.garden</h3>
+				<p class="text-sm text-stone-600 dark:text-gray-400">usage stats</p>
 			</div>
 		</a>
 		<a
@@ -141,8 +141,8 @@
 		>
 			<span class="text-2xl">🩺</span>
 			<div>
-				<h3 class="font-bold text-white">status.gpu.garden</h3>
-				<p class="text-sm text-gray-400">system health</p>
+				<h3 class="font-bold text-stone-900 dark:text-white">status.gpu.garden</h3>
+				<p class="text-sm text-stone-600 dark:text-gray-400">system health</p>
 			</div>
 		</a>
 	</div>

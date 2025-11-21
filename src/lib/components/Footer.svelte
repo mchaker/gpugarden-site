@@ -15,7 +15,7 @@
 					href="https://github.com/mchaker/gpugarden-site"
 					target="_blank"
 					rel="noopener noreferrer"
-					class="text-red-600 transition hover:text-red-800 dark:text-gray-400 dark:hover:text-white"
+					class="text-stone-400 transition hover:text-white dark:text-gray-400 dark:hover:text-white"
 					aria-label="GitHub"
 				>
 					<i class="fab fa-github text-xl" aria-hidden="true"></i>
@@ -24,7 +24,7 @@
 					href="https://discord.gg/yw4HGWC2wm"
 					target="_blank"
 					rel="noopener noreferrer"
-					class="text-red-600 transition hover:text-red-800 dark:text-gray-400 dark:hover:text-white"
+					class="text-stone-400 transition hover:text-white dark:text-gray-400 dark:hover:text-white"
 					aria-label="Discord"
 				>
 					<i class="fab fa-discord text-xl" aria-hidden="true"></i>
@@ -33,26 +33,26 @@
 					href="https://buymeacoffee.com/astromahdi"
 					target="_blank"
 					rel="noopener noreferrer"
-					class="text-red-600 transition hover:text-red-800 dark:text-gray-400 dark:hover:text-white"
+					class="text-stone-400 transition hover:text-white dark:text-gray-400 dark:hover:text-white"
 					aria-label="Buy Me A Coffee"
 				>
 					<i class="fas fa-coffee text-xl" aria-hidden="true"></i>
 				</a>
 			</div>
-			<div class="text-center text-red-700 md:text-right dark:text-gray-400">
+			<div class="text-center text-stone-400 md:text-right dark:text-gray-400">
 				<p class="text-sm">
 					This homepage is built with <a
 						href="https://kit.svelte.dev/"
 						target="_blank"
 						rel="noopener noreferrer"
-						class="text-red-600 hover:underline dark:text-yellow-400">SvelteKit</a
+						class="text-stone-300 hover:underline dark:text-yellow-400">SvelteKit</a
 					>
 					and
 					<a
 						href="https://tailwindcss.com/"
 						target="_blank"
 						rel="noopener noreferrer"
-						class="text-red-600 hover:underline dark:text-yellow-400">Tailwind CSS</a
+						class="text-stone-300 hover:underline dark:text-yellow-400">Tailwind CSS</a
 					>
 					.
 				</p>
@@ -61,18 +61,18 @@
 						href="https://mooshieblob.com/"
 						target="_blank"
 						rel="noopener noreferrer"
-						class="text-red-600 hover:underline dark:text-yellow-400">blob</a
+						class="text-stone-300 hover:underline dark:text-yellow-400">blob</a
 					>
 					. gpu.garden is owned and managed by
 					<a
 						href="https://fartcore.ai/"
 						target="_blank"
 						rel="noopener noreferrer"
-						class="text-red-600 hover:underline dark:text-yellow-400">fartcore</a
+						class="text-stone-300 hover:underline dark:text-yellow-400">fartcore</a
 					>
 					.
 				</p>
-				<p class="mt-2 text-xs text-red-600 dark:text-gray-500">
+				<p class="mt-2 text-xs text-stone-500 dark:text-gray-500">
 					© 2024-2025 gpu.garden | All rights reserved
 				</p>
 			</div>

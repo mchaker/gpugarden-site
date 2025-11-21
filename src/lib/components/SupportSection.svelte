@@ -5,10 +5,10 @@
 		</div>
 		<h2 class="title-font gradient-text text-3xl font-bold">Support</h2>
 	</div>
-	<div class="card-glass prose prose-invert max-w-none p-8">
+	<div class="card-glass prose dark:prose-invert max-w-none p-8">
 		<div class="mx-auto max-w-3xl text-center">
-			<h3 class="title-font mb-4 text-2xl font-bold text-white">Help keep the GPUs running!</h3>
-			<p class="mb-6 text-gray-300">
+			<h3 class="title-font mb-4 text-2xl font-bold text-stone-900 dark:text-white">Help keep the GPUs running!</h3>
+			<p class="mb-6 text-stone-600 dark:text-gray-300">
 				Your support helps us maintain and expand our AI playground. Every contribution goes
 				directly towards hardware upgrades, maintenance, and keeping the services free for everyone.
 			</p>
