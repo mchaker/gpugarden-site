@@ -5,7 +5,7 @@
 
 <script lang="ts">
 	import { browser } from '$app/environment';
-	import { darkMode, toggleTheme } from '$lib/stores/theme';
+	import { darkMode, themeMode, toggleTheme } from '$lib/stores/theme';
 
 	let mobileMenuOpen = false;
 	let headerEl: HTMLElement;
@@ -67,9 +67,11 @@
 				aria-label="Toggle color theme"
 				aria-pressed={$darkMode}
 				on:click={toggleTheme}
-				title={$darkMode ? 'Switch to light mode' : 'Switch to dark mode'}
+				title={$themeMode === 'system' ? 'System theme' : $themeMode === 'dark' ? 'Dark mode' : 'Light mode'}
 			>
-				{#if $darkMode}
+				{#if $themeMode === 'system'}
+					<i class="fas fa-desktop" aria-hidden="true"></i>
+				{:else if $themeMode === 'dark'}
 					<i class="fas fa-moon" aria-hidden="true"></i>
 				{:else}
 					<i class="fas fa-sun" aria-hidden="true"></i>

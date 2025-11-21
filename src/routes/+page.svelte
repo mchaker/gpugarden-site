@@ -68,6 +68,43 @@
 				}
 			});
 		});
+
+		// Scroll animation for sections
+		const sections = document.querySelectorAll('.scroll-section');
+		let animationFrame: number;
+
+		function animateSections() {
+			sections.forEach((section) => {
+				const rect = section.getBoundingClientRect();
+				const top = rect.top;
+				const height = rect.height;
+
+				// Animate as it leaves the top of the viewport
+				if (top <= 0) {
+					// Calculate progress: 0 at top, 1 when fully scrolled out
+					const progress = Math.abs(top) / height;
+					
+					// Shrink to 80% and fade out
+					const scale = Math.max(0.8, 1 - progress * 0.2);
+					const opacity = Math.max(0, 1 - progress * 1.5);
+
+					(section as HTMLElement).style.transform = `scale(${scale})`;
+					(section as HTMLElement).style.opacity = `${opacity}`;
+				} else {
+					// Reset
+					(section as HTMLElement).style.transform = 'scale(1)';
+					(section as HTMLElement).style.opacity = '1';
+				}
+			});
+
+			animationFrame = requestAnimationFrame(animateSections);
+		}
+
+		animateSections();
+
+		return () => {
+			if (animationFrame) cancelAnimationFrame(animationFrame);
+		};
 	});
 </script>
 
@@ -88,15 +125,25 @@
 <div class="flex min-h-screen flex-col">
 	<Header />
 
-	<HeroSection />
+	<div class="scroll-section origin-top will-change-transform">
+		<HeroSection />
+	</div>
 
 	<!-- Main Content -->
 	<main id="main-content" class="px-4 py-12 sm:px-6 lg:px-8">
-		<div class="container mx-auto">
-			<WelcomeSection />
-			<RulesSection />
-			<SupportSection />
-			<ServicesSection />
+		<div class="container mx-auto space-y-24">
+			<div class="scroll-section origin-center will-change-transform">
+				<WelcomeSection />
+			</div>
+			<div class="scroll-section origin-center will-change-transform">
+				<RulesSection />
+			</div>
+			<div class="scroll-section origin-center will-change-transform">
+				<SupportSection />
+			</div>
+			<div class="scroll-section origin-center will-change-transform">
+				<ServicesSection />
+			</div>
 		</div>
 	</main>
 
