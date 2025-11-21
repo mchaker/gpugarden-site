@@ -8,20 +8,17 @@ export const darkMode = writable(false);
 function applyTheme(isDark: boolean) {
 	if (!browser) return;
 
-	// Use requestAnimationFrame to ensure DOM is ready
-	requestAnimationFrame(() => {
-		if (isDark) {
-			document.documentElement.classList.add('dark');
-		} else {
-			document.documentElement.classList.remove('dark');
-		}
+	if (isDark) {
+		document.documentElement.classList.add('dark');
+	} else {
+		document.documentElement.classList.remove('dark');
+	}
 
-		// Update theme-color meta tag
-		const themeMeta = document.querySelector('meta[name="theme-color"]');
-		if (themeMeta) {
-			themeMeta.setAttribute('content', isDark ? '#000000' : '#fef2f2');
-		}
-	});
+	// Update theme-color meta tag
+	const themeMeta = document.querySelector('meta[name="theme-color"]');
+	if (themeMeta) {
+		themeMeta.setAttribute('content', isDark ? '#000000' : '#fef2f2');
+	}
 }
 
 // Toggle theme and save preference
@@ -38,32 +35,41 @@ export function toggleTheme() {
 
 // Initialize theme on client side
 export function initializeTheme() {
-	if (!browser) return;
+	if (!browser) return () => {};
 
-	// Don't override if already set by app.html script
-	const hasExistingTheme = document.documentElement.classList.contains('dark');
 	const savedTheme = localStorage.getItem('theme');
 	const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
 
-	const isDark = savedTheme ? savedTheme === 'dark' : systemPrefersDark;
+	// Logic matches the inline script in app.html
+	const isDark = savedTheme === 'dark' || (!savedTheme && systemPrefersDark);
 
-	// Only update store, don't re-apply theme if already applied
 	darkMode.set(isDark);
-
-	// If no theme class exists yet, apply the resolved preference now
-	if (!hasExistingTheme) {
-		applyTheme(isDark);
-	}
+	// Ensure DOM is in sync (e.g. if script didn't run or logic drifted)
+	applyTheme(isDark);
 
 	// Listen for system theme changes
 	const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
-	const handleChange = (e: MediaQueryListEvent) => {
+	const handleSystemChange = (e: MediaQueryListEvent) => {
+		// Only respect system preference if no user override is set
 		if (!localStorage.getItem('theme')) {
 			darkMode.set(e.matches);
 			applyTheme(e.matches);
 		}
 	};
-	mediaQuery.addEventListener('change', handleChange);
+	mediaQuery.addEventListener('change', handleSystemChange);
 
-	return () => mediaQuery.removeEventListener('change', handleChange);
+	// Listen for storage changes (sync across tabs)
+	const handleStorageChange = (e: StorageEvent) => {
+		if (e.key === 'theme') {
+			const newIsDark = e.newValue === 'dark';
+			darkMode.set(newIsDark);
+			applyTheme(newIsDark);
+		}
+	};
+	window.addEventListener('storage', handleStorageChange);
+
+	return () => {
+		mediaQuery.removeEventListener('change', handleSystemChange);
+		window.removeEventListener('storage', handleStorageChange);
+	};
 }

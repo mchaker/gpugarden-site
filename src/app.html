@@ -48,6 +48,34 @@
 
 		<!-- Theme color + dark mode fallback -->
 		<meta name="theme-color" content="#000000" />
+
+		<script>
+			// Prevent FOUC (Flash of Unstyled Content)
+			(function () {
+				try {
+					const savedTheme = localStorage.getItem('theme');
+					const systemDark = window.matchMedia(
+						'(prefers-color-scheme: dark)'
+					).matches;
+					const isDark = savedTheme === 'dark' || (!savedTheme && systemDark);
+
+					if (isDark) {
+						document.documentElement.classList.add('dark');
+						document.querySelector('meta[name="theme-color"]').setAttribute(
+							'content',
+							'#000000'
+						);
+					} else {
+						document.documentElement.classList.remove('dark');
+						document.querySelector('meta[name="theme-color"]').setAttribute(
+							'content',
+							'#fef2f2'
+						);
+					}
+				} catch (e) {}
+			})();
+		</script>
+
 		<style>
 			/* Ensure dark mode works */
 			@media (prefers-color-scheme: dark) {
