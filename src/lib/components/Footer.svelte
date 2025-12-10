@@ -53,8 +53,7 @@
 						target="_blank"
 						rel="noopener noreferrer"
 						class="text-stone-300 hover:underline dark:text-yellow-400">Tailwind CSS</a
-					>
-					.
+					>.
 				</p>
 				<p class="mt-1 text-sm">
 					Designed and rebuilt by <a
@@ -62,15 +61,13 @@
 						target="_blank"
 						rel="noopener noreferrer"
 						class="text-stone-300 hover:underline dark:text-yellow-400">blob</a
-					>
-					. gpu.garden is owned and managed by
+					>. gpu.garden is owned and managed by
 					<a
 						href="https://fartcore.ai/"
 						target="_blank"
 						rel="noopener noreferrer"
 						class="text-stone-300 hover:underline dark:text-yellow-400">fartcore</a
-					>
-					.
+					>.
 				</p>
 				<p class="mt-2 text-xs text-stone-500 dark:text-gray-500">
 					© 2024-2025 gpu.garden | All rights reserved
