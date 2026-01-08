@@ -16,7 +16,7 @@
 				<div>
 					<h3 class="mb-2 text-lg font-bold text-stone-900 dark:text-white">No NSFW Models</h3>
 					<p class="text-stone-600 dark:text-gray-300">
-						No porn-specific models or illegal content (we follow U.S. law).
+						We don't condone any activity that is primarily for NSFW purposes. No illegal content (we follow U.S. law).
 					</p>
 				</div>
 			</div>
