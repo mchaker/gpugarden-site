@@ -58,20 +58,32 @@
 
 To recreate or develop this project locally, follow these steps:
 
-### 1. Prerequisites
-- **Node.js**: v20.18.1 (enforced by `.node-version`)
-- **Package Manager**: pnpm (enforced by `package.json`, typically v9/v10)
+### 1. Prerequisites: Strict Versioning
+This project enforces **specific** versions to ensure consistency and prevent lockfile drift.
+- **Node.js**: `20.18.1` (Exact version required)
+- **pnpm**: `10.18.3` (Exact version required)
+
+**How to handle version conflicts:**
+If your global Node/pnpm versions differ, do not try to force them. Instead, use "multiple instances" via a version manager:
+- **Use `fnm` or `nvm`**: These tools let you install and switch to Node `20.18.1` specifically for this folder, without affecting your other projects.
+- **Corepack**: This project uses configured package manager settings. If enabled, Node will try to use the correct `pnpm` version automatically.
 
 ### 2. Installation
-Clone the repository and install dependencies:
+Clone the repository and set up the environment:
 ```bash
-# Install specific Node version (using fnm or nvm is recommended)
+# 1. Switch to the correct Node version
+# (fnm will automatically detect .node-version if configured)
+fnm install 20.18.1
 fnm use 20.18.1
 
-# Install dependencies
+# 2. Ensure the correct pnpm is available
+# If pnpm is missing or wrong version:
+npm install -g pnpm@10.18.3
+
+# 3. Install dependencies
 pnpm install
 
-# Verify setup
+# 4. Verify everything is correct
 pnpm check
 ```
 
