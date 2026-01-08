@@ -59,7 +59,10 @@
 To recreate or develop this project locally, follow these steps:
 
 ### 1. Prerequisites: Strict Versioning
-This project enforces **specific** versions to ensure consistency and prevent lockfile drift.
+This project enforces **specific** versions to:
+1.  **Match the Cloudflare Pages deployment environment**: We must use the exact same Node.js version locally as in production to avoid hydration mismatch errors or deployment failures.
+2.  **Prevent Lockfile Drift**: different pnpm versions calculate the lockfile differently. Using the strict version ensures everyone generates the exact same `pnpm-lock.yaml`.
+
 - **Node.js**: `20.18.1` (Exact version required)
 - **pnpm**: `10.18.3` (Exact version required)
 
