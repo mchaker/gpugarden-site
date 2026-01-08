@@ -45,10 +45,10 @@
 		<!-- Group navigation and mobile menu button to right-align them -->
 		<div class="flex items-center gap-4">
 			<nav id="primary-nav" aria-label="Primary" class="hidden space-x-6 md:flex">
-				<a href="#welcome" class="text-zinc-300 transition hover:text-white">Welcome</a>
-				<a href="#rules" class="text-zinc-300 transition hover:text-white">Rules</a>
-				<a href="#support" class="text-zinc-300 transition hover:text-white">Support</a>
-				<a href="#services" class="text-zinc-300 transition hover:text-white">Services</a>
+				<a href="/#welcome" class="text-zinc-300 transition hover:text-white">Welcome</a>
+				<a href="/#rules" class="text-zinc-300 transition hover:text-white">Rules</a>
+				<a href="/#support" class="text-zinc-300 transition hover:text-white">Support</a>
+				<a href="/#services" class="text-zinc-300 transition hover:text-white">Services</a>
 			</nav>
 			<button
 				on:click={toggleLocalMenu}
@@ -84,23 +84,23 @@
 		<!-- Right-align the mobile menu links -->
 		<div class="mt-4 md:hidden">
 			<a
-				href="#welcome"
+				href="/#welcome"
 				bind:this={firstMobileLink}
 				on:click={() => (mobileMenuOpen = false)}
 				class="block py-2 text-right text-zinc-300 transition hover:text-white">Welcome</a
 			>
 			<a
-				href="#rules"
+				href="/#rules"
 				on:click={() => (mobileMenuOpen = false)}
 				class="block py-2 text-right text-zinc-300 transition hover:text-white">Rules</a
 			>
 			<a
-				href="#support"
+				href="/#support"
 				on:click={() => (mobileMenuOpen = false)}
 				class="block py-2 text-right text-zinc-300 transition hover:text-white">Support</a
 			>
 			<a
-				href="#services"
+				href="/#services"
 				on:click={() => (mobileMenuOpen = false)}
 				class="block py-2 text-right text-zinc-300 transition hover:text-white">Services</a
 			>

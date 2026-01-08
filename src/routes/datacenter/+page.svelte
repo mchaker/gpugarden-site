@@ -25,7 +25,7 @@
 	<Header />
 
 	<!-- Main Content -->
-	<main class="flex-grow px-4 py-12 sm:px-6 lg:px-8">
+	<main id="main-content" class="flex-grow px-4 py-12 sm:px-6 lg:px-8">
 		<div class="container mx-auto">
 			<div class="mb-8 flex items-center justify-center">
 				<div class="mr-4 flex h-8 w-8 items-center justify-center rounded-full bg-orange-500">

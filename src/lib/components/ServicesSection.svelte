@@ -169,6 +169,18 @@
 				<p class="text-sm text-stone-600 dark:text-gray-400">system health</p>
 			</div>
 		</a>
+		<a
+			href="https://reserve.gpu.garden/"
+			target="_blank"
+			rel="noopener noreferrer"
+			class="card-glass service-link flex items-center space-x-3 p-4"
+		>
+			<span class="text-2xl">🗃️</span>
+			<div>
+				<h3 class="font-bold text-stone-900 dark:text-white">reserve.gpu.garden</h3>
+				<p class="text-sm text-stone-600 dark:text-gray-400">GPU Library</p>
+			</div>
+		</a>
 	</div>
 </section>
 
