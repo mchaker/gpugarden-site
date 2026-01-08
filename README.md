@@ -25,15 +25,25 @@
 
 ---
 
-## 📄 Pages
+## 📄 Pages & Services
 
 - `/` — Homepage with usage instructions, rules, and links
-- External links to:
-  - [SwarmUI](https://swarmui.gpu.garden/)
-  - [Open WebUI](https://oui.gpu.garden/)
-  - [Prompt History](https://prompts.gpu.garden/)
-  - [Stats](https://stats.gpu.garden/)
-  - [Status](https://status.gpu.garden/)
+- **Primary AI Services**:
+  - [SwarmUI](https://swarmui.gpu.garden/) — Image generation AI
+  - [NovelAI](https://novel.gpu.garden/) — Chat / roleplay / storytelling AI (SillyTavern-like)
+  - [Tagger](https://tagger.gpu.garden/) — Danbooru / Natural Language image interrogator
+  - [ComfyBackendDirect](https://swarmui.gpu.garden/ComfyBackendDirect) — Bare-bones ComfyUI (⚠️ requires login)
+  - [OpenWebUI](https://oui.gpu.garden/) — Text/chat AI
+- **Utilities & Tools**:
+  - [Docs](https://docs.gpu.garden/) — Project documentation
+  - [CyberChef](https://cc.gpu.garden/) — CyberChef (The Cyber Swiss Army Knife)
+  - [Start Page](https://start.gpu.garden/) — Simplified links & stats start page
+  - [Prompts](https://prompts.gpu.garden/) — Prompt history
+  - [Fartgram](https://fartgram.gpu.garden/) — A place to fart images onto the internet
+- **Monitoring**:
+  - [Stream](https://stream.gpu.garden/) — Livestream of the shareservers
+  - [Stats](https://stats.gpu.garden/) — Usage stats
+  - [Status](https://status.gpu.garden/) — System health
 
 ---
 
