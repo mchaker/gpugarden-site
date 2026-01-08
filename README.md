@@ -56,10 +56,72 @@
 
 ## 🧪 Developing Locally
 
+To recreate or develop this project locally, follow these steps:
+
+### 1. Prerequisites
+- **Node.js**: v20.18.1 (enforced by `.node-version`)
+- **Package Manager**: pnpm (enforced by `package.json`, typically v9/v10)
+
+### 2. Installation
+Clone the repository and install dependencies:
 ```bash
+# Install specific Node version (using fnm or nvm is recommended)
+fnm use 20.18.1
+
+# Install dependencies
 pnpm install
-pnpm run dev
+
+# Verify setup
+pnpm check
 ```
+
+### 3. Running Development Server
+Start the local development server with hot module replacement:
+```bash
+pnpm dev
+```
+Open [http://localhost:5173](http://localhost:5173) in your browser.
+
+### 4. Building for Production
+To create a production build (generating the Cloudflare Pages output in `.svelte-kit/cloudflare`):
+```bash
+pnpm build
+```
+To preview the production build locally:
+```bash
+# Install wrangler if needed for previewing cloudflare adapter output
+pnpm preview
+```
+
+---
+
+## 🎨 Implementation Details
+
+### Smooth Scrolling & Effects
+The site features custom-built smooth scrolling and interaction effects located primarily in [`src/routes/+page.svelte`](src/routes/+page.svelte). This provides a more controlled experience than standard CSS scrolling.
+
+**Recreation Steps (How it works):**
+1.  **Anchor Links**: A script intercepts clicks on all internal links (`a[href^="#"]`). Instead of the default jump, it calls `targetElement.scrollIntoView({ behavior: 'smooth' })`.
+2.  **Back-to-Top Button**: 
+    - A floating button (`#backToTop`) is hidden by default.
+    - A scroll event listener toggles visibility when `window.pageYOffset > 300`.
+    - It uses dynamic positioning logic to ensure it stops before hitting the footer (`footerRect.top < window.innerHeight`).
+    - Clicking it triggers `window.scrollTo({ top: 0, behavior: 'smooth' })`.
+3.  **Scroll Animations**: 
+    - A `requestAnimationFrame` loop monitors elements with the `.scroll-section` class.
+    - As a section scrolls out of the viewport (top < 0), logic calculates a `progress` value.
+    - This drives a CSS transform (`scale`) and `opacity` fade, creating a visual "stacking" effect as you scroll past sections.
+
+### Dark Mode
+Theme toggling is managed by `src/lib/stores/theme.ts`. It acts as a single source of truth:
+- Checks LocalStorage definition first.
+- Falls back to `window.matchMedia('(prefers-color-scheme: dark)')`.
+- Toggles the `class="dark"` on the `<html>` element, enabling Tailwind's `dark:` modifiers throughout the site.
+
+### Styling System (Tailwind v4)
+- **Configuration**: Managed via standard CSS using `@theme` in `src/app.css` (Tailwind v4 style).
+- **Typography**: Uses the `@tailwindcss/typography` plugin for rich text sections (`.prose`).
+- **Custom Classes**: Reusable utility classes like `.card-glass`, `.gradient-text`, and `.title-font` are defined in `src/app.css` for consistency.
 
 ---
 
@@ -69,127 +131,16 @@ pnpm run dev
 
 - `/src` - Main source code
   - `/src/routes` - All SvelteKit pages (follows file-based routing)
+    - `+page.svelte` contains the smooth scrolling logic and `onMount` handlers.
   - `/src/lib` - Reusable components and utilities
-  - `/src/lib/components` - UI components like Header and Footer
+  - `/src/lib/components` - UI components (Header, Footer, ServicesSection, etc.)
+  - `/src/lib/stores` - Svelte stores (theme management)
 - `/static` - Public assets (images, fonts, etc.)
 
-### 🗂️ Configuration Files
-
-- `svelte.config.js` - SvelteKit configuration
-- `tailwind.config.js` - Tailwind CSS configuration
-- `vite.config.ts` - Vite bundler configuration
-- `package.json` - Project dependencies and scripts
-- `tsconfig.json` - TypeScript configuration
-
 ---
 
-## 🎨 Styling Guide
+## 🤝 Contributing & Modification
 
-This project uses Tailwind CSS v4 for styling. Key styling concepts include:
-
-### CSS Structure (`app.css`)
-
-- **Base Layer**: Contains fundamental styles for HTML elements
-- **Components Layer**: Reusable UI patterns (e.g., `.accent-link`, `.section-box`)
-- **Dark Mode Support**: Automatically switches based on user's system preference
-- **Typography**: Using the `@tailwindcss/typography` plugin for content-rich areas
-
-### Tailwind Utility Classes
-
-Example of utility classes from our components:
-
-- `mt-12` - Margin-top of 3rem (12 \* 0.25rem)
-- `py-6` - Padding of 1.5rem on Y-axis (top and bottom)
-- `text-center` - Center-aligned text
-- `rounded-lg` - Large border radius
-- `text-zinc-500` - Gray text (500 = medium tone)
-
-### Brand Colors
-
-- Primary accent: `#ff6747` (coral/orange)
-- Hover accent: `#f22b00` (deeper orange/red)
-
----
-
-## 🛠️ Component Guide
-
-### Header Component
-
-The Header component (`src/lib/components/Header.svelte`) provides the site navigation bar.
-
-To modify:
-
-- Update the logo or site title
-- Add or remove navigation links
-- Customize the appearance using Tailwind classes
-
-### Footer Component
-
-The Footer component (`src/lib/components/Footer.svelte`) contains site credits and links.
-
-To modify:
-
-- Update attribution links
-- Change styling with Tailwind classes
-- Add additional information or links
-
----
-
-## 📄 Page Structure
-
-SvelteKit uses file-based routing in the `/src/routes` directory:
-
-- `/src/routes/+page.svelte` - Homepage
-- `/src/routes/+layout.svelte` - Main layout wrapper (includes Header/Footer)
-- `/src/routes/+page.ts` - Data loading (if needed)
-
-To add a new page:
-
-1. Create a file like `/src/routes/about/+page.svelte`
-2. This will be accessible at `/about`
-
----
-
-## ⚙️ How to Modify
-
-### Adding New Pages
-
-1. Create a new `.svelte` file in the `/src/routes` directory
-2. Follow SvelteKit's file-based routing convention:
-   - `/src/routes/new-page/+page.svelte` → `/new-page`
-   - `/src/routes/tools/resource/+page.svelte` → `/tools/resource`
-
-### Adding New Components
-
-1. Create a `.svelte` file in `/src/lib/components`
-2. Import it in your pages:
-   ```svelte
-   <script>
-   	import MyComponent from '$lib/components/MyComponent.svelte';
-   </script>
-   ```
-
-### Customizing Styles
-
-1. Global styles: Modify `/src/app.css`
-2. Component-specific styles: Use Svelte's built-in `<style>` tag or Tailwind classes
-3. Theming: Update Tailwind configuration in `tailwind.config.js`
-
-### Deploying to Cloudflare
-
-This project uses `@sveltejs/adapter-cloudflare` for seamless deployment.
-
-1. Connect your repository to Cloudflare Pages
-2. Set build command: `pnpm build`
-3. Set build output directory: `.svelte-kit/cloudflare`
-
----
-
-## 🤝 Contributing
-
-1. Clone the repository
-2. Install dependencies: `pnpm install`
-3. Start the development server: `pnpm run dev`
-4. Make your changes
-5. Run `pnpm run check` to validate TypeScript
-6. Submit a pull request
+1. **Add Pages**: Create new directories in `src/routes/` (e.g., `src/routes/about/+page.svelte`).
+2. **Add Components**: Create `.svelte` files in `src/lib/components/` and import them via `$lib/components/...`.
+3. **Deploy**: The project is configured with `@sveltejs/adapter-cloudflare`. Simply push to a repository connected to Cloudflare Pages, and set the build command to `pnpm build`.
