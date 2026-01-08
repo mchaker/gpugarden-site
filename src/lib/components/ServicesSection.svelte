@@ -1,7 +1,7 @@
 <section id="services" class="fade-in mb-20">
 	<div class="mb-8 flex items-center">
-		<div class="mr-4 flex h-8 w-8 items-center justify-center rounded-full bg-purple-500">
-			<i class="fas fa-link text-white"></i>
+		<div class="mr-4 flex h-8 w-8 items-center justify-center rounded-full bg-amber-400">
+			<i class="fas fa-link text-black"></i>
 		</div>
 		<h2 class="title-font gradient-text text-3xl font-bold">Services</h2>
 	</div>
@@ -34,7 +34,9 @@
 			<span class="text-2xl">🪄</span>
 			<div>
 				<h3 class="font-bold text-stone-900 dark:text-white">novel.gpu.garden</h3>
-				<p class="text-sm text-stone-600 dark:text-gray-400">chat / roleplay / storytelling AI (SillyTavern-like)</p>
+				<p class="text-sm text-stone-600 dark:text-gray-400">
+					chat / roleplay / storytelling AI (SillyTavern-like)
+				</p>
 			</div>
 		</a>
 		<a
@@ -46,7 +48,9 @@
 			<img src="https://tagger.gpu.garden/favicon.png" alt="tagger logo" class="h-8 w-8" />
 			<div>
 				<h3 class="font-bold text-stone-900 dark:text-white">tagger.gpu.garden</h3>
-				<p class="text-sm text-stone-600 dark:text-gray-400">Danbooru / Natural Language image interrogator</p>
+				<p class="text-sm text-stone-600 dark:text-gray-400">
+					Danbooru / Natural Language image interrogator
+				</p>
 			</div>
 		</a>
 		<a
@@ -58,7 +62,9 @@
 			<span class="text-2xl">🤖</span>
 			<div>
 				<h3 class="font-bold text-stone-900 dark:text-white">ComfyBackendDirect</h3>
-				<p class="text-sm text-stone-600 dark:text-gray-400">bare-bones ComfyUI (⚠️ requires login)</p>
+				<p class="text-sm text-stone-600 dark:text-gray-400">
+					bare-bones ComfyUI (⚠️ requires login)
+				</p>
 			</div>
 		</a>
 		<a
@@ -106,7 +112,9 @@
 			<span class="text-2xl">🖼️</span>
 			<div>
 				<h3 class="font-bold text-stone-900 dark:text-white">fartgram.gpu.garden</h3>
-				<p class="text-sm text-stone-600 dark:text-gray-400">A place to fart images onto the internet</p>
+				<p class="text-sm text-stone-600 dark:text-gray-400">
+					A place to fart images onto the internet
+				</p>
 			</div>
 		</a>
 		<a

@@ -83,7 +83,7 @@
 				if (top <= 0) {
 					// Calculate progress: 0 at top, 1 when fully scrolled out
 					const progress = Math.abs(top) / height;
-					
+
 					// Shrink to 80% and fade out
 					const scale = Math.max(0.8, 1 - progress * 0.2);
 					const opacity = Math.max(0, 1 - progress * 1.5);
@@ -152,7 +152,7 @@
 	<!-- Back to Top Button -->
 	<button
 		id="backToTop"
-		class="invisible fixed right-4 bottom-20 z-50 flex h-10 w-10 items-center justify-center rounded-full bg-gradient-to-br from-red-500 to-yellow-400 text-white opacity-0 shadow-lg transition hover:scale-110 hover:animate-pulse md:right-8 md:h-12 md:w-12"
+		class="invisible fixed right-4 bottom-20 z-50 flex h-10 w-10 items-center justify-center rounded-full bg-gradient-to-br from-red-600 to-amber-500 text-white opacity-0 shadow-lg transition hover:scale-110 hover:animate-pulse md:right-8 md:h-12 md:w-12"
 		aria-label="Back to top"
 		aria-hidden="true"
 		tabindex="-1"

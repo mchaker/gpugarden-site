@@ -1,13 +1,15 @@
 <section id="support" class="mb-28">
 	<div class="mb-8 flex items-center">
-		<div class="mr-4 flex h-8 w-8 items-center justify-center rounded-full bg-pink-500">
-			<i class="fas fa-heart text-white"></i>
+		<div class="mr-4 flex h-8 w-8 items-center justify-center rounded-full bg-amber-400">
+			<i class="fas fa-heart text-black"></i>
 		</div>
 		<h2 class="title-font gradient-text text-3xl font-bold">Support</h2>
 	</div>
 	<div class="card-glass prose dark:prose-invert max-w-none p-8">
 		<div class="mx-auto max-w-3xl text-center">
-			<h3 class="title-font mb-4 text-2xl font-bold text-stone-900 dark:text-white">Help keep the GPUs running!</h3>
+			<h3 class="title-font mb-4 text-2xl font-bold text-stone-900 dark:text-white">
+				Help keep the GPUs running!
+			</h3>
 			<p class="mb-6 text-stone-600 dark:text-gray-300">
 				Your support helps us maintain and expand our AI playground. Every contribution goes
 				directly towards hardware upgrades, maintenance, and keeping the services free for everyone.
@@ -17,7 +19,7 @@
 					href="https://buymeacoffee.com/astromahdi"
 					target="_blank"
 					rel="noopener noreferrer"
-					class="hover:bg-opacity-10 rounded-full border border-yellow-400 px-6 py-3 font-medium text-yellow-400 transition hover:bg-yellow-400 hover:text-black"
+					class="hover:bg-opacity-10 rounded-full border border-amber-400 px-6 py-3 font-medium text-amber-500 transition hover:bg-amber-400 hover:text-black"
 				>
 					Buy Me a Coffee <i class="fas fa-coffee ml-2" aria-hidden="true"></i>
 				</a>

@@ -1,6 +1,6 @@
 <section id="welcome" class="mb-20">
 	<div class="mb-8 flex items-center">
-		<div class="mr-4 flex h-8 w-8 items-center justify-center rounded-full bg-emerald-400">
+		<div class="mr-4 flex h-8 w-8 items-center justify-center rounded-full bg-red-600">
 			<i class="fas fa-seedling text-white"></i>
 		</div>
 		<h2 class="title-font gradient-text text-3xl font-bold">Welcome</h2>
@@ -8,8 +8,10 @@
 	<div class="grid gap-8 md:grid-cols-2">
 		<div class="card-glass p-8">
 			<div class="mb-4 flex items-center">
-				<div class="mr-4 flex h-10 w-10 items-center justify-center rounded-full bg-red-600">
-					<i class="fas fa-laptop-code text-yellow-200"></i>
+				<div
+					class="mr-4 flex h-10 w-10 items-center justify-center rounded-full border border-red-600 bg-neutral-900"
+				>
+					<i class="fas fa-laptop-code text-red-500"></i>
 				</div>
 				<h3 class="title-font text-xl font-bold text-stone-900 dark:text-white">Open WebUI</h3>
 			</div>
@@ -28,14 +30,14 @@
 		</div>
 		<div class="card-glass p-8">
 			<div class="mb-4 flex items-center">
-				<div class="mr-4 flex h-10 w-10 items-center justify-center rounded-full bg-yellow-500">
-					<i class="fas fa-paint-brush text-white"></i>
+				<div class="mr-4 flex h-10 w-10 items-center justify-center rounded-full bg-amber-400">
+					<i class="fas fa-paint-brush text-black"></i>
 				</div>
 				<h3 class="title-font text-xl font-bold text-stone-900 dark:text-white">SwarmUI</h3>
 			</div>
 			<p class="mb-6 text-stone-700 dark:text-gray-300">
-				Just ask in the TouhouAI Discord. Anyone with the <span class="text-emerald-600 dark:text-emerald-300"
-					>fartcore</span
+				Just ask in the TouhouAI Discord. Anyone with the <span
+					class="text-emerald-600 dark:text-emerald-300">fartcore</span
 				> role can grant you access. We're pretty chill.
 			</p>
 			<a
@@ -43,7 +45,7 @@
 				target="_blank"
 				rel="noopener noreferrer"
 				aria-label="Get Access on Discord (opens in a new tab)"
-				class="hover:bg-opacity-10 inline-block rounded-full border border-purple-400 px-4 py-2 text-sm font-medium text-purple-400 transition hover:bg-purple-400 hover:text-black"
+				class="hover:bg-opacity-10 inline-block rounded-full border border-red-500 px-4 py-2 text-sm font-medium text-red-600 transition hover:bg-red-500 hover:text-white"
 			>
 				Get Access <i class="fab fa-discord ml-2" aria-hidden="true"></i>
 			</a>

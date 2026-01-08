@@ -33,7 +33,7 @@
 <a href="#main-content" class="skip-link">Skip to main content</a>
 
 <header
-	class="sticky top-0 z-50 border-b border-zinc-800 bg-black/80 px-4 py-4 shadow-sm backdrop-blur-lg transition-colors duration-300 sm:px-6 lg:px-8"
+	class="sticky top-0 z-50 border-b border-zinc-200 bg-white/90 px-4 py-4 shadow-sm backdrop-blur-lg transition-colors duration-300 sm:px-6 lg:px-8 dark:border-zinc-800 dark:bg-zinc-950/90"
 	bind:this={headerEl}
 >
 	<div class="container mx-auto flex items-center justify-between">
@@ -45,14 +45,30 @@
 		<!-- Group navigation and mobile menu button to right-align them -->
 		<div class="flex items-center gap-4">
 			<nav id="primary-nav" aria-label="Primary" class="hidden space-x-6 md:flex">
-				<a href="/#welcome" class="text-zinc-300 transition hover:text-white">Welcome</a>
-				<a href="/#rules" class="text-zinc-300 transition hover:text-white">Rules</a>
-				<a href="/#support" class="text-zinc-300 transition hover:text-white">Support</a>
-				<a href="/#services" class="text-zinc-300 transition hover:text-white">Services</a>
+				<a
+					href="/#welcome"
+					class="text-zinc-600 transition hover:text-red-600 dark:text-zinc-300 dark:hover:text-red-400"
+					>Welcome</a
+				>
+				<a
+					href="/#rules"
+					class="text-zinc-600 transition hover:text-red-600 dark:text-zinc-300 dark:hover:text-red-400"
+					>Rules</a
+				>
+				<a
+					href="/#support"
+					class="text-zinc-600 transition hover:text-red-600 dark:text-zinc-300 dark:hover:text-red-400"
+					>Support</a
+				>
+				<a
+					href="/#services"
+					class="text-zinc-600 transition hover:text-red-600 dark:text-zinc-300 dark:hover:text-red-400"
+					>Services</a
+				>
 			</nav>
 			<button
 				on:click={toggleLocalMenu}
-				class="text-zinc-300 hover:text-white md:hidden"
+				class="text-zinc-600 hover:text-red-600 md:hidden dark:text-zinc-300 dark:hover:text-white"
 				aria-label="Toggle mobile menu"
 				aria-haspopup="true"
 				aria-expanded={mobileMenuOpen}
@@ -63,11 +79,15 @@
 
 			<!-- Dark mode toggle -->
 			<button
-				class="ml-2 rounded p-2 text-zinc-300 hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-yellow-400"
+				class="ml-2 rounded p-2 text-zinc-600 hover:text-red-600 focus:outline-none focus-visible:ring-2 focus-visible:ring-red-400 dark:text-zinc-300 dark:hover:text-red-400"
 				aria-label="Toggle color theme"
 				aria-pressed={$darkMode}
 				on:click={toggleTheme}
-				title={$themeMode === 'system' ? 'System theme' : $themeMode === 'dark' ? 'Dark mode' : 'Light mode'}
+				title={$themeMode === 'system'
+					? 'System theme'
+					: $themeMode === 'dark'
+						? 'Dark mode'
+						: 'Light mode'}
 			>
 				{#if $themeMode === 'system'}
 					<i class="fas fa-desktop" aria-hidden="true"></i>
@@ -87,22 +107,26 @@
 				href="/#welcome"
 				bind:this={firstMobileLink}
 				on:click={() => (mobileMenuOpen = false)}
-				class="block py-2 text-right text-zinc-300 transition hover:text-white">Welcome</a
+				class="block py-2 text-right text-zinc-600 transition hover:text-red-600 dark:text-zinc-300 dark:hover:text-red-400"
+				>Welcome</a
 			>
 			<a
 				href="/#rules"
 				on:click={() => (mobileMenuOpen = false)}
-				class="block py-2 text-right text-zinc-300 transition hover:text-white">Rules</a
+				class="block py-2 text-right text-zinc-600 transition hover:text-red-600 dark:text-zinc-300 dark:hover:text-red-400"
+				>Rules</a
 			>
 			<a
 				href="/#support"
 				on:click={() => (mobileMenuOpen = false)}
-				class="block py-2 text-right text-zinc-300 transition hover:text-white">Support</a
+				class="block py-2 text-right text-zinc-600 transition hover:text-red-600 dark:text-zinc-300 dark:hover:text-red-400"
+				>Support</a
 			>
 			<a
 				href="/#services"
 				on:click={() => (mobileMenuOpen = false)}
-				class="block py-2 text-right text-zinc-300 transition hover:text-white">Services</a
+				class="block py-2 text-right text-zinc-600 transition hover:text-red-600 dark:text-zinc-300 dark:hover:text-red-400"
+				>Services</a
 			>
 		</div>
 	{/if}
@@ -114,32 +138,3 @@
 		if (e.key === 'Escape' && mobileMenuOpen) mobileMenuOpen = false;
 	}}
 />
-
-<style>
-	.gradient-text {
-		background: linear-gradient(90deg, #ff5f1f, #ff1d58, #f9cb40);
-		-webkit-background-clip: text;
-		background-clip: text;
-		color: transparent;
-		background-size: 300% 300%;
-		animation: gradient 4s ease-in-out infinite;
-	}
-
-	@keyframes gradient {
-		0% {
-			background-position: 0% 50%;
-		}
-		25% {
-			background-position: 100% 50%;
-		}
-		50% {
-			background-position: 200% 50%;
-		}
-		75% {
-			background-position: 100% 50%;
-		}
-		100% {
-			background-position: 0% 50%;
-		}
-	}
-</style>

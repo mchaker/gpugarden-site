@@ -1,6 +1,6 @@
 <section id="rules" class="mb-20">
 	<div class="mb-8 flex items-center">
-		<div class="mr-4 flex h-8 w-8 items-center justify-center rounded-full bg-amber-400">
+		<div class="mr-4 flex h-8 w-8 items-center justify-center rounded-full bg-red-600">
 			<i class="fas fa-scroll text-white"></i>
 		</div>
 		<h2 class="title-font gradient-text text-3xl font-bold">Rules</h2>
@@ -16,7 +16,8 @@
 				<div>
 					<h3 class="mb-2 text-lg font-bold text-stone-900 dark:text-white">No NSFW Models</h3>
 					<p class="text-stone-600 dark:text-gray-300">
-						We don't condone any activity that is primarily for NSFW purposes. No illegal content (we follow U.S. law).
+						We don't condone any activity that is primarily for NSFW purposes. No illegal content
+						(we follow U.S. law).
 					</p>
 				</div>
 			</div>
@@ -28,7 +29,9 @@
 				</div>
 				<div>
 					<h3 class="mb-2 text-lg font-bold text-stone-900 dark:text-white">Be Respectful</h3>
-					<p class="text-stone-600 dark:text-gray-300">Treat others with kindness. No harassment or hate speech.</p>
+					<p class="text-stone-600 dark:text-gray-300">
+						Treat others with kindness. No harassment or hate speech.
+					</p>
 				</div>
 			</div>
 			<div class="flex items-start">

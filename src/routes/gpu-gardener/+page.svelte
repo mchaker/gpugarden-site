@@ -28,7 +28,7 @@
 	<main id="main-content" class="flex-grow px-4 py-12 sm:px-6 lg:px-8">
 		<div class="container mx-auto">
 			<div class="mb-8 flex items-center justify-center">
-				<div class="mr-4 flex h-8 w-8 items-center justify-center rounded-full bg-emerald-500">
+				<div class="mr-4 flex h-8 w-8 items-center justify-center rounded-full bg-red-600">
 					<i class="fas fa-seedling text-white"></i>
 				</div>
 				<h1 class="title-font gradient-text text-center text-3xl font-bold">The GPU Gardener</h1>
@@ -53,7 +53,7 @@
 					<div class="mt-4 flex justify-center space-x-4">
 						<a
 							href="/"
-							class="hover:bg-opacity-10 rounded-full border border-yellow-500 px-4 py-2 text-center text-sm font-medium text-yellow-500 transition hover:bg-yellow-500 sm:px-6 sm:py-3 sm:text-base"
+							class="hover:bg-opacity-10 rounded-full border border-red-500 px-4 py-2 text-center text-sm font-medium text-red-600 transition hover:bg-red-500 hover:text-white sm:px-6 sm:py-3 sm:text-base"
 						>
 							<i class="fas fa-arrow-left mr-2" aria-hidden="true"></i>Back to Home
 						</a>

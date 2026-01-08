@@ -35,7 +35,7 @@
 	}
 </script>
 
-<section class="flex-grow px-4 py-8 sm:px-6 sm:py-12 md:py-16 lg:px-8">
+<section class="flex-grow px-4 py-16 sm:px-6 sm:py-20 md:py-32 lg:px-8">
 	<div class="container mx-auto flex flex-col items-center justify-between lg:flex-row">
 		<div class="mb-8 text-stone-900 sm:mb-10 lg:mb-0 lg:w-1/2 dark:text-white">
 			<h2
@@ -51,7 +51,7 @@
 				A beautiful little corner of the web for AI enthusiasts, powered by the
 				<a
 					href="/datacenter"
-					class="text-stone-900 underline decoration-yellow-400 hover:text-black dark:text-yellow-400 dark:hover:text-yellow-300"
+					class="text-stone-900 underline decoration-red-500 hover:text-black dark:text-red-400 dark:hover:text-red-300"
 					on:mouseenter={handleDatacenterMouseEnter}
 					on:mouseleave={handleDatacenterMouseLeave}
 					on:mousemove={handleDatacenterMouseMove}
@@ -76,7 +76,7 @@
 					target="_blank"
 					rel="noopener noreferrer"
 					aria-describedby="new-tab-note"
-					class="hover:bg-opacity-10 rounded-full border border-yellow-500 px-4 py-2 text-center text-sm font-medium text-yellow-500 transition hover:bg-yellow-500 hover:text-black sm:px-6 sm:py-3 sm:text-base"
+					class="rounded-full border border-zinc-200 bg-white px-4 py-2 text-center text-sm font-semibold text-zinc-900 shadow-sm transition-all hover:bg-zinc-50 hover:text-red-600 hover:shadow sm:px-6 sm:py-3 sm:text-base dark:border-zinc-800 dark:bg-zinc-900 dark:text-zinc-100 dark:hover:bg-zinc-800 dark:hover:text-red-400"
 				>
 					Join Discord <i class="fab fa-discord ml-2" aria-hidden="true"></i>
 				</a>
@@ -88,7 +88,7 @@
 					class="absolute -top-6 -left-6 h-20 w-20 rounded-full bg-red-500 opacity-20 blur-2xl sm:-top-8 sm:-left-8 sm:h-24 sm:w-24 md:-top-10 md:-left-10 md:h-32 md:w-32 md:blur-3xl"
 				></div>
 				<div
-					class="absolute -right-6 -bottom-6 h-20 w-20 rounded-full bg-yellow-500 opacity-20 blur-2xl sm:-right-8 sm:-bottom-8 sm:h-24 sm:w-24 md:-right-10 md:-bottom-10 md:h-32 md:w-32 md:blur-3xl"
+					class="absolute -right-6 -bottom-6 h-20 w-20 rounded-full bg-amber-400 opacity-20 blur-2xl sm:-right-8 sm:-bottom-8 sm:h-24 sm:w-24 md:-right-10 md:-bottom-10 md:h-32 md:w-32 md:blur-3xl"
 				></div>
 				<a href="/gpu-gardener">
 					<img
@@ -115,7 +115,7 @@
 			<img
 				src="/images/fartcore_datacenter.jpg"
 				alt="The fartcore datacenter"
-				class="max-h-64 max-w-xs rounded-lg border-2 border-yellow-400/50 shadow-2xl"
+				class="max-h-64 max-w-xs rounded-lg border-2 border-red-400/50 shadow-2xl"
 			/>
 		</div>
 	</div>
