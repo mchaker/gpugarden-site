@@ -1,29 +1,37 @@
-<section id="support" class="mb-28">
-	<div class="mb-8 flex items-center">
-		<div class="mr-4 flex h-8 w-8 items-center justify-center rounded-full bg-amber-400">
-			<i class="fas fa-heart text-black"></i>
-		</div>
-		<h2 class="title-font gradient-text text-3xl font-bold">Support</h2>
-	</div>
-	<div class="card-glass prose dark:prose-invert max-w-none p-8">
-		<div class="mx-auto max-w-3xl text-center">
-			<h3 class="title-font mb-4 text-2xl font-bold text-stone-900 dark:text-white">
-				Help keep the GPUs running!
-			</h3>
-			<p class="mb-6 text-stone-600 dark:text-gray-300">
+<script lang="ts">
+	import { onMount } from 'svelte';
+
+	onMount(() => {
+		// Initialize feather icons if available
+		// @ts-ignore
+		if (typeof feather !== 'undefined') {
+			// @ts-ignore
+			feather.replace();
+		}
+	});
+</script>
+
+<section id="support" class="bg-neutral-900 py-24">
+	<div class="container mx-auto px-6 text-center">
+		<div
+			class="relative mx-auto max-w-3xl overflow-hidden rounded-3xl border border-yellow-500/20 bg-black/50 p-10"
+		>
+			<div
+				class="absolute top-0 left-0 h-2 w-full bg-gradient-to-r from-transparent via-yellow-500 to-transparent"
+			></div>
+			<i data-feather="coffee" class="mx-auto mb-6 h-16 w-16 text-yellow-500 opacity-80"></i>
+			<h2 class="mb-4 text-3xl font-bold text-white">Help keep the GPUs running!</h2>
+			<p class="mb-8 text-lg text-gray-400">
 				Your support helps us maintain and expand our AI playground. Every contribution goes
 				directly towards hardware upgrades, maintenance, and keeping the services free for everyone.
 			</p>
-			<div class="flex flex-wrap justify-center gap-4">
-				<a
-					href="https://buymeacoffee.com/astromahdi"
-					target="_blank"
-					rel="noopener noreferrer"
-					class="hover:bg-opacity-10 rounded-full border border-amber-400 px-6 py-3 font-medium text-amber-500 transition hover:bg-amber-400 hover:text-black"
-				>
-					Buy Me a Coffee <i class="fas fa-coffee ml-2" aria-hidden="true"></i>
-				</a>
-			</div>
+			<a
+				href="https://buymeacoffee.com/astromahdi"
+				target="_blank"
+				class="inline-flex transform items-center justify-center rounded-full bg-yellow-500 px-8 py-3 font-bold text-black transition-all hover:-translate-y-1 hover:bg-yellow-400 hover:shadow-[0_0_30px_rgba(234,179,8,0.4)]"
+			>
+				Buy Me a Coffee
+			</a>
 		</div>
 	</div>
 </section>

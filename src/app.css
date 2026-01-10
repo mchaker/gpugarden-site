@@ -4,389 +4,96 @@
 /* This activates the Typography plugin for Tailwind CSS */
 @plugin '@tailwindcss/typography';
 
-/* Use class-based dark mode instead of media-based */
+/* Use class-based dark mode */
 @custom-variant dark (&:where(.dark, .dark *));
 
 /* CSS Variables for theme colors */
 :root {
-	/* Logo-Matched Theme: Red, Yellow, Black */
-	--primary: #dc2626;
-	/* Red 600 */
+	/* Lemon Silicon Void Theme: Black, Yellow, Gray */
+	--primary: #eab308;
+	/* Yellow-500 */
 	--secondary: #fbbf24;
-	/* Amber 400 */
-	--accent: #d97706;
-	/* Amber 600 - for text contrast */
-	--dark: #09090b;
-	/* Zinc 950 - "Black" */
-	--light: #ffffff;
-	--light-bg: #fafafa;
-	/* Zinc 50 */
+	/* Amber-400 */
+	--accent: #ca8a04;
+	/* Yellow-600 */
+	--dark: #000000;
+	--light: #e5e5e5;
+	--light-bg: #000000;
 }
 
 /* Base layer styles */
 @layer base {
-
-	/* Set default font family */
 	html {
-		font-family: 'Inter', 'Geist', sans-serif;
+		font-family: 'Inter', sans-serif;
+		scroll-behavior: smooth;
 	}
 
-	/* Light mode styles */
 	body {
-		@apply font-sans text-stone-900 transition-colors duration-300;
-		min-height: 100vh;
-		background-color: var(--light-bg);
-		background-image: radial-gradient(at 0% 0%,
-				rgba(220, 38, 38, 0.05) 0px,
-				transparent 50%),
-			radial-gradient(at 100% 100%, rgba(251, 191, 36, 0.05) 0px, transparent 50%);
-		background-attachment: fixed;
+		@apply font-sans antialiased text-gray-200 transition-colors duration-300;
+		background-color: var(--dark);
+
+		/* Selection */
+		::selection {
+			background-color: var(--primary);
+			color: black;
+		}
 	}
 
-	/* Dark mode styles */
-	.dark body {
-		@apply bg-zinc-950 font-sans text-zinc-100 transition-colors duration-300;
-		min-height: 100vh;
-		background-image: radial-gradient(at 0% 0%,
-				rgba(220, 38, 38, 0.25) 0px,
-				transparent 50%),
-			radial-gradient(at 100% 100%, rgba(251, 191, 36, 0.15) 0px, transparent 50%);
-		background-attachment: fixed;
+	/* Custom Scrollbar from test.css */
+	::-webkit-scrollbar {
+		width: 10px;
+	}
+
+	::-webkit-scrollbar-track {
+		background: #000;
+	}
+
+	::-webkit-scrollbar-thumb {
+		background: #333;
+		border-radius: 5px;
+	}
+
+	::-webkit-scrollbar-thumb:hover {
+		background: #eab308;
+		/* Yellow-500 */
 	}
 }
 
 /* Component layer styles */
 @layer components {
 
-	/* Accent links */
-	.accent-link {
-		@apply font-medium text-red-600 hover:text-red-500 dark:text-red-400 dark:hover:text-red-300;
+	/* Link Animations from test.css */
+	a {
+		transition: all 0.2s ease-in-out;
+		text-decoration: none;
 	}
 
-	/* Skip link - visually hidden until focused */
-	.skip-link {
-		position: absolute;
-		top: -40px;
-		left: 0;
-		background: #000;
-		color: #fff;
-		padding: 8px 12px;
-		z-index: 10000;
+	/* Smooth Anchor Offsets */
+	section {
+		scroll-margin-top: 100px;
 	}
 
-	.skip-link:focus {
-		top: 0;
+	/* Utility classes for feather icons usually need this if not using the SVG directly */
+	.feather {
+		width: 24px;
+		height: 24px;
+		stroke: currentColor;
+		stroke-width: 2;
+		stroke-linecap: round;
+		stroke-linejoin: round;
+		fill: none;
 	}
 
-	/* Section boxes */
-	.section-box {
-		@apply rounded-lg border border-zinc-200 bg-white/50 p-4 shadow-sm dark:border-zinc-800 dark:bg-zinc-900/50;
+	.btn-primary {
+		@apply inline-flex items-center justify-center bg-yellow-500 text-black font-bold rounded-lg transition-all hover:bg-yellow-400 hover:scale-105 shadow-[0_0_20px_rgba(234, 179, 8, 0.3)];
 	}
 
-	/* Visible focus indicator for keyboard users */
-	a:focus-visible,
-	button:focus-visible,
-	[role='button']:focus-visible,
-	input:focus-visible,
-	select:focus-visible,
-	textarea:focus-visible {
-		outline: 3px solid var(--accent);
-		outline-offset: 3px;
-		text-decoration: none !important;
+	.card-base {
+		@apply bg-neutral-900 border border-neutral-800 rounded-2xl;
 	}
 }
 
-/* Global link styling */
-a:not(.btn-primary):not(.card-glass *):not([class*='text-']) {
-	@apply text-red-700 hover:text-amber-600 dark:text-red-400 dark:hover:text-amber-400;
-}
-
-a:hover {
-	text-decoration: underline;
-}
-
-/* Inline links are underlined by default only within prose content */
-.prose a:not(.btn-primary):not(.service-link):not([role='button']):not(.no-underline) {
-	text-decoration: underline;
-}
-
-/* Button-like links should not be underlined */
-a.btn-primary,
-.service-link,
-a[role='button'] {
-	text-decoration: none;
-}
-
-/* Button hover states - remove underlines and fix text visibility */
-.hover\:bg-yellow-400:hover {
-	background-color: #fbbf24 !important;
-	/* amber-400 */
-}
-
-.hover\:bg-yellow-500:hover {
-	background-color: #f59e0b !important;
-	/* amber-500 */
-}
-
-.hover\:bg-purple-400:hover {
-	background-color: #c084fc !important;
-	/* violet-400 */
-}
-
-.hover\:bg-yellow-400:hover,
-.hover\:bg-yellow-500:hover,
-.hover\:bg-purple-400:hover {
-	text-decoration: none !important;
-	color: #0f172a !important;
-}
-
-.hover\:bg-opacity-10:hover {
-	text-decoration: none !important;
-}
-
-/* Service links should not have underlines */
-.service-link {
-	@apply text-slate-700 dark:text-slate-300;
-}
-
-.service-link:hover {
-	text-decoration: none !important;
-	@apply text-red-600 dark:text-red-400;
-}
-
-/* Code styling */
-.prose code {
-	@apply rounded bg-zinc-100 px-2 py-1 font-mono text-sm text-zinc-800 dark:bg-zinc-800 dark:text-zinc-200;
-}
-
-/* Custom component styles */
-.title-font {
-	font-family: 'Space Grotesk', sans-serif;
-}
-
+/* Global utility for gradient text */
 .gradient-text {
-	background: linear-gradient(135deg, #dc2626, #f59e0b);
-	-webkit-background-clip: text;
-	background-clip: text;
-	color: transparent;
-	background-size: 200% 200%;
-	animation: gradient 6s ease infinite;
-}
-
-/* Subtle gradient for light mode */
-html:not(.dark) .gradient-text {
-	background: linear-gradient(135deg, #b91c1c, #d97706);
-	-webkit-background-clip: text;
-	background-clip: text;
-	background-size: 200% 200%;
-	animation: gradient 6s ease infinite;
-	text-shadow: none;
-}
-
-/* Remove harsh outline */
-html:not(.dark) .text-outline {
-	background: linear-gradient(135deg, #991b1b, #b45309);
-	-webkit-background-clip: text;
-	background-clip: text;
-	color: transparent;
-	-webkit-text-stroke: 0;
-	text-shadow: none;
-}
-
-.card-glass {
-	@apply rounded-2xl border backdrop-blur-md transition-all duration-300;
-	/* Light mode: Clean glass */
-	background: rgba(255, 255, 255, 0.8);
-	border-color: rgba(220, 38, 38, 0.1);
-	box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
-}
-
-/* Dark mode override */
-html.dark .card-glass {
-	background: rgba(24, 24, 27, 0.6);
-	border-color: rgba(39, 39, 42, 0.5);
-	/* zinc-800 */
-	box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.5), 0 2px 4px -1px rgba(0, 0, 0, 0.3);
-}
-
-.card-glass:hover {
-	transform: translateY(-4px);
-	box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.05), 0 10px 10px -5px rgba(0, 0, 0, 0.02);
-}
-
-html.dark .card-glass:hover {
-	box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.2), 0 10px 10px -5px rgba(0, 0, 0, 0.1);
-}
-
-.btn-primary {
-	background: linear-gradient(135deg, #dc2626, #b91c1c);
-	color: #ffffff;
-	font-weight: 600;
-	transition: all 0.3s ease;
-	border: 1px solid rgba(220, 38, 38, 0.2);
-}
-
-.btn-primary:hover {
-	transform: translateY(-2px);
-	background: linear-gradient(135deg, #ef4444, #dc2626);
-	box-shadow: 0 4px 6px -1px rgba(220, 38, 38, 0.4);
-}
-
-.btn-primary:focus-visible,
-.service-link:focus-visible,
-a[role='button']:focus-visible {
-	outline: 3px solid var(--accent);
-	outline-offset: 3px;
-}
-
-.floating {
-	animation:
-		floating 6s ease-in-out infinite,
-		hue-rotate 10s linear infinite;
-}
-
-.pulse {
-	animation: pulse 2s infinite;
-}
-
-.fade-in {
-	animation: fadeIn 0.5s ease-in;
-}
-
-/* Keyframes */
-@keyframes gradient {
-	0% {
-		background-position: 0% 50%;
-	}
-
-	25% {
-		background-position: 100% 50%;
-	}
-
-	50% {
-		background-position: 200% 50%;
-	}
-
-	75% {
-		background-position: 100% 50%;
-	}
-
-	100% {
-		background-position: 0% 50%;
-	}
-}
-
-@keyframes hue-rotate {
-	0% {
-		filter: hue-rotate(0deg);
-	}
-
-	100% {
-		filter: hue-rotate(360deg);
-	}
-}
-
-@keyframes floating {
-	0% {
-		transform: translateY(0px);
-	}
-
-	50% {
-		transform: translateY(-15px);
-	}
-
-	100% {
-		transform: translateY(0px);
-	}
-}
-
-@keyframes pulse {
-	0% {
-		opacity: 1;
-	}
-
-	50% {
-		opacity: 0.5;
-	}
-
-	100% {
-		opacity: 1;
-	}
-}
-
-@keyframes fadeIn {
-	from {
-		opacity: 0;
-		transform: translateY(10px);
-	}
-
-	to {
-		opacity: 1;
-		transform: translateY(0);
-	}
-}
-
-/* High-contrast user preference adjustments */
-@media (prefers-contrast: more) {
-
-	/* Improve text contrast in light and dark */
-	html:not(.dark) body {
-		color: #111111;
-	}
-
-	.dark body {
-		color: #ffffff;
-	}
-
-	/* Make gradient text a solid high-contrast color */
-	.gradient-text {
-		animation: none !important;
-		background: none !important;
-		-webkit-background-clip: initial !important;
-		background-clip: initial !important;
-		color: #ffffff !important;
-	}
-
-	html:not(.dark) .gradient-text {
-		color: #000000 !important;
-	}
-
-	/* Strengthen link affordance */
-	a:not(.btn-primary) {
-		text-decoration: underline;
-	}
-
-	html:not(.dark) a {
-		color: #0ea5e9 !important;
-		/* sky-500 */
-	}
-
-	.dark a {
-		color: #ffffff !important;
-	}
-
-	/* Stronger focus outlines */
-	:is(a, button, [role='button'], input, select, textarea):focus-visible {
-		outline: 3px solid #000000 !important;
-		outline-offset: 3px;
-	}
-
-	.dark :is(a, button, [role='button'], input, select, textarea):focus-visible {
-		outline: 3px solid #ffffff !important;
-	}
-}
-
-/* Reduced motion preference: disable non-essential animations */
-@media (prefers-reduced-motion: reduce) {
-
-	.gradient-text,
-	.floating,
-	.pulse,
-	.fade-in {
-		animation: none !important;
-	}
-
-	* {
-		scroll-behavior: auto !important;
-	}
+	@apply bg-clip-text text-transparent bg-gradient-to-r from-yellow-400 to-yellow-600;
 }

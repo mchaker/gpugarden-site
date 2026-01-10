@@ -22,3 +22,6 @@ Thumbs.db
 vite.config.js.timestamp-*
 vite.config.ts.timestamp-*
 .github/copilot-instructions.md
+test/test.css
+test/test.html
+test/test.js

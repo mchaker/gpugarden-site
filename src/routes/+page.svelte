@@ -130,7 +130,7 @@
 	<meta property="og:image" content="/favicon.png" />
 </svelte:head>
 
-<div class="flex min-h-screen flex-col">
+<div class="flex min-h-screen flex-col overflow-x-hidden">
 	<Header />
 
 	<div class="scroll-section origin-top will-change-transform">
@@ -138,20 +138,18 @@
 	</div>
 
 	<!-- Main Content -->
-	<main id="main-content" class="px-4 py-12 sm:px-6 lg:px-8">
-		<div class="container mx-auto space-y-24">
-			<div class="scroll-section origin-center will-change-transform">
-				<WelcomeSection />
-			</div>
-			<div class="scroll-section origin-center will-change-transform">
-				<RulesSection />
-			</div>
-			<div class="scroll-section origin-center will-change-transform">
-				<SupportSection />
-			</div>
-			<div class="scroll-section origin-center will-change-transform">
-				<ServicesSection />
-			</div>
+	<main id="main-content" class="w-full">
+		<div class="scroll-section origin-center will-change-transform">
+			<WelcomeSection />
+		</div>
+		<div class="scroll-section origin-center will-change-transform">
+			<RulesSection />
+		</div>
+		<div class="scroll-section origin-center will-change-transform">
+			<SupportSection />
+		</div>
+		<div class="scroll-section origin-center will-change-transform">
+			<ServicesSection />
 		</div>
 	</main>
 
@@ -160,7 +158,7 @@
 	<!-- Back to Top Button -->
 	<button
 		id="backToTop"
-		class="invisible fixed right-4 bottom-20 z-50 flex h-10 w-10 items-center justify-center rounded-full bg-gradient-to-br from-red-600 to-amber-500 text-white opacity-0 shadow-lg transition hover:scale-110 hover:animate-pulse md:right-8 md:h-12 md:w-12"
+		class="invisible fixed right-4 bottom-20 z-50 flex h-10 w-10 items-center justify-center rounded-full bg-yellow-500 text-black opacity-0 shadow-[0_0_20px_rgba(234,179,8,0.3)] shadow-lg transition hover:scale-110 hover:bg-yellow-400 md:right-8 md:h-12 md:w-12"
 		aria-label="Back to top"
 		aria-hidden="true"
 		tabindex="-1"

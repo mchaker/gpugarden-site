@@ -1,6 +1,17 @@
 <script lang="ts">
+	import { onMount } from 'svelte';
+
 	let showDatacenterModal = false;
 	let modalPosition: { x: number; y: number } = { x: 0, y: 0 };
+
+	onMount(() => {
+		// Initialize feather icons if available
+		// @ts-ignore
+		if (typeof feather !== 'undefined') {
+			// @ts-ignore
+			feather.replace();
+		}
+	});
 
 	function handleDatacenterMouseEnter(event: MouseEvent) {
 		showDatacenterModal = true;
@@ -35,66 +46,87 @@
 	}
 </script>
 
-<section class="flex-grow px-4 py-16 sm:px-6 sm:py-20 md:py-32 lg:px-8">
-	<div class="container mx-auto flex flex-col items-center justify-between lg:flex-row">
-		<div class="mb-8 text-stone-900 sm:mb-10 lg:mb-0 lg:w-1/2 dark:text-white">
-			<h2
-				class="title-font mb-4 text-2xl font-bold text-stone-900 sm:mb-6 sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl dark:text-white"
+<section class="relative flex min-h-[90vh] w-full items-center justify-center overflow-hidden">
+	<!-- Background Gradients/Effects -->
+	<div class="absolute inset-0 z-0">
+		<div
+			class="absolute top-0 left-1/4 h-96 w-96 animate-pulse rounded-full bg-yellow-600 opacity-20 mix-blend-screen blur-[128px] filter"
+		></div>
+		<div
+			class="absolute right-1/4 bottom-0 h-96 w-96 rounded-full bg-purple-600 opacity-10 mix-blend-screen blur-[128px] filter"
+		></div>
+	</div>
+
+	<div
+		class="relative z-10 container mx-auto flex flex-col items-center gap-8 px-6 pt-12 lg:flex-row lg:gap-12 lg:pt-0"
+	>
+		<!-- Text Content -->
+		<div class="flex-1 space-y-6 text-center lg:text-left">
+			<div
+				class="inline-flex items-center gap-2 rounded-full border border-yellow-500/30 bg-yellow-500/10 px-3 py-1 text-xs font-medium tracking-wide text-yellow-400 uppercase sm:text-sm"
 			>
-				Who would've known
-				<span class="gradient-text drop-shadow sm:drop-shadow-md dark:drop-shadow-none"
+				<span class="h-2 w-2 animate-pulse rounded-full bg-yellow-500"></span>
+				AI Playground
+			</div>
+
+			<h1 class="text-4xl leading-tight font-bold text-white sm:text-5xl md:text-6xl lg:text-7xl">
+				Who would've known <br />
+				<span class="bg-gradient-to-r from-yellow-400 to-yellow-600 bg-clip-text text-transparent"
 					>AI image gen</span
-				>
-				could be free ???
-			</h2>
-			<p class="mb-6 text-sm text-stone-900 sm:mb-8 sm:text-base dark:text-zinc-300">
-				A beautiful little corner of the web for AI enthusiasts, powered by the
-				<a
+				> could be free?
+			</h1>
+
+			<p class="mx-auto max-w-2xl text-lg text-gray-400 sm:text-xl lg:mx-0">
+				A beautiful little corner of the web for AI enthusiasts, powered by the <a
 					href="/datacenter"
-					class="text-stone-900 underline decoration-red-500 hover:text-black dark:text-red-400 dark:hover:text-red-300"
 					on:mouseenter={handleDatacenterMouseEnter}
 					on:mouseleave={handleDatacenterMouseLeave}
 					on:mousemove={handleDatacenterMouseMove}
 					on:focus={handleDatacenterFocus}
 					on:blur={handleDatacenterBlur}
-					aria-describedby="datacenter-tooltip">fartcore datacenter</a
+					class="text-yellow-500 underline underline-offset-4 transition-colors hover:text-yellow-400"
+					>fartcore datacenter</a
 				>.
-				<span class="sr-only" id="new-tab-note">(opens in a new tab)</span>
 			</p>
-			<div class="flex flex-col space-y-3 sm:flex-row sm:space-y-0 sm:space-x-4">
+
+			<div class="flex flex-col justify-center gap-4 pt-2 sm:flex-row sm:pt-4 lg:justify-start">
 				<a
 					href="https://swarmui.gpu.garden/"
 					target="_blank"
-					rel="noopener noreferrer"
-					aria-describedby="new-tab-note"
-					class="btn-primary rounded-full px-4 py-2 text-center text-sm font-medium sm:px-6 sm:py-3 sm:text-base"
+					class="group relative overflow-hidden rounded-lg bg-yellow-500 px-6 py-3 font-bold text-black shadow-[0_0_20px_rgba(234,179,8,0.3)] transition-all hover:scale-105 hover:bg-yellow-400 sm:px-8 sm:py-4"
 				>
-					Explore SwarmUI <i class="fas fa-arrow-right ml-2" aria-hidden="true"></i>
+					<span class="relative z-10 flex items-center justify-center gap-2">
+						Explore SwarmUI <i
+							data-feather="arrow-right"
+							class="h-4 w-4 transition-transform group-hover:translate-x-1"
+						></i>
+					</span>
 				</a>
 				<a
 					href="https://discord.gg/yw4HGWC2wm"
 					target="_blank"
-					rel="noopener noreferrer"
-					aria-describedby="new-tab-note"
-					class="rounded-full border border-zinc-200 bg-white px-4 py-2 text-center text-sm font-semibold text-zinc-900 shadow-sm transition-all hover:bg-zinc-50 hover:text-red-600 hover:shadow sm:px-6 sm:py-3 sm:text-base dark:border-zinc-800 dark:bg-zinc-900 dark:text-zinc-100 dark:hover:bg-zinc-800 dark:hover:text-red-400"
+					class="flex items-center justify-center gap-2 rounded-lg border border-neutral-700 bg-neutral-800 px-6 py-3 font-semibold text-white transition-all hover:border-yellow-500/50 hover:bg-neutral-700 sm:px-8 sm:py-4"
 				>
-					Join Discord <i class="fab fa-discord ml-2" aria-hidden="true"></i>
+					<i data-feather="message-circle" class="h-4 w-4"></i> Join Discord
 				</a>
 			</div>
 		</div>
-		<div class="flex justify-center lg:w-1/2">
-			<div class="relative w-full max-w-xs sm:max-w-sm md:max-w-md">
+
+		<!-- Hero Image -->
+		<div class="relative flex w-full flex-1 justify-center lg:justify-end">
+			<div class="relative w-full max-w-sm lg:max-w-md">
 				<div
-					class="absolute -top-6 -left-6 h-20 w-20 rounded-full bg-red-500 opacity-20 blur-2xl sm:-top-8 sm:-left-8 sm:h-24 sm:w-24 md:-top-10 md:-left-10 md:h-32 md:w-32 md:blur-3xl"
+					class="absolute inset-0 rounded-full bg-gradient-to-tr from-yellow-500/20 to-purple-500/20 blur-3xl"
 				></div>
-				<div
-					class="absolute -right-6 -bottom-6 h-20 w-20 rounded-full bg-amber-400 opacity-20 blur-2xl sm:-right-8 sm:-bottom-8 sm:h-24 sm:w-24 md:-right-10 md:-bottom-10 md:h-32 md:w-32 md:blur-3xl"
-				></div>
-				<a href="/gpu-gardener">
+				<a
+					href="/gpu-gardener"
+					class="group block cursor-pointer"
+					aria-label="Meet the GPU Gardener"
+				>
 					<img
 						src="/images/gpu-gardener.webp"
 						alt="The GPU gardener tending to the GPUs in the garden"
-						class="floating relative z-10 h-auto w-full cursor-pointer rounded-xl object-cover shadow-xl transition-transform hover:scale-105 sm:rounded-2xl sm:shadow-2xl"
+						class="relative h-auto w-full rounded-2xl border border-neutral-800 shadow-2xl transition-all duration-500 hover:scale-[1.02] hover:border-yellow-500/50 hover:shadow-yellow-500/20"
 					/>
 				</a>
 			</div>
