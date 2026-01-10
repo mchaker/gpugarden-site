@@ -190,6 +190,30 @@
 			</div>
 		</a>
 		<a
+			href="https://rentry.gpu.garden/"
+			target="_blank"
+			rel="noopener noreferrer"
+			class="card-glass service-link flex items-center space-x-3 p-4"
+		>
+			<span class="text-2xl">🗒️</span>
+			<div>
+				<h3 class="font-bold text-stone-900 dark:text-white">rentry.gpu.garden</h3>
+				<p class="text-sm text-stone-600 dark:text-gray-400">Markdown pastebin</p>
+			</div>
+		</a>
+		<a
+			href="https://jupyterhub.gpu.garden/"
+			target="_blank"
+			rel="noopener noreferrer"
+			class="card-glass service-link flex items-center space-x-3 p-4"
+		>
+			<span class="text-2xl">🪐</span>
+			<div>
+				<h3 class="font-bold text-stone-900 dark:text-white">jupyterhub.gpu.garden</h3>
+				<p class="text-sm text-stone-600 dark:text-gray-400">Jupyter Notebooks</p>
+			</div>
+		</a>
+		<a
 			href="https://reserve.gpu.garden/"
 			target="_blank"
 			rel="noopener noreferrer"
