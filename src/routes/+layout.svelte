@@ -1,4 +1,17 @@
 <script lang="ts">
+	// Import fonts
+	import '@fortawesome/fontawesome-free/css/all.min.css';
+	import '@fontsource/inter/300.css';
+	import '@fontsource/inter/400.css';
+	import '@fontsource/inter/500.css';
+	import '@fontsource/inter/600.css';
+	import '@fontsource/inter/700.css';
+	import '@fontsource/space-grotesk/400.css';
+	import '@fontsource/space-grotesk/500.css';
+	import '@fontsource/space-grotesk/600.css';
+	import '@fontsource/space-grotesk/700.css';
+	import '@fontsource/geist-sans';
+
 	// Import the global stylesheet so that its classes and base styles
 	// are available to every element rendered by this component.
 	import '../app.css';

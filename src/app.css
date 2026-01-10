@@ -9,6 +9,11 @@
 
 /* CSS Variables for theme colors */
 :root {
+	/* Fonts */
+	--font-inter: 'Inter', sans-serif;
+	--font-space: 'Space Grotesk', sans-serif;
+	--font-geist: 'Geist Sans', sans-serif;
+
 	/* Lemon Silicon Void Theme: Black, Yellow, Gray */
 	--primary: #eab308;
 	/* Yellow-500 */
@@ -24,7 +29,7 @@
 /* Base layer styles */
 @layer base {
 	html {
-		font-family: 'Inter', sans-serif;
+		font-family: var(--font-inter);
 		scroll-behavior: smooth;
 	}
 
@@ -61,6 +66,10 @@
 
 /* Component layer styles */
 @layer components {
+	.title-font {
+		font-family: var(--font-space);
+	}
+
 	/* Link Animations from test.css */
 	a {
 		transition: all 0.2s ease-in-out;
