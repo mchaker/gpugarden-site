@@ -1,85 +1,88 @@
 <!doctype html>
 <html lang="en">
+	<head>
+		<!-- External stylesheets for fonts -->
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+			rel="stylesheet"
+		/>
 
-<head>
-	<!-- External stylesheets for fonts -->
-	<link rel="preconnect" href="https://fonts.googleapis.com" />
-	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-	<link
-		href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap"
-		rel="stylesheet" />
+		<!-- External stylesheet for Geist font from Vercel -->
+		<link
+			rel="stylesheet"
+			href="https://cdn.jsdelivr.net/npm/@vercel/fonts@latest/geist/stylesheet.css"
+		/>
+		<meta charset="utf-8" />
+		<link rel="icon" href="/favicon.png" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
 
-	<!-- External stylesheet for Geist font from Vercel -->
-	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@vercel/fonts@latest/geist/stylesheet.css" />
-	<meta charset="utf-8" />
-	<link rel="icon" href="/favicon.png" />
-	<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<!-- Web App Manifest -->
+		<link rel="manifest" href="/site.webmanifest" />
 
-	<!-- Web App Manifest -->
-	<link rel="manifest" href="/site.webmanifest" />
+		<!-- Font Awesome (global for all routes) -->
+		<link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin />
+		<link
+			rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+		/>
+		<script src="https://unpkg.com/feather-icons"></script>
 
-	<!-- Font Awesome (global for all routes) -->
-	<link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin />
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
-	<script src="https://unpkg.com/feather-icons"></script>
+		<!-- Open Graph metadata for social media sharing -->
+		<meta property="og:type" content="website" />
+		<meta property="og:title" content="gpu.garden" />
+		<meta
+			property="og:description"
+			content="gpu.garden is a cozy AI playground built for TouhouAI."
+		/>
+		<meta property="og:image" content="https://gpu.garden/favicon.png" />
 
-	<!-- Open Graph metadata for social media sharing -->
-	<meta property="og:type" content="website" />
-	<meta property="og:title" content="gpu.garden" />
-	<meta property="og:description" content="gpu.garden is a cozy AI playground built for TouhouAI." />
-	<meta property="og:image" content="https://gpu.garden/favicon.png" />
+		<!-- Twitter Card metadata for Twitter sharing -->
+		<meta name="twitter:card" content="summary" />
+		<meta name="twitter:title" content="gpu.garden" />
+		<meta
+			name="twitter:description"
+			content="gpu.garden is a cozy AI playground built for TouhouAI."
+		/>
+		<meta name="twitter:image" content="https://gpu.garden/favicon.png" />
 
-	<!-- Twitter Card metadata for Twitter sharing -->
-	<meta name="twitter:card" content="summary" />
-	<meta name="twitter:title" content="gpu.garden" />
-	<meta name="twitter:description" content="gpu.garden is a cozy AI playground built for TouhouAI." />
-	<meta name="twitter:image" content="https://gpu.garden/favicon.png" />
+		<!-- Theme color + dark mode fallback -->
+		<meta name="theme-color" content="#000000" />
 
-	<!-- Theme color + dark mode fallback -->
-	<meta name="theme-color" content="#000000" />
+		<script>
+			// Prevent FOUC (Flash of Unstyled Content)
+			(function () {
+				try {
+					const savedTheme = localStorage.getItem('theme');
+					const systemDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+					const isDark = savedTheme === 'dark' || (!savedTheme && systemDark);
 
-	<script>
-		// Prevent FOUC (Flash of Unstyled Content)
-		(function () {
-			try {
-				const savedTheme = localStorage.getItem('theme');
-				const systemDark = window.matchMedia(
-					'(prefers-color-scheme: dark)'
-				).matches;
-				const isDark = savedTheme === 'dark' || (!savedTheme && systemDark);
+					if (isDark) {
+						document.documentElement.classList.add('dark');
+						document.querySelector('meta[name="theme-color"]').setAttribute('content', '#09090b');
+					} else {
+						document.documentElement.classList.remove('dark');
+						document.querySelector('meta[name="theme-color"]').setAttribute('content', '#fafafa');
+					}
+				} catch (e) {}
+			})();
+		</script>
 
-				if (isDark) {
-					document.documentElement.classList.add('dark');
-					document.querySelector('meta[name="theme-color"]').setAttribute(
-						'content',
-						'#09090b'
-					);
-				} else {
-					document.documentElement.classList.remove('dark');
-					document.querySelector('meta[name="theme-color"]').setAttribute(
-						'content',
-						'#fafafa'
-					);
+		<style>
+			/* Ensure dark mode works */
+			@media (prefers-color-scheme: dark) {
+				html:not(.light) {
+					color-scheme: dark;
 				}
-			} catch (e) { }
-		})();
-	</script>
-
-	<style>
-		/* Ensure dark mode works */
-		@media (prefers-color-scheme: dark) {
-			html:not(.light) {
-				color-scheme: dark;
 			}
-		}
-	</style>
+		</style>
 
-	<!-- SvelteKit placeholder - explained below -->
-	%sveltekit.head%
-</head>
+		<!-- SvelteKit placeholder - explained below -->
+		%sveltekit.head%
+	</head>
 
-<body data-sveltekit-preload-data="hover">
-	<div style="display: contents">%sveltekit.body%</div>
-</body>
-
+	<body data-sveltekit-preload-data="hover">
+		<div style="display: contents">%sveltekit.body%</div>
+	</body>
 </html>

@@ -3,9 +3,7 @@
 
 	onMount(() => {
 		// Initialize feather icons if available
-		// @ts-ignore
 		if (typeof feather !== 'undefined') {
-			// @ts-ignore
 			feather.replace();
 		}
 	});

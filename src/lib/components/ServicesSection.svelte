@@ -3,9 +3,7 @@
 
 	onMount(() => {
 		// Initialize feather icons if available
-		// @ts-ignore
 		if (typeof feather !== 'undefined') {
-			// @ts-ignore
 			feather.replace();
 		}
 	});
@@ -152,7 +150,7 @@
 			class="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
 			id="services-grid"
 		>
-			{#each services as service}
+			{#each services as service (service.title)}
 				<a
 					href={service.url}
 					target={service.url.startsWith('/') ? '' : '_blank'}

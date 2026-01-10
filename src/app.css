@@ -29,7 +29,7 @@
 	}
 
 	body {
-		@apply font-sans antialiased text-gray-200 transition-colors duration-300;
+		@apply font-sans text-gray-200 antialiased transition-colors duration-300;
 		background-color: var(--dark);
 
 		/* Selection */
@@ -61,7 +61,6 @@
 
 /* Component layer styles */
 @layer components {
-
 	/* Link Animations from test.css */
 	a {
 		transition: all 0.2s ease-in-out;
@@ -85,15 +84,15 @@
 	}
 
 	.btn-primary {
-		@apply inline-flex items-center justify-center bg-yellow-500 text-black font-bold rounded-lg transition-all hover:bg-yellow-400 hover:scale-105 shadow-[0_0_20px_rgba(234,179,8,0.3)];
+		@apply inline-flex items-center justify-center rounded-lg bg-yellow-500 font-bold text-black shadow-[0_0_20px_rgba(234,179,8,0.3)] transition-all hover:scale-105 hover:bg-yellow-400;
 	}
 
 	.card-base {
-		@apply bg-neutral-900 border border-neutral-800 rounded-2xl;
+		@apply rounded-2xl border border-neutral-800 bg-neutral-900;
 	}
 }
 
 /* Global utility for gradient text */
 .gradient-text {
-	@apply bg-clip-text text-transparent bg-gradient-to-r from-yellow-400 to-yellow-600;
+	@apply bg-gradient-to-r from-yellow-400 to-yellow-600 bg-clip-text text-transparent;
 }

@@ -3,9 +3,7 @@
 
 	onMount(() => {
 		// Initialize feather icons if available
-		// @ts-ignore
 		if (typeof feather !== 'undefined') {
-			// @ts-ignore
 			feather.replace();
 		}
 	});
@@ -28,6 +26,7 @@
 			<a
 				href="https://buymeacoffee.com/astromahdi"
 				target="_blank"
+				rel="noopener noreferrer"
 				class="inline-flex transform items-center justify-center rounded-full bg-yellow-500 px-8 py-3 font-bold text-black transition-all hover:-translate-y-1 hover:bg-yellow-400 hover:shadow-[0_0_30px_rgba(234,179,8,0.4)]"
 			>
 				Buy Me a Coffee

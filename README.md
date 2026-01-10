@@ -59,7 +59,9 @@
 To recreate or develop this project locally, follow these steps:
 
 ### 1. Prerequisites: Strict Versioning
+
 This project enforces **specific** versions to:
+
 1.  **Match the Cloudflare Pages deployment environment**: We must use the exact same Node.js version locally as in production to avoid hydration mismatch errors or deployment failures.
 2.  **Prevent Lockfile Drift**: different pnpm versions calculate the lockfile differently. Using the strict version ensures everyone generates the exact same `pnpm-lock.yaml`.
 
@@ -68,11 +70,14 @@ This project enforces **specific** versions to:
 
 **How to handle version conflicts:**
 If your global Node/pnpm versions differ, do not try to force them. Instead, use "multiple instances" via a version manager:
+
 - **Use `fnm` or `nvm`**: These tools let you install and switch to Node `20.18.1` specifically for this folder, without affecting your other projects.
 - **Corepack**: This project uses configured package manager settings. If enabled, Node will try to use the correct `pnpm` version automatically.
 
 ### 2. Installation
+
 Clone the repository and set up the environment:
+
 ```bash
 # 1. Switch to the correct Node version
 # (fnm will automatically detect .node-version if configured)
@@ -91,18 +96,25 @@ pnpm check
 ```
 
 ### 3. Running Development Server
+
 Start the local development server with hot module replacement:
+
 ```bash
 pnpm dev
 ```
+
 Open [http://localhost:5173](http://localhost:5173) in your browser.
 
 ### 4. Building for Production
+
 To create a production build (generating the Cloudflare Pages output in `.svelte-kit/cloudflare`):
+
 ```bash
 pnpm build
 ```
+
 To preview the production build locally:
+
 ```bash
 # Install wrangler if needed for previewing cloudflare adapter output
 pnpm preview
@@ -113,27 +125,32 @@ pnpm preview
 ## 🎨 Implementation Details
 
 ### Smooth Scrolling & Effects
+
 The site features custom-built smooth scrolling and interaction effects located primarily in [`src/routes/+page.svelte`](src/routes/+page.svelte). This provides a more controlled experience than standard CSS scrolling.
 
 **Recreation Steps (How it works):**
+
 1.  **Anchor Links**: A script intercepts clicks on all internal links (`a[href^="#"]`). Instead of the default jump, it calls `targetElement.scrollIntoView({ behavior: 'smooth' })`.
-2.  **Back-to-Top Button**: 
+2.  **Back-to-Top Button**:
     - A floating button (`#backToTop`) is hidden by default.
     - A scroll event listener toggles visibility when `window.pageYOffset > 300`.
     - It uses dynamic positioning logic to ensure it stops before hitting the footer (`footerRect.top < window.innerHeight`).
     - Clicking it triggers `window.scrollTo({ top: 0, behavior: 'smooth' })`.
-3.  **Scroll Animations**: 
+3.  **Scroll Animations**:
     - A `requestAnimationFrame` loop monitors elements with the `.scroll-section` class.
     - As a section scrolls out of the viewport (top < 0), logic calculates a `progress` value.
     - This drives a CSS transform (`scale`) and `opacity` fade, creating a visual "stacking" effect as you scroll past sections.
 
 ### Dark Mode
+
 Theme toggling is managed by `src/lib/stores/theme.ts`. It acts as a single source of truth:
+
 - Checks LocalStorage definition first.
 - Falls back to `window.matchMedia('(prefers-color-scheme: dark)')`.
 - Toggles the `class="dark"` on the `<html>` element, enabling Tailwind's `dark:` modifiers throughout the site.
 
 ### Styling System (Tailwind v4)
+
 - **Configuration**: Managed via standard CSS using `@theme` in `src/app.css` (Tailwind v4 style).
 - **Typography**: Uses the `@tailwindcss/typography` plugin for rich text sections (`.prose`).
 - **Custom Classes**: Reusable utility classes like `.card-glass`, `.gradient-text`, and `.title-font` are defined in `src/app.css` for consistency.

@@ -61,7 +61,7 @@ export function initializeTheme() {
 	const savedTheme = localStorage.getItem('theme');
 	const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
 
-	const mode = savedTheme === 'dark' ? 'dark' : (savedTheme === 'light' ? 'light' : 'system');
+	const mode = savedTheme === 'dark' ? 'dark' : savedTheme === 'light' ? 'light' : 'system';
 	themeMode.set(mode);
 
 	// Logic matches the inline script in app.html
@@ -86,12 +86,12 @@ export function initializeTheme() {
 	const handleStorageChange = (e: StorageEvent) => {
 		if (e.key === 'theme') {
 			const newValue = e.newValue;
-			const newMode = newValue === 'dark' ? 'dark' : (newValue === 'light' ? 'light' : 'system');
+			const newMode = newValue === 'dark' ? 'dark' : newValue === 'light' ? 'light' : 'system';
 			themeMode.set(newMode);
-			
+
 			const systemDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
 			const newIsDark = newValue === 'dark' || (!newValue && systemDark);
-			
+
 			darkMode.set(newIsDark);
 			applyTheme(newIsDark);
 		}

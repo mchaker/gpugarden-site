@@ -6,9 +6,7 @@
 
 	onMount(() => {
 		// Initialize feather icons if available
-		// @ts-ignore
 		if (typeof feather !== 'undefined') {
-			// @ts-ignore
 			feather.replace();
 		}
 	});
@@ -93,6 +91,7 @@
 				<a
 					href="https://swarmui.gpu.garden/"
 					target="_blank"
+					rel="noopener noreferrer"
 					class="group relative overflow-hidden rounded-lg bg-yellow-500 px-6 py-3 font-bold text-black shadow-[0_0_20px_rgba(234,179,8,0.3)] transition-all hover:scale-105 hover:bg-yellow-400 sm:px-8 sm:py-4"
 				>
 					<span class="relative z-10 flex items-center justify-center gap-2">
@@ -105,6 +104,7 @@
 				<a
 					href="https://discord.gg/yw4HGWC2wm"
 					target="_blank"
+					rel="noopener noreferrer"
 					class="flex items-center justify-center gap-2 rounded-lg border border-neutral-700 bg-neutral-800 px-6 py-3 font-semibold text-white transition-all hover:border-yellow-500/50 hover:bg-neutral-700 sm:px-8 sm:py-4"
 				>
 					<i data-feather="message-circle" class="h-4 w-4"></i> Join Discord

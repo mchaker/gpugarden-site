@@ -8,6 +8,8 @@ declare global {
 		// interface PageState {}
 		// interface Platform {}
 	}
+	// eslint-disable-next-line no-var
+	var feather: { replace: () => void } | undefined;
 }
 
 export {};
