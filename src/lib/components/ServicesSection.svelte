@@ -53,14 +53,6 @@
 			color: 'text-gray-500'
 		},
 		{
-			title: 'Twitch',
-			desc: 'Livestream of shareservers',
-			url: 'https://stream.gpu.garden/',
-			icon: 'fab fa-twitch',
-			isFontAwesome: true,
-			color: 'text-purple-500'
-		},
-		{
 			title: 'Fartgram',
 			desc: 'Image sharing',
 			url: 'https://fartgram.gpu.garden/',
@@ -123,6 +115,13 @@
 			url: 'https://reserve.gpu.garden/',
 			icon: 'database',
 			color: 'text-slate-500'
+		},
+		{
+			title: 'More Coming Soon',
+			desc: 'Watch this space',
+			url: '#',
+			icon: 'clock',
+			color: 'text-gray-500'
 		}
 	];
 </script>
@@ -142,7 +141,8 @@
 			{#each services as service (service.title)}
 				<a
 					href={service.url}
-					target={service.url.startsWith('/') ? '' : '_blank'}
+					target={service.url.startsWith('http') ? '_blank' : ''}
+					rel={service.url.startsWith('http') ? 'noopener noreferrer' : ''}
 					class="group block"
 				>
 					<div
