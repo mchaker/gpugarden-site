@@ -85,7 +85,7 @@
 	}
 
 	.btn-primary {
-		@apply inline-flex items-center justify-center bg-yellow-500 text-black font-bold rounded-lg transition-all hover:bg-yellow-400 hover:scale-105 shadow-[0_0_20px_rgba(234, 179, 8, 0.3)];
+		@apply inline-flex items-center justify-center bg-yellow-500 text-black font-bold rounded-lg transition-all hover:bg-yellow-400 hover:scale-105 shadow-[0_0_20px_rgba(234,179,8,0.3)];
 	}
 
 	.card-base {
