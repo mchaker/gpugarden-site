@@ -26,10 +26,10 @@
 	bind:this={headerEl}
 >
 	<div class="container mx-auto flex items-center justify-between">
-		<div class="flex items-center space-x-2">
+		<a href="/" class="flex items-center space-x-2 transition-opacity hover:opacity-80">
 			<img src="/favicon.png" alt="gpu.garden logo" class="h-12 w-12" />
-			<div class="title-font text-2xl font-bold text-white">gpu.garden</div>
-		</div>
+			<span class="title-font text-2xl font-bold text-white">gpu.garden</span>
+		</a>
 
 		<!-- Group navigation and mobile menu button to right-align them -->
 		<div class="flex items-center gap-4">
