@@ -48,15 +48,17 @@
 			title: 'Outline Docs',
 			desc: 'Project Documentation',
 			url: 'https://docs.gpu.garden/',
-			icon: 'file-text',
+			icon: 'fas fa-file-lines',
+			isFontAwesome: true,
 			color: 'text-gray-500'
 		},
 		{
-			title: 'Owncast',
+			title: 'Twitch',
 			desc: 'Livestream of shareservers',
 			url: 'https://stream.gpu.garden/',
-			icon: 'cast',
-			color: 'text-red-500'
+			icon: 'fab fa-twitch',
+			isFontAwesome: true,
+			color: 'text-purple-500'
 		},
 		{
 			title: 'Fartgram',
@@ -76,7 +78,8 @@
 			title: 'CyberChef',
 			desc: 'Data conversion',
 			url: 'https://cc.gpu.garden/',
-			icon: 'hash', // chef-hat not in feather, using hash or similiar
+			icon: 'fas fa-utensils',
+			isFontAwesome: true,
 			color: 'text-emerald-500'
 		},
 		{
@@ -151,7 +154,11 @@
 								'text-'
 							)} mb-4 transition-colors group-hover:bg-yellow-500 group-hover:text-black"
 						>
-							<i data-feather={service.icon} class="h-6 w-6"></i>
+							{#if service.isFontAwesome}
+								<i class={service.icon}></i>
+							{:else}
+								<i data-feather={service.icon} class="h-6 w-6"></i>
+							{/if}
 						</div>
 						<h3 class="mb-1 text-xl font-bold text-white">{service.title}</h3>
 						<p class="text-sm text-gray-400">{service.desc}</p>

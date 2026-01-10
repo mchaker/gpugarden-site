@@ -3,6 +3,7 @@
 
 	let showDatacenterModal = false;
 	let modalPosition: { x: number; y: number } = { x: 0, y: 0 };
+	let scrollY = 0;
 
 	onMount(() => {
 		// Initialize feather icons if available
@@ -43,6 +44,8 @@
 		};
 	}
 </script>
+
+<svelte:window bind:scrollY />
 
 <section class="relative flex min-h-[90vh] w-full items-center justify-center overflow-hidden">
 	<!-- Background Gradients/Effects -->
@@ -131,6 +134,15 @@
 				</a>
 			</div>
 		</div>
+	</div>
+
+	<!-- Scroll Indicator -->
+	<div
+		class="pointer-events-none fixed bottom-8 left-1/2 z-40 -translate-x-1/2 transform transition-opacity duration-300"
+		style="opacity: {Math.max(0, 1 - scrollY / 300)}"
+		aria-hidden="true"
+	>
+		<i class="fas fa-chevron-down animate-bounce text-4xl text-yellow-500"></i>
 	</div>
 </section>
 
