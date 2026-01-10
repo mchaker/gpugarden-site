@@ -55,20 +55,21 @@
 					>.
 				</p>
 				<p class="mt-1 text-sm">
-					Designed and rebuilt by <a
-						href="https://mooshieblob.com/"
-						target="_blank"
-						rel="noopener noreferrer"
-						class="text-gray-400 hover:text-yellow-500">blob</a
-					>. gpu.garden is owned and managed by
-					<a
+					gpu.garden is a <a
 						href="https://fartcore.ai/"
 						target="_blank"
 						rel="noopener noreferrer"
 						class="text-gray-400 hover:text-yellow-500">fartcore</a
+					>
+					service, homepage by
+					<a
+						href="https://mooshieblob.com/"
+						target="_blank"
+						rel="noopener noreferrer"
+						class="text-gray-400 hover:text-yellow-500">blob</a
 					>.
 				</p>
-				<p class="mt-2 text-xs text-zinc-600">© 2024-2025 gpu.garden | All rights reserved</p>
+				<p class="mt-2 text-xs text-zinc-600">© 2024-2026 gpu.garden | All rights reserved</p>
 			</div>
 		</div>
 	</div>

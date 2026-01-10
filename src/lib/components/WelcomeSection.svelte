@@ -18,8 +18,9 @@
 
 		<div class="mx-auto grid max-w-5xl gap-8 md:grid-cols-2">
 			<!-- Open WebUI Card -->
-			<div
-				class="group relative rounded-2xl border border-neutral-800 bg-neutral-900 p-8 transition-all duration-300 hover:-translate-y-2 hover:border-yellow-500/50"
+			<a
+				href="https://swarmui.gpu.garden/"
+				class="group relative block rounded-2xl border border-neutral-800 bg-neutral-900 p-8 transition-all duration-300 hover:-translate-y-2 hover:border-yellow-500/50"
 			>
 				<div
 					class="absolute top-0 right-0 p-4 opacity-10 transition-opacity group-hover:opacity-20"
@@ -36,17 +37,17 @@
 					Feel free to sign up! Once you do, reach out to astro to activate your account. Unleash
 					your creativity with our open interface.
 				</p>
-				<a
-					href="https://swarmui.gpu.garden/"
+				<span
 					class="inline-flex items-center font-semibold text-yellow-500 transition-colors hover:text-yellow-400"
 				>
 					Sign Up Now <i data-feather="chevron-right" class="ml-1 h-4 w-4"></i>
-				</a>
-			</div>
+				</span>
+			</a>
 
 			<!-- SwarmUI Card -->
-			<div
-				class="group relative rounded-2xl border border-neutral-800 bg-neutral-900 p-8 transition-all duration-300 hover:-translate-y-2 hover:border-yellow-500/50"
+			<a
+				href="https://discord.gg/yw4HGWC2wm"
+				class="group relative block rounded-2xl border border-neutral-800 bg-neutral-900 p-8 transition-all duration-300 hover:-translate-y-2 hover:border-yellow-500/50"
 			>
 				<div
 					class="absolute top-0 right-0 p-4 opacity-10 transition-opacity group-hover:opacity-20"
@@ -64,13 +65,12 @@
 						>fartcore</span
 					> role can grant you access. We're pretty chill.
 				</p>
-				<a
-					href="https://discord.gg/yw4HGWC2wm"
+				<span
 					class="inline-flex items-center font-semibold text-yellow-500 transition-colors hover:text-yellow-400"
 				>
 					Get Access <i data-feather="chevron-right" class="ml-1 h-4 w-4"></i>
-				</a>
-			</div>
+				</span>
+			</a>
 		</div>
 	</div>
 </section>

@@ -29,7 +29,7 @@
 				rel="noopener noreferrer"
 				class="inline-flex transform items-center justify-center rounded-full bg-yellow-500 px-8 py-3 font-bold text-black transition-all hover:-translate-y-1 hover:bg-yellow-400 hover:shadow-[0_0_30px_rgba(234,179,8,0.4)]"
 			>
-				Buy Me a Coffee
+				Buy Me a Coffee <i data-feather="external-link" class="ml-2 h-4 w-4"></i>
 			</a>
 		</div>
 	</div>

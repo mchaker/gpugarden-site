@@ -48,10 +48,10 @@
 	<!-- Background Gradients/Effects -->
 	<div class="absolute inset-0 z-0">
 		<div
-			class="absolute top-0 left-1/4 h-96 w-96 animate-pulse rounded-full bg-yellow-600 opacity-20 mix-blend-screen blur-[128px] filter"
+			class="absolute top-[-10%] left-[-10%] h-[500px] w-[500px] rounded-full bg-yellow-600 opacity-20 mix-blend-screen blur-[100px] filter"
 		></div>
 		<div
-			class="absolute right-1/4 bottom-0 h-96 w-96 rounded-full bg-purple-600 opacity-10 mix-blend-screen blur-[128px] filter"
+			class="absolute right-[-10%] bottom-[-10%] h-[500px] w-[500px] rounded-full bg-purple-600 opacity-10 mix-blend-screen blur-[100px] filter"
 		></div>
 	</div>
 
@@ -63,7 +63,7 @@
 			<div
 				class="inline-flex items-center gap-2 rounded-full border border-yellow-500/30 bg-yellow-500/10 px-3 py-1 text-xs font-medium tracking-wide text-yellow-400 uppercase sm:text-sm"
 			>
-				<span class="h-2 w-2 animate-pulse rounded-full bg-yellow-500"></span>
+				<span class="h-2 w-2 rounded-full bg-yellow-500"></span>
 				AI Playground
 			</div>
 

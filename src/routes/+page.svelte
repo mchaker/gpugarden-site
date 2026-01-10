@@ -70,6 +70,8 @@
 		});
 
 		// Scroll animation for sections
+		// Removed to prevent fading issues on services section
+		/*
 		const sections = document.querySelectorAll('.scroll-section');
 		let animationFrame: number;
 
@@ -113,6 +115,7 @@
 		return () => {
 			if (animationFrame) cancelAnimationFrame(animationFrame);
 		};
+		*/
 	});
 </script>
 
@@ -133,22 +136,22 @@
 <div class="flex min-h-screen flex-col overflow-x-hidden">
 	<Header />
 
-	<div class="scroll-section origin-top will-change-transform">
+	<div class="origin-top will-change-transform">
 		<HeroSection />
 	</div>
 
 	<!-- Main Content -->
 	<main id="main-content" class="w-full">
-		<div class="scroll-section origin-center will-change-transform">
+		<div class="origin-center will-change-transform">
 			<WelcomeSection />
 		</div>
-		<div class="scroll-section origin-center will-change-transform">
+		<div class="origin-center will-change-transform">
 			<RulesSection />
 		</div>
-		<div class="scroll-section origin-center will-change-transform">
+		<div class="origin-center will-change-transform">
 			<SupportSection />
 		</div>
-		<div class="scroll-section origin-center will-change-transform">
+		<div class="origin-center will-change-transform">
 			<ServicesSection />
 		</div>
 	</main>

@@ -66,7 +66,7 @@
 				class="rounded-xl border-l-4 border-green-500 bg-neutral-900/50 p-6 transition-colors hover:bg-neutral-900"
 			>
 				<h4 class="mb-2 flex items-center gap-2 text-lg font-bold text-white">
-					<i data-feather="copyright" class="h-4 w-4 text-green-500"></i> Creative Commons
+					<i class="fab fa-creative-commons h-4 w-4 text-green-500"></i> Creative Commons
 				</h4>
 				<p class="text-sm text-gray-400">
 					Respect copyright. Do not save generated content on the server. Download your art.
