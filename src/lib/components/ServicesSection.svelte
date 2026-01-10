@@ -24,42 +24,35 @@
 			color: 'text-purple-500'
 		},
 		{
-			title: 'Novel',
+			title: 'SillyTavern',
 			desc: 'Chat / Roleplay AI',
 			url: 'https://novel.gpu.garden/',
 			icon: 'book-open',
 			color: 'text-blue-500'
 		},
 		{
-			title: 'Tagger',
+			title: 'Farterrogator',
 			desc: 'Danbooru Interrogator',
 			url: 'https://tagger.gpu.garden/',
 			icon: 'tag',
 			color: 'text-green-500'
 		},
 		{
-			title: 'ComfyBackend',
-			desc: 'Bare-bones ComfyUI',
-			url: 'https://swarmui.gpu.garden/ComfyBackendDirect',
-			icon: 'box',
-			color: 'text-orange-500'
-		},
-		{
-			title: 'Oui',
+			title: 'Open WebUI',
 			desc: 'Text / Chat AI',
 			url: 'https://oui.gpu.garden/',
 			icon: 'message-square',
 			color: 'text-cyan-500'
 		},
 		{
-			title: 'Docs',
+			title: 'Outline Docs',
 			desc: 'Project Documentation',
 			url: 'https://docs.gpu.garden/',
 			icon: 'file-text',
 			color: 'text-gray-500'
 		},
 		{
-			title: 'Stream',
+			title: 'Owncast',
 			desc: 'Livestream of shareservers',
 			url: 'https://stream.gpu.garden/',
 			icon: 'cast',
@@ -87,42 +80,35 @@
 			color: 'text-emerald-500'
 		},
 		{
-			title: 'Start',
-			desc: 'Links & Stats',
-			url: 'https://start.gpu.garden/',
-			icon: 'compass',
-			color: 'text-teal-500'
-		},
-		{
-			title: 'Stats',
+			title: 'Grafana Stats',
 			desc: 'Usage Statistics',
 			url: 'https://stats.gpu.garden/',
 			icon: 'bar-chart-2',
 			color: 'text-violet-500'
 		},
 		{
-			title: 'Status',
+			title: 'Uptime Kuma',
 			desc: 'System Health',
 			url: 'https://status.gpu.garden/',
 			icon: 'activity',
 			color: 'text-lime-500'
 		},
 		{
-			title: 'Copy',
-			desc: 'Copy Party instance',
+			title: 'Copyparty',
+			desc: 'File hosting',
 			url: 'https://copy.gpu.garden/',
 			icon: 'copy',
 			color: 'text-sky-500'
 		},
 		{
-			title: 'Rentry',
-			desc: 'Markdown Pastebin',
+			title: 'Hedgedoc',
+			desc: 'Markdown Pastebin (subdomain is joke)',
 			url: 'https://rentry.gpu.garden/',
 			icon: 'file-plus',
 			color: 'text-fuchsia-500'
 		},
 		{
-			title: 'Jupyter',
+			title: 'JupyterHub',
 			desc: 'Jupyter Notebooks',
 			url: 'https://jupyterhub.gpu.garden/',
 			icon: 'code',

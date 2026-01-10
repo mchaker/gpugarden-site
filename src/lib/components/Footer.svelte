@@ -37,6 +37,15 @@
 				>
 					<i class="fas fa-coffee text-xl" aria-hidden="true"></i>
 				</a>
+				<a
+					href="https://start.gpu.garden/"
+					target="_blank"
+					rel="noopener noreferrer"
+					class="text-gray-400 transition hover:text-yellow-500"
+					aria-label="Start"
+				>
+					<i class="fas fa-compass text-xl" aria-hidden="true"></i>
+				</a>
 			</div>
 			<div class="text-center text-gray-500 md:text-right">
 				<p class="text-sm">
