@@ -7,10 +7,33 @@
 	import RulesSection from '$lib/components/RulesSection.svelte';
 	import SupportSection from '$lib/components/SupportSection.svelte';
 	import ServicesSection from '$lib/components/ServicesSection.svelte';
+	import { lenisStore } from '$lib/stores/lenis';
+
+	// Initial Animation
+	let isLoaded = false;
+	let contentWrapper: HTMLElement;
 
 	onMount(() => {
 		const backToTopButton = document.getElementById('backToTop') as HTMLButtonElement | null;
 		const footer = document.querySelector('footer') as HTMLElement | null;
+
+		// Subscribe to store to get instance when available
+		const unsubscribeLenis = lenisStore.subscribe((lenis) => {
+			if (lenis && contentWrapper) {
+				lenis.stop();
+				window.scrollTo(0, 0);
+
+				// Wait a tick to ensure styles are applied
+				setTimeout(() => {
+					isLoaded = true;
+
+					// Enable scroll after animation
+					setTimeout(() => {
+						lenis.start();
+					}, 1200); // 1s duration + 200ms buffer
+				}, 100);
+			}
+		});
 
 		if (backToTopButton && footer) {
 			const setHidden = (hidden: boolean) => {
@@ -69,53 +92,9 @@
 			});
 		});
 
-		// Scroll animation for sections
-		// Removed to prevent fading issues on services section
-		/*
-		const sections = document.querySelectorAll('.scroll-section');
-		let animationFrame: number;
-
-		function animateSections() {
-			const isMobile = window.innerWidth < 768;
-
-			sections.forEach((section) => {
-				if (isMobile) {
-					(section as HTMLElement).style.transform = '';
-					(section as HTMLElement).style.opacity = '';
-					return;
-				}
-
-				const rect = section.getBoundingClientRect();
-				const top = rect.top;
-				const height = rect.height;
-
-				// Animate as it leaves the top of the viewport
-				if (top <= 0) {
-					// Calculate progress: 0 at top, 1 when fully scrolled out
-					const progress = Math.abs(top) / height;
-
-					// Shrink to 80% and fade out
-					const scale = Math.max(0.8, 1 - progress * 0.2);
-					const opacity = Math.max(0, 1 - progress * 1.5);
-
-					(section as HTMLElement).style.transform = `scale(${scale})`;
-					(section as HTMLElement).style.opacity = `${opacity}`;
-				} else {
-					// Reset
-					(section as HTMLElement).style.transform = 'scale(1)';
-					(section as HTMLElement).style.opacity = '1';
-				}
-			});
-
-			animationFrame = requestAnimationFrame(animateSections);
-		}
-
-		animateSections();
-
 		return () => {
-			if (animationFrame) cancelAnimationFrame(animationFrame);
+			unsubscribeLenis();
 		};
-		*/
 	});
 </script>
 
@@ -136,27 +115,50 @@
 <div class="flex min-h-screen flex-col overflow-x-hidden">
 	<Header />
 
-	<div class="origin-top will-change-transform">
-		<HeroSection />
+	<div
+		bind:this={contentWrapper}
+		class="origin-bottom will-change-transform {isLoaded ? 'animate-complete' : 'animate-start'}"
+	>
+		<div class="origin-top will-change-transform">
+			<HeroSection />
+		</div>
+
+		<!-- Main Content -->
+		<main id="main-content" class="w-full">
+			<div class="origin-center will-change-transform">
+				<WelcomeSection />
+			</div>
+			<div class="origin-center will-change-transform">
+				<RulesSection />
+			</div>
+			<div class="origin-center will-change-transform">
+				<SupportSection />
+			</div>
+			<div class="origin-center will-change-transform">
+				<ServicesSection />
+			</div>
+		</main>
+
+		<Footer />
 	</div>
 
-	<!-- Main Content -->
-	<main id="main-content" class="w-full">
-		<div class="origin-center will-change-transform">
-			<WelcomeSection />
-		</div>
-		<div class="origin-center will-change-transform">
-			<RulesSection />
-		</div>
-		<div class="origin-center will-change-transform">
-			<SupportSection />
-		</div>
-		<div class="origin-center will-change-transform">
-			<ServicesSection />
-		</div>
-	</main>
+	<style>
+		.animate-start {
+			opacity: 0;
+			transform: scaleY(0.9) translateY(40px);
+			transition:
+				transform 1.2s cubic-bezier(0.16, 1, 0.3, 1),
+				opacity 1s ease-out;
+		}
 
-	<Footer />
+		.animate-complete {
+			opacity: 1;
+			transform: scaleY(1) translateY(0);
+			transition:
+				transform 1.2s cubic-bezier(0.16, 1, 0.3, 1),
+				opacity 1s ease-out;
+		}
+	</style>
 
 	<!-- Back to Top Button -->
 	<button

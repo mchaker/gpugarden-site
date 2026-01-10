@@ -18,6 +18,7 @@
 	import 'lenis/dist/lenis.css';
 	import { onMount } from 'svelte';
 	import { initializeTheme } from '$lib/stores/theme';
+	import { lenisStore } from '$lib/stores/lenis';
 	import Lenis from 'lenis';
 
 	// `$props()` is a Svelte 5 helper that gives you the props passed in
@@ -28,6 +29,7 @@
 		initializeTheme();
 
 		const lenis = new Lenis();
+		lenisStore.set(lenis);
 
 		function raf(time: number) {
 			lenis.raf(time);
@@ -38,6 +40,7 @@
 
 		return () => {
 			lenis.destroy();
+			lenisStore.set(null);
 		};
 	});
 </script>
