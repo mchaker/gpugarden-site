@@ -74,7 +74,15 @@
 		let animationFrame: number;
 
 		function animateSections() {
+			const isMobile = window.innerWidth < 768;
+
 			sections.forEach((section) => {
+				if (isMobile) {
+					(section as HTMLElement).style.transform = '';
+					(section as HTMLElement).style.opacity = '';
+					return;
+				}
+
 				const rect = section.getBoundingClientRect();
 				const top = rect.top;
 				const height = rect.height;
