@@ -73,7 +73,7 @@
 			<h1 class="text-4xl leading-tight font-bold text-white sm:text-5xl md:text-6xl lg:text-7xl">
 				Who would've known <br />
 				<span class="bg-gradient-to-r from-yellow-400 to-yellow-600 bg-clip-text text-transparent"
-					>AI image gen</span
+					>AI playgrounds</span
 				> could be free?
 			</h1>
 
