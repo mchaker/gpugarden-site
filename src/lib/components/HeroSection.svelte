@@ -90,7 +90,7 @@
 				>.
 			</p>
 
-			<div class="flex flex-col justify-center gap-4 pt-2 sm:flex-row sm:pt-4 lg:justify-start">
+			<div class="flex flex-col justify-center gap-4 pt-2 sm:flex-row sm:flex-wrap sm:pt-4 lg:justify-start">
 				<a
 					href="https://swarmui.gpu.garden/"
 					target="_blank"
@@ -99,6 +99,19 @@
 				>
 					<span class="relative z-10 flex items-center justify-center gap-2">
 						Explore SwarmUI <i
+							data-feather="arrow-right"
+							class="h-4 w-4 transition-transform group-hover:translate-x-1"
+						></i>
+					</span>
+				</a>
+				<a
+					href="https://mooshieui.gpu.garden/"
+					target="_blank"
+					rel="noopener noreferrer"
+					class="group relative overflow-hidden rounded-lg bg-yellow-500 px-6 py-3 font-bold text-black shadow-[0_0_20px_rgba(234,179,8,0.3)] transition-all hover:scale-105 hover:bg-yellow-400 sm:px-8 sm:py-4"
+				>
+					<span class="relative z-10 flex items-center justify-center gap-2">
+						Try MooshieUI <i
 							data-feather="arrow-right"
 							class="h-4 w-4 transition-transform group-hover:translate-x-1"
 						></i>

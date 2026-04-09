@@ -16,7 +16,7 @@
 			<div class="mx-auto h-1 w-20 rounded-full bg-yellow-500"></div>
 		</div>
 
-		<div class="mx-auto grid max-w-5xl gap-8 md:grid-cols-2">
+		<div class="mx-auto grid max-w-5xl gap-8 md:grid-cols-2 lg:grid-cols-3">
 			<!-- Open WebUI Card -->
 			<a
 				href="https://swarmui.gpu.garden/"
@@ -41,6 +41,35 @@
 					class="inline-flex items-center font-semibold text-yellow-500 transition-colors hover:text-yellow-400"
 				>
 					Sign Up Now <i data-feather="chevron-right" class="ml-1 h-4 w-4"></i>
+				</span>
+			</a>
+
+			<!-- MooshieUI Card -->
+			<a
+				href="https://mooshieui.gpu.garden/"
+				target="_blank"
+				rel="noopener noreferrer"
+				class="group relative block rounded-2xl border border-neutral-800 bg-neutral-900 p-8 transition-all duration-300 hover:-translate-y-2 hover:border-yellow-500/50"
+			>
+				<div
+					class="absolute top-0 right-0 p-4 opacity-10 transition-opacity group-hover:opacity-20"
+				>
+					<i class="fas fa-palette h-24 w-24 text-yellow-500"></i>
+				</div>
+				<div
+					class="mb-6 flex h-12 w-12 items-center justify-center rounded-lg bg-neutral-800 text-pink-500 transition-colors group-hover:bg-yellow-500 group-hover:text-black"
+				>
+					<i class="fas fa-palette"></i>
+				</div>
+				<h3 class="mb-3 text-2xl font-bold text-white">MooshieUI</h3>
+				<p class="mb-6 leading-relaxed text-gray-400">
+					A user-friendly alternative to ComfyUI or SwarmUI. Still a WIP, please leave feedback in
+					the Discord for improvements!
+				</p>
+				<span
+					class="inline-flex items-center font-semibold text-yellow-500 transition-colors hover:text-yellow-400"
+				>
+					Try MooshieUI <i data-feather="chevron-right" class="ml-1 h-4 w-4"></i>
 				</span>
 			</a>
 

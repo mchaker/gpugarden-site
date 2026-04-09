@@ -24,6 +24,14 @@
 			color: 'text-purple-500'
 		},
 		{
+			title: 'MooshieUI',
+			desc: 'User-friendly image gen alternative',
+			url: 'https://mooshieui.gpu.garden/',
+			icon: 'fas fa-palette',
+			isFontAwesome: true,
+			color: 'text-pink-500'
+		},
+		{
 			title: 'SillyTavern',
 			desc: 'Chat / Roleplay AI',
 			url: 'https://novel.gpu.garden/',
