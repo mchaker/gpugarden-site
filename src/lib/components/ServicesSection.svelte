@@ -27,8 +27,8 @@
 			title: 'MooshieUI',
 			desc: 'User-friendly image gen alternative',
 			url: 'https://mooshieui.gpu.garden/',
-			icon: 'fas fa-palette',
-			isFontAwesome: true,
+			icon: '/images/favicon.png',
+			isImage: true,
 			color: 'text-pink-500'
 		},
 		{
@@ -162,7 +162,9 @@
 								'text-'
 							)} mb-4 transition-colors group-hover:bg-yellow-500 group-hover:text-black"
 						>
-							{#if service.isFontAwesome}
+						{#if service.isImage}
+							<img src={service.icon} alt="{service.title} icon" class="h-6 w-6" />
+						{:else if service.isFontAwesome}
 								<i class={service.icon}></i>
 							{:else}
 								<i data-feather={service.icon} class="h-6 w-6"></i>

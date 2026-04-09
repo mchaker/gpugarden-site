@@ -54,12 +54,12 @@
 				<div
 					class="absolute top-0 right-0 p-4 opacity-10 transition-opacity group-hover:opacity-20"
 				>
-					<i class="fas fa-palette h-24 w-24 text-yellow-500"></i>
+					<img src="/images/logo.webp" alt="" class="h-24 w-24" />
 				</div>
 				<div
-					class="mb-6 flex h-12 w-12 items-center justify-center rounded-lg bg-neutral-800 text-pink-500 transition-colors group-hover:bg-yellow-500 group-hover:text-black"
+					class="mb-6 flex h-12 w-12 items-center justify-center rounded-lg bg-neutral-800 transition-colors group-hover:bg-yellow-500"
 				>
-					<i class="fas fa-palette"></i>
+					<img src="/images/favicon.png" alt="MooshieUI icon" class="h-6 w-6" />
 				</div>
 				<h3 class="mb-3 text-2xl font-bold text-white">MooshieUI</h3>
 				<p class="mb-6 leading-relaxed text-gray-400">
