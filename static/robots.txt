@@ -1,5 +1,0 @@
-# robots.txt for gpu.garden
-User-agent: *
-Allow: /
-
-Sitemap: https://gpu.garden/sitemap.xml
