@@ -14,6 +14,21 @@ const services = [
   { name: "Grafana", href: "https://stats.gpu.garden/" },
 ];
 
+const rules = [
+  {
+    title: "Compliance with United States laws",
+    text: "As this is where gpu.garden lives. You may not create, upload, share, request, or consume content through gpu.garden that violates United States law or other applicable law.",
+  },
+  {
+    title: "Shared resource abuse and circumvention",
+    text: "gpu.garden is a shared community resource. Do not abuse the share server, monopolize system capacity, evade rate limits, or attempt to bypass technical or artificial limitations.",
+  },
+  {
+    title: "Harassment and hateful conduct",
+    text: "Hate speech, harassment, threats, targeted abuse, or other unlawful or harmful conduct are not permitted anywhere on or outside the service.",
+  },
+];
+
 const cardClass =
   "rounded-[28px] bg-[linear-gradient(180deg,rgba(24,24,27,0.94),rgba(15,15,18,0.92))] shadow-[0_24px_80px_rgba(0,0,0,0.4)]";
 
@@ -128,9 +143,6 @@ export default function Home() {
           className={`${cardClass} mt-5 p-6 sm:p-7`}
           aria-labelledby="services-title"
         >
-          <p className="mb-3.5 text-xs font-bold uppercase tracking-[0.14em] text-yellow-400">
-            Services
-          </p>
           <h2
             id="services-title"
             className="text-xl font-semibold leading-tight text-zinc-100"
@@ -150,6 +162,31 @@ export default function Home() {
                 {service.name}
                 <ArrowUpRight size={14} />
               </a>
+            ))}
+          </div>
+        </section>
+
+        <section
+          className={`${cardClass} mt-5 p-6 sm:p-7`}
+          aria-labelledby="rules-title"
+        >
+          <h2
+            id="rules-title"
+            className="text-xl font-semibold leading-tight text-zinc-100"
+          >
+            Usage rules
+          </h2>
+
+          <div className="mt-5 grid gap-4 md:grid-cols-3">
+            {rules.map((rule) => (
+              <div key={rule.title} className="rounded-2xl bg-white/4 p-4">
+                <h3 className="text-sm font-semibold text-zinc-100">
+                  {rule.title}
+                </h3>
+                <p className="mt-2 text-sm leading-6 text-zinc-400">
+                  {rule.text}
+                </p>
+              </div>
             ))}
           </div>
         </section>
