@@ -1,0 +1,28 @@
+gpu.garden
+
+AI Services
+SwarmUI https://swarmui.gpu.garden Image generation in a convenient interface with ComfyUI
+MooshieUI https://mooshieui.gpu.garden WIP interface powered by ComfyUI
+ComfyUI (CPU) https://comfyui.gpu.garden ComfyUI running on CPU
+Open WebUI https://oui.gpu.garden Open WebUI instance for using tiny to medium sized LLMs
+SillyTavern https://novel.gpu.garden Instance of SillyTavern (not functional at the moment)
+JupyterHub https://jupyterhub.gpu.garden JupyterHub instance for running Jupyter notebooks
+Farterrogator https://tagger.gpu.garden Image captioning with danbooru tags
+
+Other Services
+Outline https://docs.gpu.garden Outline instance for sharing documentation
+Copyparty https://copy.gpu.garden File sharing service hosted on the datacenter
+Fartgram https://fartgram.gpu.garden Image sharing service for ai art
+Hedgedoc https://rentry.gpu.garden Text sharing service for ai art (not really rentry)
+Cyberchef https://cc.gpu.garden Web data manipulation for power users
+
+gpu.garden Tooling
+Reserve https://reserve.gpu.garden Reserve an A4000 on JupyterHub
+Stats https://stats.gpu.garden grafana
+Status https://status.gpu.garden uptime monitoring
+Prompt History https://prompts.gpu.garden wall of shame
+
+Others
+Buymeacoffee https://buymeacoffee.com/astromahdi Donate for the sake of better GPUs
+Twitch https://www.twitch.tv/gpugarden Sometimes streaming the
+Homepage GitHub https://github.com/mchaker/gpugarden-site
