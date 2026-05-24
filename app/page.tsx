@@ -31,6 +31,19 @@ const categoryLabels: Record<string, string> = {
   other: "Other",
 };
 
+const serviceIcons: Record<string, string> = {
+  SwarmUI: "/icons/swarmui.ico",
+  MooshieUI: "/icons/mooshieui.png",
+  "ComfyUI (CPU)": "/icons/comfyui.png",
+  "Open WebUI": "/icons/oui.svg",
+  SillyTavern: "/icons/novel.ico",
+  JupyterHub: "/icons/jupyterhub.svg",
+  Farterrogator: "/icons/tagger.webp",
+  "Outline Docs": "/icons/docs.svg",
+  Fartgram: "/icons/fartgram.ico",
+  Hedgedoc: "/icons/rentry.svg",
+};
+
 const footerIcons = {
   Buymeacoffee: Coffee,
   Twitch,
@@ -95,11 +108,11 @@ function PageContent({
               </a>
               <a
                 className="inline-flex items-center gap-2.5 rounded-full bg-zinc-800/80 px-[18px] py-[14px] font-semibold text-zinc-100 transition hover:-translate-y-px hover:bg-zinc-700/90"
-                href="https://status.gpu.garden/"
+                href="https://swarmui.gpu.garden/"
                 target="_blank"
                 rel="noreferrer"
               >
-                View status
+                Open SwarmUI
                 <ArrowUpRight size={16} />
               </a>
             </div>
@@ -180,26 +193,38 @@ function PageContent({
           What lives here
         </h2>
 
-        <div className="mt-5 grid grid-flow-col gap-5 overflow-x-auto pb-2 [grid-auto-columns:minmax(220px,1fr)]">
+        <div className="mt-5 grid gap-5 overflow-x-auto pb-2 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,1.1fr)_minmax(220px,0.7fr)]">
           {mainServiceGroups.map((group) => (
             <div key={group.title}>
               <h3 className="text-sm font-semibold uppercase tracking-[0.18em] text-zinc-400">
                 {categoryLabels[group.title] ?? group.title}
               </h3>
               <div className="mt-3 flex flex-wrap gap-3">
-                {group.services.map((service) => (
-                  <a
-                    className="inline-flex items-center gap-2.5 rounded-full bg-white/5 px-3.5 py-3 text-[0.95rem] font-semibold text-zinc-200 transition hover:-translate-y-px hover:bg-zinc-700/90"
-                    key={`${group.title}-${service.name}`}
-                    href={service.href}
-                    target="_blank"
-                    rel="noreferrer"
-                    title={service.description}
-                  >
-                    {service.name}
-                    <ArrowUpRight size={14} />
-                  </a>
-                ))}
+                {group.services.map((service) => {
+                  const iconSrc = serviceIcons[service.name];
+
+                  return (
+                    <a
+                      className="inline-flex items-center gap-2.5 rounded-full bg-white/5 px-3.5 py-3 text-[0.95rem] font-semibold text-zinc-200 transition hover:-translate-y-px hover:bg-zinc-700/90"
+                      key={`${group.title}-${service.name}`}
+                      href={service.href}
+                      target="_blank"
+                      rel="noreferrer"
+                      title={service.description}
+                    >
+                      {iconSrc ? (
+                        <img
+                          className="h-4 w-4 rounded-[4px] object-contain"
+                          src={iconSrc}
+                          alt=""
+                          aria-hidden="true"
+                        />
+                      ) : null}
+                      {service.name}
+                      <ArrowUpRight size={14} />
+                    </a>
+                  );
+                })}
               </div>
             </div>
           ))}
@@ -244,7 +269,9 @@ function PageContent({
             <span>gpu.garden</span>
           </p>
           {footerServices.map((service) => {
-            const Icon = footerIcons[service.name as keyof typeof footerIcons];
+            const Icon =
+              footerIcons[service.name as keyof typeof footerIcons] ??
+              ArrowUpRight;
 
             return (
               <a
@@ -256,7 +283,7 @@ function PageContent({
                 title={service.description ?? service.name}
                 aria-label={service.name}
               >
-                {Icon ? <Icon size={16} strokeWidth={2} /> : <ArrowUpRight size={16} />}
+                <Icon size={16} />
               </a>
             );
           })}
