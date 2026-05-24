@@ -1,0 +1,113 @@
+[[services]]
+category = "ai"
+name = "SwarmUI"
+href = "https://swarmui.gpu.garden/"
+description = "Image generation in a convenient interface with ComfyUI"
+
+[[services]]
+category = "ai"
+name = "MooshieUI"
+href = "https://mooshieui.gpu.garden/"
+description = "WIP interface powered by ComfyUI"
+
+[[services]]
+category = "ai"
+name = "ComfyUI (CPU)"
+href = "https://comfyui.gpu.garden/"
+description = "ComfyUI running on CPU"
+
+[[services]]
+category = "ai"
+name = "Open WebUI"
+href = "https://oui.gpu.garden/"
+description = "Open WebUI instance for using tiny to medium sized LLMs"
+
+[[services]]
+category = "ai"
+name = "SillyTavern"
+href = "https://novel.gpu.garden/"
+description = "Instance of SillyTavern"
+
+[[services]]
+category = "ai"
+name = "JupyterHub"
+href = "https://jupyterhub.gpu.garden/"
+description = "JupyterHub instance for running notebooks"
+
+[[services]]
+category = "ai"
+name = "Farterrogator"
+href = "https://tagger.gpu.garden/"
+description = "Image captioning with Danbooru tags"
+
+[[services]]
+category = "services"
+name = "Outline Docs"
+href = "https://docs.gpu.garden/"
+description = "Outline instance for sharing documentation"
+
+[[services]]
+category = "services"
+name = "Copyparty"
+href = "https://copy.gpu.garden/"
+description = "File sharing service hosted in the datacenter"
+
+[[services]]
+category = "services"
+name = "Fartgram"
+href = "https://fartgram.gpu.garden/"
+description = "Image sharing service for AI art"
+
+[[services]]
+category = "services"
+name = "Hedgedoc"
+href = "https://rentry.gpu.garden/"
+description = "Text sharing service for AI art"
+
+[[services]]
+category = "services"
+name = "CyberChef"
+href = "https://cc.gpu.garden/"
+description = "Web data manipulation for power users"
+
+[[services]]
+category = "tools"
+name = "Reserve"
+href = "https://reserve.gpu.garden/"
+description = "Reserve an A4000 on JupyterHub"
+
+[[services]]
+category = "tools"
+name = "Stats"
+href = "https://stats.gpu.garden/"
+description = "Grafana metrics"
+
+[[services]]
+category = "tools"
+name = "Status"
+href = "https://status.gpu.garden/"
+description = "Uptime monitoring"
+
+[[services]]
+category = "tools"
+name = "Prompt History"
+href = "https://prompts.gpu.garden/"
+description = "Prompt history"
+
+[[services]]
+category = "other"
+name = "Buymeacoffee"
+href = "https://buymeacoffee.com/astromahdi"
+description = "Donate for better GPUs"
+
+[[services]]
+category = "other"
+name = "Twitch"
+href = "https://www.twitch.tv/gpugarden"
+description = "Sometimes streaming"
+
+[[services]]
+category = "other"
+name = "Website GitHub"
+href = "https://github.com/mchaker/gpugarden-site"
+description = "Source code for the homepage"
