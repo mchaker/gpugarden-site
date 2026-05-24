@@ -20,7 +20,7 @@ const rules = [
 ];
 
 const cardClass =
-  "rounded-[28px] bg-[linear-gradient(180deg,rgba(24,24,27,0.94),rgba(15,15,18,0.92))] shadow-[0_24px_80px_rgba(0,0,0,0.4)]";
+  "bg-transparent shadow-none sm:rounded-[28px] sm:bg-[linear-gradient(180deg,rgba(24,24,27,0.94),rgba(15,15,18,0.92))] sm:shadow-[0_24px_80px_rgba(0,0,0,0.4)]";
 
 const categoryLabels: Record<string, string> = {
   ai: "AI",
@@ -60,10 +60,10 @@ export default function HomePageClient({ serviceGroups }: HomePageClientProps) {
 
   return (
     <>
-      <main className="mx-auto w-full max-w-[1120px] px-5 py-10 pb-14">
+      <main className="mx-auto w-full max-w-[1120px] px-0 py-10 pb-14 sm:px-5">
         <section className="grid items-start gap-6 lg:grid-cols-[minmax(0,1.45fr)_minmax(280px,0.85fr)] lg:items-stretch">
           <div
-            className={`${cardClass} flex h-full flex-col rounded-[32px] p-6 sm:p-8 md:p-12`}
+            className={`${cardClass} flex h-full flex-col px-5 py-6 sm:rounded-[32px] sm:p-8 md:p-12`}
           >
             <div>
               <h1 className="max-w-[10ch] text-[clamp(2.5rem,6.2vw,4.8rem)] font-extrabold leading-[0.95] tracking-[-0.05em] text-zinc-100 max-lg:max-w-none">
@@ -103,7 +103,7 @@ export default function HomePageClient({ serviceGroups }: HomePageClientProps) {
           </div>
 
           <aside
-            className={`${cardClass} h-full p-6 sm:p-7`}
+            className={`${cardClass} h-full px-5 py-6 sm:p-7`}
             aria-label="Datacenter summary"
           >
             <h2 className="text-xl font-semibold leading-tight text-zinc-100">
@@ -162,7 +162,7 @@ export default function HomePageClient({ serviceGroups }: HomePageClientProps) {
         </section>
 
         <section
-          className={`${cardClass} mt-5 p-6 sm:p-7`}
+          className={`${cardClass} mt-5 px-5 py-6 sm:p-7`}
           aria-labelledby="services-title"
         >
           <h2
@@ -184,7 +184,7 @@ export default function HomePageClient({ serviceGroups }: HomePageClientProps) {
 
                     return (
                       <a
-                        className="inline-flex items-center gap-2.5 rounded-full bg-white/5 px-3.5 py-3 text-[0.95rem] font-semibold text-zinc-200 transition hover:-translate-y-px hover:bg-zinc-700/90"
+                        className="inline-flex items-center gap-2 rounded-full bg-white/5 px-3 py-2.5 text-[0.95rem] font-semibold text-zinc-200 transition hover:-translate-y-px hover:bg-zinc-700/90 sm:gap-2.5 sm:px-3.5 sm:py-3"
                         key={`${group.title}-${service.name}`}
                         href={service.href}
                         target="_blank"
@@ -211,7 +211,7 @@ export default function HomePageClient({ serviceGroups }: HomePageClientProps) {
         </section>
 
         <section
-          className={`${cardClass} mt-5 p-6 sm:p-7`}
+          className={`${cardClass} mt-5 px-5 py-6 sm:p-7`}
           aria-labelledby="rules-title"
         >
           <h2
@@ -235,8 +235,8 @@ export default function HomePageClient({ serviceGroups }: HomePageClientProps) {
           </div>
         </section>
 
-        <footer className="mt-6 flex flex-col gap-4 px-1 text-sm text-zinc-400 lg:flex-row lg:items-end lg:justify-between">
-          <div className="flex flex-wrap items-center gap-3">
+        <footer className="mt-6 flex flex-col gap-4 px-5 text-sm text-zinc-400 sm:px-1 lg:flex-row lg:items-end lg:justify-between">
+          <div className="flex flex-wrap items-center gap-3 max-sm:justify-between">
             <p className="inline-flex items-center gap-2.5 font-semibold text-zinc-100">
               <img
                 className="block rounded-md"
@@ -254,7 +254,7 @@ export default function HomePageClient({ serviceGroups }: HomePageClientProps) {
               return (
                 <a
                   key={`footer-${service.name}`}
-                  className="inline-flex h-11 w-11 items-center justify-center rounded-2xl bg-white/5 text-zinc-200 transition hover:-translate-y-px hover:bg-zinc-700/90"
+                  className="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl bg-white/5 text-zinc-200 transition hover:-translate-y-px hover:bg-zinc-700/90"
                   href={service.href}
                   target="_blank"
                   rel="noreferrer"
