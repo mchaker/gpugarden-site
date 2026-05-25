@@ -11,7 +11,7 @@ const rules = [
   },
   {
     title: "Shared resource abuse and circumvention",
-    text: "gpu.garden is a shared community resource. Do not abuse the share server, monopolize system capacity, evade rate limits, or attempt to bypass technical or artificial limitations.",
+    text: "gpu.garden is a shared community resource. Do not abuse the share server, monopolize system resources, or attempt to bypass technical or artificial limitations.",
   },
   {
     title: "Harassment and hateful conduct",
@@ -37,7 +37,7 @@ const serviceIcons: Record<string, string> = {
   SillyTavern: "/icons/novel.ico",
   JupyterHub: "/icons/jupyterhub.svg",
   Farterrogator: "/icons/tagger.webp",
-  "Outline Docs": "/icons/docs.svg",
+  Outline: "/icons/docs.svg",
   Fartgram: "/icons/fartgram.ico",
   Hedgedoc: "/icons/rentry.svg",
 };
@@ -54,7 +54,9 @@ type HomePageClientProps = {
 
 export default function HomePageClient({ serviceGroups }: HomePageClientProps) {
   const [lightboxOpen, setLightboxOpen] = useState(false);
-  const mainServiceGroups = serviceGroups.filter((group) => group.title !== "other");
+  const mainServiceGroups = serviceGroups.filter(
+    (group) => group.title !== "other",
+  );
   const footerServices =
     serviceGroups.find((group) => group.title === "other")?.services ?? [];
 
@@ -97,7 +99,8 @@ export default function HomePageClient({ serviceGroups }: HomePageClientProps) {
                 </a>
               </div>
               <p className="mt-2 pl-1 text-xs text-zinc-500">
-                Look for a user with the <span className="text-zinc-400">fartcore</span> role.
+                Look for a user with the{" "}
+                <span className="text-zinc-400">fartcore</span> role.
               </p>
             </div>
           </div>
@@ -155,8 +158,8 @@ export default function HomePageClient({ serviceGroups }: HomePageClientProps) {
 
             <p className="mt-2.5 leading-7 text-zinc-400">
               CPUs handle services like Outline, Fartgram, Copyparty, and other
-              lighter workloads, alongside a few more limited-use systems like DGX
-              Sparks.
+              lighter workloads, alongside a few more limited-use systems like
+              DGX Sparks.
             </p>
           </aside>
         </section>
@@ -249,7 +252,8 @@ export default function HomePageClient({ serviceGroups }: HomePageClientProps) {
             </p>
             {footerServices.map((service) => {
               const Icon =
-                footerIcons[service.name as keyof typeof footerIcons] ?? ArrowUpRight;
+                footerIcons[service.name as keyof typeof footerIcons] ??
+                ArrowUpRight;
 
               return (
                 <a

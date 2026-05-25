@@ -1,3 +1,7 @@
+# categories: ai, services, tools
+# avoid touching other
+# even if things are changed this shouldn't break
+
 [[services]]
 category = "ai"
 name = "SwarmUI"
@@ -42,13 +46,13 @@ description = "Image captioning with Danbooru tags"
 
 [[services]]
 category = "services"
-name = "Outline Docs"
+name = "Outline"
 href = "https://docs.gpu.garden/"
 description = "Outline instance for sharing documentation"
 
 [[services]]
 category = "services"
-name = "Copyparty"
+name = "🎉 Copyparty"
 href = "https://copy.gpu.garden/"
 description = "File sharing service hosted in the datacenter"
 

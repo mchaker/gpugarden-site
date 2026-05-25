@@ -7,13 +7,12 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "gpu.garden",
-  description:
-    "gpu.garden is a small set of AI services run from the fartcore homelab.",
+  title: "Home - gpu.garden",
+  description: "Free AI services for the community.",
   icons: {
-    icon: "/favicon.png",
-    shortcut: "/favicon.png",
-    apple: "/favicon.png",
+    icon: "/favicon-small.png",
+    shortcut: "/favicon-small.png",
+    apple: "/favicon-small.png",
   },
 };
 
