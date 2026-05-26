@@ -1,6 +1,6 @@
 "use client";
 
-import { ArrowUpRight, Coffee, Github, Twitch } from "lucide-react";
+import { ArrowUpRight, Coffee, Github, Leaf, Twitch } from "lucide-react";
 import { useState } from "react";
 import type { ServiceGroup, ServiceLink } from "../lib/services";
 
@@ -53,7 +53,10 @@ type HomePageClientProps = {
 };
 
 export default function HomePageClient({ serviceGroups }: HomePageClientProps) {
-  const [lightboxOpen, setLightboxOpen] = useState(false);
+  const [lightboxImage, setLightboxImage] = useState<{
+    src: string;
+    alt: string;
+  } | null>(null);
   const mainServiceGroups = serviceGroups.filter(
     (group) => group.title !== "other",
   );
@@ -68,9 +71,30 @@ export default function HomePageClient({ serviceGroups }: HomePageClientProps) {
             className={`${cardClass} flex h-full flex-col px-5 py-6 sm:rounded-[32px] sm:p-8 md:p-12`}
           >
             <div>
-              <h1 className="max-w-[10ch] text-[clamp(2.5rem,6.2vw,4.8rem)] font-extrabold leading-[0.95] tracking-[-0.05em] text-zinc-100 max-lg:max-w-none">
-                Who would&apos;ve known AI playgrounds could be free?
-              </h1>
+              <div>
+                <h1 className="max-w-[10ch] text-[clamp(2.5rem,6.2vw,4.8rem)] font-extrabold leading-[0.95] tracking-[-0.05em] text-zinc-100 max-lg:max-w-none">
+                  <span className="relative inline-block">
+                    W
+                    <button
+                      type="button"
+                      className="absolute left-[-0.31em] top-[0.10em] z-10 flex h-[0.44em] w-[0.44em] cursor-pointer items-center justify-center text-zinc-100 transition hover:text-zinc-400"
+                      onClick={() =>
+                        setLightboxImage({
+                          src: "/gpu-gardener.webp",
+                          alt: "GPU gardener",
+                        })
+                      }
+                      aria-label="Open larger view of the GPU gardener"
+                    >
+                      <Leaf
+                        className="h-full w-full rotate-[160deg]"
+                        strokeWidth={2.2}
+                      />
+                    </button>
+                  </span>
+                  ho would&apos;ve known AI playgrounds could be free?
+                </h1>
+              </div>
               <p className="mt-[22px] max-w-[42rem] text-[1.05rem] leading-7 text-zinc-400">
                 A beautiful little corner of the web for AI enthusiasts, powered
                 by the fartcore datacenter.
@@ -116,7 +140,12 @@ export default function HomePageClient({ serviceGroups }: HomePageClientProps) {
             <button
               type="button"
               className="mt-[18px] block w-full overflow-hidden rounded-[18px] text-left"
-              onClick={() => setLightboxOpen(true)}
+              onClick={() =>
+                setLightboxImage({
+                  src: "/fartcore_datacenter_1.webp",
+                  alt: "Fartcore datacenter",
+                })
+              }
               aria-label="Open larger view of the fartcore datacenter"
             >
               <img
@@ -290,30 +319,32 @@ export default function HomePageClient({ serviceGroups }: HomePageClientProps) {
 
       <div
         className={`fixed inset-0 z-50 grid place-items-center p-6 transition-all duration-200 ${
-          lightboxOpen
+          lightboxImage
             ? "pointer-events-auto visible opacity-100"
             : "pointer-events-none invisible opacity-0"
         }`}
-        aria-hidden={!lightboxOpen}
+        aria-hidden={!lightboxImage}
       >
         <button
           type="button"
           className="absolute inset-0 bg-black/80 backdrop-blur-sm"
-          onClick={() => setLightboxOpen(false)}
-          aria-label="Close datacenter image"
+          onClick={() => setLightboxImage(null)}
+          aria-label="Close image lightbox"
         />
         <div
           className={`relative z-10 inline-flex max-w-[min(94vw,1120px)] justify-center transition duration-200 ${
-            lightboxOpen
+            lightboxImage
               ? "translate-y-0 scale-100 opacity-100"
               : "translate-y-3 scale-[0.985] opacity-0"
           }`}
         >
-          <img
-            className="pointer-events-auto block max-h-[88vh] max-w-full rounded-[22px] object-contain shadow-[0_24px_80px_rgba(0,0,0,0.5)]"
-            src="/fartcore_datacenter_1.webp"
-            alt="Fartcore datacenter"
-          />
+          {lightboxImage ? (
+            <img
+              className="pointer-events-auto block max-h-[88vh] max-w-full rounded-[22px] object-contain shadow-[0_24px_80px_rgba(0,0,0,0.5)]"
+              src={lightboxImage.src}
+              alt={lightboxImage.alt}
+            />
+          ) : null}
         </div>
       </div>
     </>
