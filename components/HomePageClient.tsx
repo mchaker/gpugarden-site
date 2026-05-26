@@ -64,6 +64,13 @@ export default function HomePageClient({ serviceGroups }: HomePageClientProps) {
   const footerServices =
     serviceGroups.find((group) => group.title === "other")?.services ?? [];
 
+  const getServiceIcon = (name: string) => {
+    if (name === "SwarmUI" && hoveredService === "SwarmUI") {
+      return "/icons/swarmiku.ico";
+    }
+    return serviceIcons[name as keyof typeof serviceIcons];
+  };
+
   return (
     <>
       <main className="mx-auto w-full max-w-[1120px] px-0 py-10 pb-14 sm:px-5">
@@ -213,10 +220,7 @@ export default function HomePageClient({ serviceGroups }: HomePageClientProps) {
                 </h3>
                 <div className="mt-3 flex flex-wrap gap-3">
                   {group.services.map((service) => {
-                    let iconSrc = serviceIcons[service.name];
-                    if (service.name === "SwarmUI" && hoveredService === "SwarmUI") {
-                      iconSrc = "/icons/swarmiku.ico";
-                    }
+                    const iconSrc = getServiceIcon(service.name);
 
                     return (
                       <a

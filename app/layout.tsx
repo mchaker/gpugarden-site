@@ -7,6 +7,7 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://gpu.garden"),
   title: "Homepage - gpu.garden",
   description: "Free AI services for the community.",
   icons: {
@@ -23,7 +24,7 @@ export const metadata: Metadata = {
     type: "website",
     images: [
       {
-        url: "/logo.png",
+        url: "/logo.webp",
         width: 512,
         height: 512,
         alt: "gpu.garden logo",
@@ -34,7 +35,7 @@ export const metadata: Metadata = {
     card: "summary",
     title: "gpu.garden",
     description: "Free AI services for the community.",
-    images: ["/logo.png"],
+    images: ["/logo.webp"],
   },
 };
 
