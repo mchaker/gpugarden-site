@@ -57,6 +57,7 @@ export default function HomePageClient({ serviceGroups }: HomePageClientProps) {
     src: string;
     alt: string;
   } | null>(null);
+  const [hoveredService, setHoveredService] = useState<string | null>(null);
   const mainServiceGroups = serviceGroups.filter(
     (group) => group.title !== "other",
   );
@@ -212,7 +213,10 @@ export default function HomePageClient({ serviceGroups }: HomePageClientProps) {
                 </h3>
                 <div className="mt-3 flex flex-wrap gap-3">
                   {group.services.map((service) => {
-                    const iconSrc = serviceIcons[service.name];
+                    let iconSrc = serviceIcons[service.name];
+                    if (service.name === "SwarmUI" && hoveredService === "SwarmUI") {
+                      iconSrc = "/icons/swarmiku.ico";
+                    }
 
                     return (
                       <a
@@ -222,6 +226,8 @@ export default function HomePageClient({ serviceGroups }: HomePageClientProps) {
                         target="_blank"
                         rel="noreferrer"
                         title={service.description}
+                        onMouseEnter={() => setHoveredService(service.name)}
+                        onMouseLeave={() => setHoveredService(null)}
                       >
                         {iconSrc ? (
                           <img
