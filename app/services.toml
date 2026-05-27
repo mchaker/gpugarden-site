@@ -88,15 +88,15 @@ description = "Grafana metrics"
 
 [[services]]
 category = "tools"
-name = "Status"
-href = "https://status.gpu.garden/"
-description = "Uptime monitoring"
-
-[[services]]
-category = "tools"
 name = "Prompt History"
 href = "https://prompts.gpu.garden/"
 description = "Prompt history"
+
+[[services]]
+category = "tools"
+name = "Status"
+href = "https://status.gpu.garden/"
+description = "Uptime monitoring"
 
 [[services]]
 category = "other"
