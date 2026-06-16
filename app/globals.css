@@ -1,5 +1,29 @@
 @import "tailwindcss";
 
+@theme inline {
+    --font-mono: var(--font-jetbrains-mono), ui-monospace, "SF Mono", Menlo,
+        Consolas, monospace;
+}
+
 :root {
     color-scheme: dark;
+
+    /* Brand — Garden Red (logo shell) */
+    --red-400: #f26b68;
+    --red-500: #ec2c2b;
+    --red-600: #d11f21;
+
+    /* Brand — Garden Yellow (logo face + CTA) */
+    --yellow-300: #fde047;
+    --yellow-400: #facc15;
+
+    /* Text */
+    --text-strong: #f4f4f5; /* zinc-100 */
+    --text-body: #a1a1aa; /* zinc-400 */
+    --text-muted: #71717a; /* zinc-500 */
+    --text-link: var(--yellow-400);
+    --text-on-accent: #09090b; /* zinc-950 */
+
+    /* Borders */
+    --border-subtle: rgba(255, 255, 255, 0.08);
 }
