@@ -2,7 +2,7 @@
 
 import { ArrowUpRight, Coffee, Github, Leaf, Twitch } from "lucide-react";
 import { useState } from "react";
-import type { ServiceGroup } from "../lib/services";
+import type { ServiceGroup, ServiceLink } from "../lib/services";
 
 const rules = [
   {
@@ -19,20 +19,8 @@ const rules = [
   },
 ];
 
-const hardware = [
-  { name: "1x RTX 8000", role: "LLMs", count: 1 },
-  { name: "1x RTX 3090 Ti", role: "Image generation", count: 1 },
-  { name: "1x RTX 4070 Ti Super", role: "Image generation", count: 1 },
-  { name: "4x RTX A4000", role: "Training", count: 4 },
-];
-const gpuCount = hardware.reduce((total, item) => total + item.count, 0);
-
-// Crisp, translucent "console" surface so the particle field reads behind it.
-const glassCard =
-  "rounded-[20px] border border-white/[0.09] bg-[rgba(17,17,20,0.58)] shadow-[0_1px_0_rgba(255,255,255,0.05)_inset,0_18px_50px_rgba(0,0,0,0.45)] [backdrop-filter:blur(18px)_saturate(1.05)] [-webkit-backdrop-filter:blur(18px)_saturate(1.05)]";
-
-const tagClass =
-  "inline-block rounded-[7px] border border-[var(--border-subtle)] px-[9px] py-[3px] font-mono text-[11px] tracking-[0.05em] text-[var(--text-muted)]";
+const cardClass =
+  "bg-transparent shadow-none sm:rounded-[28px] sm:bg-[linear-gradient(180deg,rgba(24,24,27,0.94),rgba(15,15,18,0.92))] sm:shadow-[0_24px_80px_rgba(0,0,0,0.4)]";
 
 const categoryLabels: Record<string, string> = {
   ai: "AI",
@@ -75,10 +63,6 @@ export default function HomePageClient({ serviceGroups }: HomePageClientProps) {
   );
   const footerServices =
     serviceGroups.find((group) => group.title === "other")?.services ?? [];
-  const serviceCount = mainServiceGroups.reduce(
-    (total, group) => total + group.services.length,
-    0,
-  );
 
   const getServiceIcon = (name: string) => {
     if (name === "SwarmUI" && hoveredService === "SwarmUI") {
@@ -89,70 +73,46 @@ export default function HomePageClient({ serviceGroups }: HomePageClientProps) {
 
   return (
     <>
-      <main className="relative z-[1] mx-auto w-full max-w-[1120px] px-4 pb-[60px] pt-[22px] sm:px-6">
-        {/* Top status bar */}
-        <div className="mb-5 flex items-center justify-between gap-4 rounded-[14px] border border-[var(--border-subtle)] bg-[rgba(20,20,23,0.55)] px-4 py-3 [backdrop-filter:blur(18px)_saturate(1.05)] [-webkit-backdrop-filter:blur(18px)_saturate(1.05)]">
-          <span className="inline-flex items-center gap-2.5 font-bold text-zinc-100">
-            <img
-              src="/favicon.png"
-              alt=""
-              aria-hidden="true"
-              className="h-[26px] w-[26px] rounded-[7px]"
-            />
-            gpu.garden
-          </span>
-          <span className="inline-flex items-center gap-3 text-xs text-[var(--text-muted)] sm:gap-[18px]">
-            <span className="font-mono">{gpuCount} GPUs · 1 datacenter</span>
-            <a
-              className="font-mono text-[var(--text-link)] no-underline transition hover:text-[var(--yellow-300)]"
-              href="https://status.gpu.garden/"
-              target="_blank"
-              rel="noreferrer"
-            >
-              Status ↗
-            </a>
-          </span>
-        </div>
+      <main className="mx-auto w-full max-w-[1120px] px-0 py-10 pb-14 sm:px-5">
+        <section className="grid items-start gap-6 lg:grid-cols-[minmax(0,1.45fr)_minmax(280px,0.85fr)] lg:items-stretch">
+          <div
+            className={`${cardClass} flex h-full flex-col px-5 py-6 sm:rounded-[32px] sm:p-8 md:p-12`}
+          >
+            <div>
+              <div>
+                <h1 className="max-w-[10ch] text-[clamp(2.5rem,6.2vw,4.8rem)] font-extrabold leading-[0.95] tracking-[-0.05em] text-zinc-100 max-lg:max-w-none">
+                  <span className="relative inline-block">
+                    W
+                    <button
+                      type="button"
+                      className="absolute left-[-0.31em] top-[0.10em] z-10 flex h-[0.44em] w-[0.44em] cursor-pointer items-center justify-center text-zinc-100 transition hover:text-zinc-400"
+                      onClick={() =>
+                        setLightboxImage({
+                          src: "/gpu-gardener.webp",
+                          alt: "GPU gardener",
+                        })
+                      }
+                      aria-label="Open larger view of the GPU gardener"
+                    >
+                      <Leaf
+                        className="h-full w-full rotate-[160deg]"
+                        strokeWidth={2.2}
+                      />
+                    </button>
+                  </span>
+                  ho would&apos;ve known AI playgrounds could be free?
+                </h1>
+              </div>
+              <p className="mt-[22px] max-w-[42rem] text-[1.05rem] leading-7 text-zinc-400">
+                A beautiful little corner of the web for AI enthusiasts, powered
+                by the fartcore datacenter.
+              </p>
+            </div>
 
-        <section className="grid gap-5 lg:grid-cols-[minmax(0,1.4fr)_minmax(320px,0.92fr)] lg:items-stretch">
-          {/* Hero sits directly over the particle field (no card), with a soft scrim for legibility */}
-          <div className="relative flex flex-col p-5 sm:p-[26px]">
-            <div
-              aria-hidden="true"
-              className="pointer-events-none absolute -inset-y-[10px] -left-[20px] -right-[30px] -z-10 [background:radial-gradient(120%_90%_at_8%_45%,rgba(8,8,10,0.82),rgba(8,8,10,0.4)_45%,transparent_72%)]"
-            />
-            <span className={tagClass}>// playground.gpu.garden</span>
-            <h1 className="mt-4 max-w-[13ch] text-[clamp(2.4rem,4.8vw,4.2rem)] font-extrabold leading-[0.96] tracking-[-0.05em] text-zinc-100 max-lg:max-w-none">
-              <span className="relative inline-block">
-                W
-                <button
-                  type="button"
-                  className="absolute left-[-0.30em] top-[0.08em] z-10 flex h-[0.46em] w-[0.46em] cursor-pointer items-center justify-center text-[var(--red-500)] transition hover:text-[var(--red-400)]"
-                  onClick={() =>
-                    setLightboxImage({
-                      src: "/gpu-gardener.webp",
-                      alt: "GPU gardener",
-                    })
-                  }
-                  aria-label="Open larger view of the GPU gardener"
-                >
-                  <Leaf
-                    className="h-full w-full rotate-[160deg]"
-                    strokeWidth={2.2}
-                  />
-                </button>
-              </span>
-              ho would&apos;ve known AI playgrounds could be free?
-            </h1>
-            <p className="mt-[18px] max-w-[46ch] text-[1.05rem] leading-[1.6] text-[var(--text-body)]">
-              A beautiful little corner of the web for AI enthusiasts, powered by
-              the fartcore datacenter.
-            </p>
-
-            <div className="mt-auto pt-7">
-              <div className="flex flex-wrap gap-2.5">
+            <div className="mt-[30px] lg:mt-auto">
+              <div className="flex flex-wrap gap-3">
                 <a
-                  className="inline-flex items-center gap-[9px] rounded-[12px] border border-transparent bg-[var(--yellow-400)] px-5 py-3.5 text-[0.98rem] font-semibold text-[var(--text-on-accent)] shadow-[0_1px_0_rgba(255,255,255,0.35)_inset] transition hover:-translate-y-px hover:bg-[var(--yellow-300)] hover:text-[var(--text-on-accent)] hover:shadow-[0_6px_18px_rgba(250,204,21,0.3)]"
+                  className="inline-flex items-center gap-2.5 rounded-full bg-yellow-400 px-[18px] py-[14px] font-semibold text-zinc-950 transition hover:-translate-y-px hover:bg-yellow-300"
                   href="https://discord.com/servers/dong-fang-project-ai-930499730843250783"
                   target="_blank"
                   rel="noreferrer"
@@ -161,33 +121,33 @@ export default function HomePageClient({ serviceGroups }: HomePageClientProps) {
                   <ArrowUpRight size={16} />
                 </a>
                 <a
-                  className="inline-flex items-center gap-[9px] rounded-[12px] border border-transparent bg-[var(--red-600)] px-5 py-3.5 text-[0.98rem] font-semibold text-white transition hover:-translate-y-px hover:bg-[var(--red-500)] hover:text-white hover:shadow-[0_6px_18px_rgba(236,44,43,0.32)]"
+                  className="inline-flex items-center gap-2.5 rounded-full bg-zinc-800/80 px-[18px] py-[14px] font-semibold text-zinc-100 transition hover:-translate-y-px hover:bg-zinc-700/90"
                   href="https://swarmui.gpu.garden/"
                   target="_blank"
                   rel="noreferrer"
                 >
                   Open SwarmUI
+                  <ArrowUpRight size={16} />
                 </a>
               </div>
-              <p className="mt-4 font-mono text-xs text-[var(--text-muted)]">
-                $ access — look for a user with the{" "}
-                <b className="font-medium text-[var(--yellow-400)]">fartcore</b>{" "}
-                role
+              <p className="mt-2 pl-1 text-xs text-zinc-500">
+                Look for a user with the{" "}
+                <span className="text-zinc-400">fartcore</span> role.
               </p>
             </div>
           </div>
 
           <aside
-            className={`${glassCard} p-5 sm:p-[26px]`}
+            className={`${cardClass} h-full px-5 py-6 sm:p-7`}
             aria-label="Datacenter summary"
           >
-            <h2 className="text-[1.05rem] font-semibold leading-tight text-zinc-100">
+            <h2 className="text-xl font-semibold leading-tight text-zinc-100">
               Fartcore datacenter hardware:
             </h2>
 
             <button
               type="button"
-              className="mt-4 block w-full overflow-hidden rounded-[12px] border border-[var(--border-subtle)] text-left"
+              className="mt-[18px] block w-full overflow-hidden rounded-[18px] text-left"
               onClick={() =>
                 setLightboxImage({
                   src: "/fartcore_datacenter_1.webp",
@@ -202,29 +162,38 @@ export default function HomePageClient({ serviceGroups }: HomePageClientProps) {
                 alt="Fartcore datacenter"
               />
             </button>
-            <p className="mt-2 text-xs text-[var(--text-muted)]">
+            <p className="mt-2 text-sm text-zinc-500">
               psst... you can click the photo for a bigger look ✨
             </p>
 
-            <div className="mt-3.5">
-              {hardware.map((item, index) => (
-                <div
-                  key={item.name}
-                  className={`flex items-baseline justify-between gap-4 py-[11px] ${
-                    index === 0 ? "" : "border-t border-white/[0.06]"
-                  }`}
-                >
-                  <strong className="text-[0.95rem] font-semibold text-zinc-100">
-                    {item.name}
-                  </strong>
-                  <span className="font-mono text-xs text-[var(--text-muted)]">
-                    {item.role}
-                  </span>
-                </div>
-              ))}
-            </div>
+            <ul className="mt-[18px] space-y-1">
+              <li className="flex items-baseline justify-between gap-4 py-2.5 text-zinc-100 max-sm:flex-col max-sm:items-start max-sm:gap-0.5">
+                <strong className="font-semibold">1x RTX 8000</strong>
+                <span className="whitespace-nowrap text-zinc-400 max-sm:whitespace-normal">
+                  LLMs
+                </span>
+              </li>
+              <li className="flex items-baseline justify-between gap-4 py-2.5 text-zinc-100 max-sm:flex-col max-sm:items-start max-sm:gap-0.5">
+                <strong className="font-semibold">1x RTX 3090 Ti</strong>
+                <span className="whitespace-nowrap text-zinc-400 max-sm:whitespace-normal">
+                  Image generation
+                </span>
+              </li>
+              <li className="flex items-baseline justify-between gap-4 py-2.5 text-zinc-100 max-sm:flex-col max-sm:items-start max-sm:gap-0.5">
+                <strong className="font-semibold">1x RTX 4070 Ti Super</strong>
+                <span className="whitespace-nowrap text-zinc-400 max-sm:whitespace-normal">
+                  Image generation
+                </span>
+              </li>
+              <li className="flex items-baseline justify-between gap-4 py-2.5 text-zinc-100 max-sm:flex-col max-sm:items-start max-sm:gap-0.5">
+                <strong className="font-semibold">4x RTX A4000</strong>
+                <span className="whitespace-nowrap text-zinc-400 max-sm:whitespace-normal">
+                  Training
+                </span>
+              </li>
+            </ul>
 
-            <p className="mt-3 text-[0.85rem] leading-[1.6] text-[var(--text-body)]">
+            <p className="mt-2.5 leading-7 text-zinc-400">
               CPUs handle services like Outline, Fartgram, Copyparty, and other
               lighter workloads, alongside a few more limited-use systems like
               DGX Sparks.
@@ -233,91 +202,74 @@ export default function HomePageClient({ serviceGroups }: HomePageClientProps) {
         </section>
 
         <section
-          className={`${glassCard} mt-5 p-5 sm:p-[26px]`}
+          className={`${cardClass} mt-5 px-5 py-6 sm:p-7`}
           aria-labelledby="services-title"
         >
-          <div className="flex items-center justify-between">
-            <h2
-              id="services-title"
-              className="text-[1.15rem] font-bold tracking-[-0.01em] text-zinc-100"
-            >
-              What lives here
-            </h2>
-            <span className={tagClass}>{serviceCount} services</span>
-          </div>
+          <h2
+            id="services-title"
+            className="text-xl font-semibold leading-tight text-zinc-100"
+          >
+            What lives here
+          </h2>
 
-          <div className="mt-5 grid gap-x-[26px] gap-y-[18px] [grid-template-columns:repeat(auto-fit,minmax(230px,1fr))]">
+          <div className="mt-5 grid gap-5 overflow-x-auto pb-2 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,1.1fr)_minmax(220px,0.7fr)]">
             {mainServiceGroups.map((group) => (
               <div key={group.title}>
-                <div className="border-b border-white/[0.07] pb-2 font-mono text-[11px] uppercase tracking-[0.14em] text-[var(--text-muted)]">
+                <h3 className="text-sm font-semibold uppercase tracking-[0.18em] text-zinc-400">
                   {categoryLabels[group.title] ?? group.title}
-                </div>
-                {group.services.map((service) => {
-                  const iconSrc = getServiceIcon(service.name);
+                </h3>
+                <div className="mt-3 flex flex-wrap gap-3">
+                  {group.services.map((service) => {
+                    const iconSrc = getServiceIcon(service.name);
 
-                  return (
-                    <a
-                      className="-mx-2 flex items-center gap-[11px] rounded-[9px] px-2 py-[9px] text-zinc-200 no-underline transition hover:bg-white/5"
-                      key={`${group.title}-${service.name}`}
-                      href={service.href}
-                      target="_blank"
-                      rel="noreferrer"
-                      title={service.description}
-                      onMouseEnter={() => setHoveredService(service.name)}
-                      onMouseLeave={() => setHoveredService(null)}
-                    >
-                      {iconSrc ? (
-                        <img
-                          className="h-[18px] w-[18px] rounded-[4px] object-contain"
-                          src={iconSrc}
-                          alt=""
-                          aria-hidden="true"
-                        />
-                      ) : (
-                        <span className="h-[18px] w-[18px]" aria-hidden="true" />
-                      )}
-                      <span className="flex-1 text-[0.95rem] font-medium">
+                    return (
+                      <a
+                        className="inline-flex items-center gap-2 rounded-full bg-white/5 px-3 py-2.5 text-[0.95rem] font-semibold text-zinc-200 transition hover:-translate-y-px hover:bg-zinc-700/90 sm:gap-2.5 sm:px-3.5 sm:py-3"
+                        key={`${group.title}-${service.name}`}
+                        href={service.href}
+                        target="_blank"
+                        rel="noreferrer"
+                        title={service.description}
+                        onMouseEnter={() => setHoveredService(service.name)}
+                        onMouseLeave={() => setHoveredService(null)}
+                      >
+                        {iconSrc ? (
+                          <img
+                            className="h-4 w-4 rounded-[4px] object-contain"
+                            src={iconSrc}
+                            alt=""
+                            aria-hidden="true"
+                          />
+                        ) : null}
                         {service.name}
-                      </span>
-                      <ArrowUpRight
-                        className="h-3.5 w-3.5 text-[var(--text-muted)]"
-                        aria-hidden="true"
-                      />
-                    </a>
-                  );
-                })}
+                        <ArrowUpRight size={14} />
+                      </a>
+                    );
+                  })}
+                </div>
               </div>
             ))}
           </div>
         </section>
 
         <section
-          className={`${glassCard} mt-5 p-5 sm:p-[26px]`}
+          className={`${cardClass} mt-5 px-5 py-6 sm:p-7`}
           aria-labelledby="rules-title"
         >
-          <div className="flex items-center justify-between">
-            <h2
-              id="rules-title"
-              className="text-[1.15rem] font-bold tracking-[-0.01em] text-zinc-100"
-            >
-              Usage rules
-            </h2>
-            <span className={tagClass}>{rules.length} rules</span>
-          </div>
+          <h2
+            id="rules-title"
+            className="text-xl font-semibold leading-tight text-zinc-100"
+          >
+            Usage rules
+          </h2>
 
-          <div className="mt-[18px] grid gap-3 [grid-template-columns:repeat(auto-fit,minmax(240px,1fr))]">
-            {rules.map((rule, index) => (
-              <div
-                key={rule.title}
-                className="rounded-[12px] border border-white/[0.07] bg-white/[0.03] p-4"
-              >
-                <div className="font-mono text-[11px] text-[var(--red-400)]">
-                  RULE_0{index + 1}
-                </div>
-                <h3 className="mt-1.5 text-[0.92rem] font-semibold text-zinc-100">
+          <div className="mt-5 grid gap-4 md:grid-cols-3">
+            {rules.map((rule) => (
+              <div key={rule.title} className="rounded-2xl bg-white/4 p-4">
+                <h3 className="text-sm font-semibold text-zinc-100">
                   {rule.title}
                 </h3>
-                <p className="mt-[7px] text-[0.85rem] leading-[1.55] text-[var(--text-body)]">
+                <p className="mt-2 text-sm leading-6 text-zinc-400">
                   {rule.text}
                 </p>
               </div>
@@ -325,54 +277,53 @@ export default function HomePageClient({ serviceGroups }: HomePageClientProps) {
           </div>
         </section>
 
-        <footer className="mt-6 flex flex-wrap items-center justify-between gap-3 px-1 font-mono text-xs text-[var(--text-muted)]">
-          <span>
-            gpu.garden · a{" "}
-            <a
-              className="text-[var(--text-link)] transition hover:text-[var(--yellow-300)]"
-              href="https://fartcore.ai/"
-              target="_blank"
-              rel="noreferrer"
-            >
-              fartcore
-            </a>{" "}
-            service
-          </span>
-          {footerServices.length > 0 ? (
-            <span className="flex items-center gap-2">
-              {footerServices.map((service) => {
-                const Icon =
-                  footerIcons[service.name as keyof typeof footerIcons] ??
-                  ArrowUpRight;
+        <footer className="mt-6 flex flex-col gap-4 px-5 text-sm text-zinc-400 sm:px-1 lg:flex-row lg:items-end lg:justify-between">
+          <div className="flex flex-wrap items-center gap-3 max-sm:justify-between">
+            <p className="inline-flex items-center gap-2.5 font-semibold text-zinc-100">
+              <img
+                className="block rounded-md"
+                src="/favicon.png"
+                alt="gpu.garden favicon"
+                width="24"
+                height="24"
+              />
+              <span>gpu.garden</span>
+            </p>
+            {footerServices.map((service) => {
+              const Icon =
+                footerIcons[service.name as keyof typeof footerIcons] ??
+                ArrowUpRight;
 
-                return (
-                  <a
-                    key={`footer-${service.name}`}
-                    className="inline-flex h-8 w-8 items-center justify-center rounded-[9px] border border-[var(--border-subtle)] bg-white/5 text-zinc-200 transition hover:-translate-y-px hover:bg-white/10"
-                    href={service.href}
-                    target="_blank"
-                    rel="noreferrer"
-                    title={service.description ?? service.name}
-                    aria-label={service.name}
-                  >
-                    <Icon size={15} />
-                  </a>
-                );
-              })}
+              return (
+                <a
+                  key={`footer-${service.name}`}
+                  className="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl bg-white/5 text-zinc-200 transition hover:-translate-y-px hover:bg-zinc-700/90"
+                  href={service.href}
+                  target="_blank"
+                  rel="noreferrer"
+                  title={service.description ?? service.name}
+                  aria-label={service.name}
+                >
+                  <Icon size={16} />
+                </a>
+              );
+            })}
+          </div>
+          <div className="flex flex-col gap-2 lg:items-end">
+            <span>
+              gpu.garden is a{" "}
+              <a
+                className="text-yellow-400 transition hover:text-yellow-300"
+                href="https://fartcore.ai/"
+                target="_blank"
+                rel="noreferrer"
+              >
+                fartcore
+              </a>{" "}
+              service
             </span>
-          ) : null}
-          <span>
-            Designed by Ashtaka &amp;{" "}
-            <a
-              className="text-[var(--text-link)] transition hover:text-[var(--yellow-300)]"
-              href="https://mooshieblob.com"
-              target="_blank"
-              rel="noreferrer"
-            >
-              Mooshieblob
-            </a>{" "}
-            · © 2024-2026
-          </span>
+            <span>© 2024-2026</span>
+          </div>
         </footer>
       </main>
 
