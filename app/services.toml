@@ -109,9 +109,3 @@ category = "other"
 name = "Twitch"
 href = "https://www.twitch.tv/gpugarden"
 description = "Sometimes streaming"
-
-[[services]]
-category = "other"
-name = "Website GitHub"
-href = "https://github.com/mchaker/gpugarden-site"
-description = "Source code for the homepage"

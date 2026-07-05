@@ -1,6 +1,6 @@
 "use client";
 
-import { ArrowUpRight, Coffee, Github, Leaf, Twitch } from "lucide-react";
+import { ArrowUpRight, Coffee, Leaf, Twitch } from "lucide-react";
 import { useState } from "react";
 import type { ServiceGroup, ServiceLink } from "../lib/services";
 
@@ -20,7 +20,7 @@ const rules = [
 ];
 
 const cardClass =
-  "bg-transparent shadow-none sm:rounded-[28px] sm:bg-[linear-gradient(180deg,rgba(24,24,27,0.94),rgba(15,15,18,0.92))] sm:shadow-[0_24px_80px_rgba(0,0,0,0.4)]";
+  "bg-transparent shadow-none sm:rounded-[28px] sm:bg-[linear-gradient(180deg,rgba(24,24,27,0.94),rgba(15,15,18,0.92))] sm:shadow-[0_8px_20px_-4px_rgba(0,0,0,0.5)]";
 
 const categoryLabels: Record<string, string> = {
   ai: "AI",
@@ -45,7 +45,6 @@ const serviceIcons: Record<string, string> = {
 const footerIcons = {
   Buymeacoffee: Coffee,
   Twitch,
-  "Website GitHub": Github,
 } as const;
 
 type HomePageClientProps = {
@@ -289,25 +288,27 @@ export default function HomePageClient({ serviceGroups }: HomePageClientProps) {
               />
               <span>gpu.garden</span>
             </p>
-            {footerServices.map((service) => {
-              const Icon =
-                footerIcons[service.name as keyof typeof footerIcons] ??
-                ArrowUpRight;
+            <div className="flex items-center gap-3 max-sm:gap-2">
+              {footerServices.map((service) => {
+                const Icon =
+                  footerIcons[service.name as keyof typeof footerIcons] ??
+                  ArrowUpRight;
 
-              return (
-                <a
-                  key={`footer-${service.name}`}
-                  className="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl bg-white/5 text-zinc-200 transition hover:-translate-y-px hover:bg-zinc-700/90"
-                  href={service.href}
-                  target="_blank"
-                  rel="noreferrer"
-                  title={service.description ?? service.name}
-                  aria-label={service.name}
-                >
-                  <Icon size={16} />
-                </a>
-              );
-            })}
+                return (
+                  <a
+                    key={`footer-${service.name}`}
+                    className="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl bg-white/5 text-zinc-200 transition hover:-translate-y-px hover:bg-zinc-700/90"
+                    href={service.href}
+                    target="_blank"
+                    rel="noreferrer"
+                    title={service.description ?? service.name}
+                    aria-label={service.name}
+                  >
+                    <Icon size={16} />
+                  </a>
+                );
+              })}
+            </div>
           </div>
           <div className="flex flex-col gap-2 lg:items-end">
             <span>
