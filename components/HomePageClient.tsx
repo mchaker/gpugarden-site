@@ -1,6 +1,7 @@
 "use client";
 
 import { ArrowUpRight, Coffee, Leaf, Twitch } from "lucide-react";
+import Image from "next/image";
 import { useState } from "react";
 import type { ServiceGroup, ServiceLink } from "../lib/services";
 
@@ -55,6 +56,8 @@ export default function HomePageClient({ serviceGroups }: HomePageClientProps) {
   const [lightboxImage, setLightboxImage] = useState<{
     src: string;
     alt: string;
+    width: number;
+    height: number;
   } | null>(null);
   const [hoveredService, setHoveredService] = useState<string | null>(null);
   const mainServiceGroups = serviceGroups.filter(
@@ -89,6 +92,8 @@ export default function HomePageClient({ serviceGroups }: HomePageClientProps) {
                         setLightboxImage({
                           src: "/gpu-gardener.webp",
                           alt: "GPU gardener",
+                          width: 1600,
+                          height: 2057,
                         })
                       }
                       aria-label="Open larger view of the GPU gardener"
@@ -146,19 +151,23 @@ export default function HomePageClient({ serviceGroups }: HomePageClientProps) {
 
             <button
               type="button"
-              className="mt-[18px] block w-full overflow-hidden rounded-[18px] text-left"
+              className="relative mt-[18px] block aspect-[16/9] w-full cursor-zoom-in overflow-hidden rounded-[18px] text-left"
               onClick={() =>
                 setLightboxImage({
                   src: "/fartcore_datacenter_1.webp",
                   alt: "Fartcore datacenter",
+                  width: 1600,
+                  height: 2133,
                 })
               }
               aria-label="Open larger view of the fartcore datacenter"
             >
-              <img
-                className="aspect-[16/9] w-full cursor-zoom-in object-cover object-center"
+              <Image
+                className="object-cover object-center"
                 src="/fartcore_datacenter_1.webp"
                 alt="Fartcore datacenter"
+                fill
+                sizes="(min-width: 1024px) 400px, 90vw"
               />
             </button>
             <p className="mt-2 text-sm text-zinc-500">
@@ -282,12 +291,12 @@ export default function HomePageClient({ serviceGroups }: HomePageClientProps) {
         <footer className="mt-6 flex flex-col gap-4 px-5 text-sm text-zinc-400 sm:px-1 lg:flex-row lg:items-end lg:justify-between">
           <div className="flex flex-wrap items-center gap-3 max-sm:justify-between">
             <p className="inline-flex items-center gap-2.5 font-semibold text-zinc-100">
-              <img
+              <Image
                 className="block rounded-md"
                 src="/favicon.png"
                 alt="gpu.garden favicon"
-                width="24"
-                height="24"
+                width={24}
+                height={24}
               />
               <span>gpu.garden</span>
             </p>
@@ -353,10 +362,13 @@ export default function HomePageClient({ serviceGroups }: HomePageClientProps) {
           }`}
         >
           {lightboxImage ? (
-            <img
-              className="pointer-events-auto block max-h-[88vh] max-w-full rounded-[22px] object-contain shadow-[0_24px_80px_rgba(0,0,0,0.5)]"
+            <Image
+              className="pointer-events-auto block h-auto max-h-[88vh] w-auto max-w-full rounded-[22px] object-contain shadow-[0_24px_80px_rgba(0,0,0,0.5)]"
               src={lightboxImage.src}
               alt={lightboxImage.alt}
+              width={lightboxImage.width}
+              height={lightboxImage.height}
+              sizes="94vw"
             />
           ) : null}
         </div>
