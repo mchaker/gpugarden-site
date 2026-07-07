@@ -45,7 +45,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${inter.className} min-h-screen bg-[radial-gradient(circle_at_top_left,rgba(250,204,21,0.12),transparent_28%),radial-gradient(circle_at_bottom_right,rgba(168,85,247,0.10),transparent_28%),#09090b] text-zinc-100 antialiased`}
+        className={`${inter.className} min-h-screen text-zinc-100 antialiased`}
       >
         {children}
       </body>

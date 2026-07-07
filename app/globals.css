@@ -3,3 +3,19 @@
 :root {
     color-scheme: dark;
 }
+
+body {
+    background-color: #09090b;
+    background-image:
+        radial-gradient(
+            circle at top left,
+            rgba(250, 204, 21, 0.12),
+            rgba(250, 204, 21, 0) 28%
+        ),
+        radial-gradient(
+            circle at bottom right,
+            rgba(168, 85, 247, 0.1),
+            rgba(168, 85, 247, 0) 28%
+        );
+    background-repeat: no-repeat;
+}

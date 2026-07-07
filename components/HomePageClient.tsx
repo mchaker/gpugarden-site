@@ -338,7 +338,7 @@ export default function HomePageClient({ serviceGroups }: HomePageClientProps) {
       >
         <button
           type="button"
-          className="absolute inset-0 bg-black/80 backdrop-blur-sm"
+          className="absolute inset-0 bg-black/80"
           onClick={() => setLightboxImage(null)}
           aria-label="Close image lightbox"
         />
