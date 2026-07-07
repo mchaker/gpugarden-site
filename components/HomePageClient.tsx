@@ -120,7 +120,7 @@ export default function HomePageClient({ serviceGroups }: HomePageClientProps) {
                   <ArrowUpRight size={16} />
                 </a>
                 <a
-                  className="inline-flex items-center gap-2.5 rounded-full bg-zinc-800/80 px-[18px] py-[14px] font-semibold text-zinc-100 transition hover:-translate-y-px hover:bg-zinc-700/90"
+                  className="inline-flex items-center gap-2.5 rounded-full bg-[#222225] px-[18px] py-[14px] font-semibold text-zinc-100 transition hover:-translate-y-px hover:bg-zinc-700"
                   href="https://swarmui.gpu.garden/"
                   target="_blank"
                   rel="noreferrer"
@@ -223,7 +223,7 @@ export default function HomePageClient({ serviceGroups }: HomePageClientProps) {
 
                     return (
                       <a
-                        className="inline-flex items-center gap-2 rounded-full bg-white/5 px-3 py-2.5 text-[0.95rem] font-semibold text-zinc-200 transition hover:-translate-y-px hover:bg-zinc-700/90 sm:gap-2.5 sm:px-3.5 sm:py-3"
+                        className="inline-flex items-center gap-2 rounded-full bg-[#222225] px-3 py-2.5 text-[0.95rem] font-semibold text-zinc-200 transition hover:-translate-y-px hover:bg-zinc-700 sm:gap-2.5 sm:px-3.5 sm:py-3"
                         key={`${group.title}-${service.name}`}
                         href={service.href}
                         target="_blank"
@@ -264,7 +264,10 @@ export default function HomePageClient({ serviceGroups }: HomePageClientProps) {
 
           <div className="mt-5 grid gap-4 md:grid-cols-3">
             {rules.map((rule) => (
-              <div key={rule.title} className="rounded-2xl bg-white/4 p-4">
+              <div
+                key={rule.title}
+                className="rounded-2xl bg-[linear-gradient(180deg,#202022,#1b1b1e)] p-4"
+              >
                 <h3 className="text-sm font-semibold text-zinc-100">
                   {rule.title}
                 </h3>
@@ -297,7 +300,7 @@ export default function HomePageClient({ serviceGroups }: HomePageClientProps) {
                 return (
                   <a
                     key={`footer-${service.name}`}
-                    className="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl bg-white/5 text-zinc-200 transition hover:-translate-y-px hover:bg-zinc-700/90"
+                    className="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl bg-[#222225] text-zinc-200 transition hover:-translate-y-px hover:bg-zinc-700"
                     href={service.href}
                     target="_blank"
                     rel="noreferrer"
