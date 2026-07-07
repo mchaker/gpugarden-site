@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
-import GravityGrid from "../components/GravityGrid";
 import "./globals.css";
 
 const inter = Inter({
@@ -48,7 +47,6 @@ export default function RootLayout({
       <body
         className={`${inter.className} min-h-screen text-zinc-100 antialiased`}
       >
-        <GravityGrid />
         {children}
       </body>
     </html>
